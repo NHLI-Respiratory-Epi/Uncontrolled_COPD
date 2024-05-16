@@ -1,2 +1,1 @@
-# Uncontrolled_COPD
-Sanofi Uncontrolled COPD Study
+# Sanofi Uncontrolled COPD Study
