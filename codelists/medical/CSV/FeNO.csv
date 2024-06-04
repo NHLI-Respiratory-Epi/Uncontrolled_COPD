@@ -1,0 +1,6 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,feno
+14737971000006117,^ESCT1473797,,1201788001,4945048011,Fractional concentration of nitric oxide in exhaled breath,1
+14738011000006112,^ESCT1473801,,1201788001,4945058010,FENO (fractional exhaled nitric oxide) test,1
+7295721000006116,^ESCTNI729572,,444642008,1650971000000111,Nitric oxide breath test,1
+1169041000000118,3C,3C...00,444642008,1650981000000113,Exhaled nitric oxide test,1
+7295711000006112,^ESCTME729571,,444642008,2873092014,Measurement of expired nitric oxide,1

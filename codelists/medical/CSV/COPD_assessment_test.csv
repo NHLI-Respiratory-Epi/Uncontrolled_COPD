@@ -1,0 +1,20 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,cat_score
+1161361000000118,38Dd,38Dd.00,445192002,2872607015,Clinical chronic obstructive pulmonary disease questionnaire total score,1
+1176861000000111,38Dg,38Dg.00,446660005,2883862010,Chronic obstructive pulmonary disease assessment test score,1
+11929151000006117,^ESCT1192915,,527361000000107,1176861000000111,Chronic obstructive pulmonary disease assessment test,1
+13670621000006117,^ESCT1367062,,57671000052108,4053881000052112,Chronic Obstructive Pulmonary Disease Assessment Test scale,1
+1856591000006115,EMISNQCH162,,1856591000006104,1856591000006115,Chronic obstructive pulmonary disease follow-up assessment,1
+1970531000006111,EMISNQCO268,,1970531000006107,1970531000006111,COPD assessment test score - cough,1
+1970541000006118,EMISNQCO269,,1970541000006102,1970541000006118,COPD assessment test score - phlegm (mucus),1
+1970551000006116,EMISNQCO270,,1970551000006100,1970551000006116,COPD assessment test score - chest tightness,1
+1970561000006119,EMISNQCO271,,1970561000006103,1970561000006119,COPD assessment test score - breathless walking up hill/stairs,1
+1970571000006114,EMISNQCO272,,1970571000006105,1970571000006114,COPD assessment test score - activity limitation at home,1
+1970581000006112,EMISNQCO273,,1970581000006108,1970581000006112,COPD assessment test score - confidence leaving home,1
+1970591000006110,EMISNQCO274,,1970591000006106,1970591000006110,COPD assessment test score - sleeping soundly,1
+1970601000006119,EMISNQCO275,,1970601000006103,1970601000006119,COPD assessment test score - energy,1
+7313961000006117,^ESCTAS731396,,445811006,2882574014,Assessment using chronic obstructive pulmonary disease assessment test,1
+7313971000006112,^ESCTAS731397,,445811006,1712351000000116,Assessment using CAT - COPD (chronic obstructive pulmonary disease) assessment test,1
+7327771000006110,^ESCTCA732777,,446660005,1712341000000119,CAT - COPD (chronic obstructive pulmonary disease) assessment test score,1
+8197651000006115,^ESCTCA819765,,527361000000107,1554741000000119,CAT - COPD (chronic obstructive pulmonary disease) assessment test,1
+8295911000006118,^ESCTCH829591,,859431000000102,2223451000000117,Chronic obstructive pulmonary disease care assessment,1
+8295921000006114,^ESCTCO829592,,859431000000102,2229051000000112,COPD (chronic obstructive pulmonary disease) care assessment,1

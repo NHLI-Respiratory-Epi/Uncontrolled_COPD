@@ -1,0 +1,8 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,copd_annual_review
+1488424013,66YM,66YM.00,394703002,1488424013,Chronic obstructive pulmonary disease annual review,1
+1683181000000112,66YB0,66YB000,760601000000107,1683181000000112,Chronic obstructive pulmonary disease 3 monthly review,1
+1683221000000119,66YB1,66YB100,760621000000103,1683221000000119,Chronic obstructive pulmonary disease 6 monthly review,1
+1771201000006116,EMISNQCH80,,1771201000006100,1771201000006116,Chronic obstructive pulmonary disease multidisciplinary review,1
+8235101000006114,^ESCTCO823510,,760601000000107,1709911000000112,COPD (chronic obstructive pulmonary disease) 3 monthly review,1
+8235131000006118,^ESCTCO823513,,760621000000103,1710191000000113,COPD (chronic obstructive pulmonary disease) 6 monthly review,1
+939991000006112,EMISNQCO1,,939991000006108,939991000006112,COPD medication review,1

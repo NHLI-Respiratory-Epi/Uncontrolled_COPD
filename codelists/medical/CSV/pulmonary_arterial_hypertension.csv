@@ -1,0 +1,42 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,pah
+2674471000006117,^ESCTPR267447,,10964002,19027019,Progressive pulmonary hypertension,1
+43850011,G410,G410.00,11399002,2968228010,Pulmonary arterial hypertension,1
+14752161000006111,^ESCT1475216,,1208848007,5013191014,Right ventricular failure due to pulmonary vascular disease,1
+1749291000006113,EMISNQTH23,,1749291000006109,1749291000006113,Thromboembolic pulmonary hypertension,1
+351381000000114,7Q010,7Q01000,221301000000105,351381000000114,Primary pulmonary hypertension drugs Band 1,1
+351401000000114,7Q011,7Q01100,221311000000107,351401000000114,Primary pulmonary hypertension drugs Band 2,1
+351421000000117,7Q012,7Q01200,221321000000101,351421000000117,Primary pulmonary hypertension drugs Band 3,1
+351441000000112,7Q013,7Q01300,221331000000104,351441000000112,Primary pulmonary hypertension drugs Band 4,1
+5056141000006116,^ESCTPE505614,,233815004,350342017,Persistent pulmonary hypertension of the newborn,1
+5056161000006117,^ESCTPP505616,,233815004,350344016,PPHN - Persistent pulmonary hypertension in newborn,1
+5057801000006113,^ESCTCH505780,,233947005,2968345015,Chronic thromboembolic pulmonary hypertension,1
+350517010,G41y1,G41y100,233947005,350517010,Thromboembolic pulmonary hypertension,1
+5590581000006114,^ESCTPU559058,,276793003,413080013,Pulmonary hypertension with occult mitral stenosis,1
+6214751000006112,^ESCTPU621475,,360578005,476475017,Pulmonary hypertension secondary to raised pulmonary vascular resistance,1
+7052811000006113,^ESCTRI705281,,426012001,2674125010,Right heart failure due to pulmonary hypertension,1
+7501601000006111,^ESCTPR750160,,697896007,2968304011,Precapillary pulmonary hypertension,1
+7501621000006118,^ESCTID750162,,697898008,2968191016,Idiopathic pulmonary arterial hypertension,1
+7501711000006118,^ESCTPU750171,,697903007,2968312015,Pulmonary arterial hypertension associated with connective tissue disease,1
+7501811000006110,^ESCTPU750181,,697910001,2968188016,Pulmonary hypertension due to lung disease and/or hypoxia,1
+7501821000006119,^ESCTPU750182,,697911002,2968282014,Pulmonary hypertension due to chronic obstructive pulmonary disease,1
+7501851000006111,^ESCTPU750185,,697914005,2968223018,Pulmonary hypertension due to sleep-disordered breathing,1
+7501941000006116,^ESCTPU750194,,697921005,2968179013,Pulmonary hypertension in sarcoidosis,1
+3654631000006113,^ESCTPU365463,,70995007,117919017,Pulmonary hypertension,1
+3654641000006115,^ESCTPH365464,,70995007,1233340012,PHT - Pulmonary hypertension,1
+3800291000006115,^ESCTCO380029,,79955004,1234420011,COR - Chronic cor pulmonale,1
+132655012,G41z-1,G41z.11,79955004,132655012,Chronic cor pulmonale,1
+884211000006114,G41z-99,G41z.99,79955004,884211000006114,Other pulmonary heart disease,1
+13941061000006111,^ESCT1394106,,840306007,3901242017,Mild pulmonary hypertension,1
+13941071000006116,^ESCT1394107,,840307003,3901244016,Moderate pulmonary hypertension,1
+13941081000006118,^ESCT1394108,,840308008,3901246019,Severe pulmonary hypertension,1
+145620019,G41,G41..00,87837008,145620019,Chronic pulmonary heart disease,1
+299851018,G41y,G41y.00,87837008,145620019,Other chronic pulmonary heart disease,1
+299853015,G41yz,G41yz00,87837008,145620019,Other chronic pulmonary heart disease NOS,1
+395756011,G41z,G41z.00,87837008,145620019,Chronic pulmonary heart disease NOS,1
+884191000006113,G41-99,G41..99,87837008,884191000006113,Chronic pulmonary heart dis.,1
+146259010,G41y0,G41y000,88223008,146259010,Secondary pulmonary hypertension,1
+2297871000000111,7Q014,7Q01400,892401000000105,2297871000000111,Pulmonary arterial hypertension drugs Band 1,1
+2297911000000113,7Q015,7Q01500,892421000000101,2297911000000113,Pulmonary arterial hypertension drugs Band 2,1
+2297951000000112,7Q016,7Q01600,892441000000108,2297951000000112,Pulmonary arterial hypertension drugs Band 3,1
+2297991000000116,7Q017,7Q01700,892461000000109,2297991000000116,Pulmonary arterial hypertension drugs Band 4,1
+905451000006118,HNG0019,,905451000006102,905451000006118,[RFC] Pulmonary embolism/pulmonary hypertension,1

@@ -1,0 +1,19 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,hypercapnia
+21222016,C3621,C362100,12326000,21222016,Respiratory acidosis,1
+356465017,C3628,C362800,237862007,356465017,Respiratory acidosis and metabolic acidosis,1
+356466016,C36A,C36A.00,237863002,356466016,Respiratory acidosis and metabolic alkalosis,1
+2975991000006113,^ESCTHY297599,,29596007,49512016,Hypercapnia,1
+7065871000006119,^ESCTCH706587,,426896000,2674144015,Chronic hypercapnic respiratory failure,1
+7065881000006116,^ESCTCH706588,,426896000,3038583015,Chronic type II respiratory failure,1
+618371000000117,H593,H593.00,426896000,3038584014,Chronic type 2 respiratory failure,1
+7103091000006118,^ESCTCH710309,,429428003,2693119011,Chronic hypercapnia,1
+97724018,C362A,C362A00,58808003,97724018,Compensated respiratory acidosis,1
+7644081000006114,^ESCTTY764408,,709109004,3038518017,Type II respiratory failure,1
+7644071000006111,^ESCTHY764407,,709109004,3038600012,Hypercapnic respiratory failure,1
+7644091000006112,^ESCTTY764409,,709109004,3038611016,Type 2 respiratory failure,1
+7644101000006118,^ESCTAC764410,,709110009,3038521015,Acute hypercapnic respiratory failure,1
+1934701000006119,EMISNQAC856,,709110009,3038592017,Acute type 2 respiratory failure,1
+7644121000006111,^ESCTAC764412,,709110009,3038613018,Acute type II respiratory failure,1
+3514372017,^ESCT1165400,,735386008,3514372017,Acute hypoxemic respiratory failure co-occurrent with acute hypercapnic respiratory failure,1
+8290291000006111,^ESCTHI829029,,850881000000108,2204611000000111,History of acute hypercapnic respiratory failure,1
+2639801000006113,^ESCTCH263980,,8764008,15457012,Chronic respiratory acidosis,1

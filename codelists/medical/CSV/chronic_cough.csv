@@ -1,0 +1,5 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,chronic_cough
+113213012,171A,171A.00,68154008,113213012,Chronic cough,1
+423230012,171B,171B.00,284523002,423230012,Persistent cough,1
+459738011,171E,171E.00,315246003,459738011,Unexplained cough,1
+78013015,H3101,H310100,46802002,78013015,Smokers' cough,1

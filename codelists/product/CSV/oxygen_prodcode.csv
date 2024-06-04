@@ -1,0 +1,72 @@
+prodcodeid,dmdid,termfromemis,productname,formulation,routeofadministration,drugsubstancename,substancestrength,bnfchapter,oxygen,oxygen_therapy_type
+1002741000033114,,"Ohmeda Domic 2/4  Oxygen set  1550033, spec 01a",,,,,,,1,"Oxygen therapy, type unknown"
+1022941000033118,,Oxygen  Concentrator  ,,,,,,,1,Long-term oxygen therapy
+1023041000033111,,Oxygen  Cylinder (pd300l)  300 litres,,,,,,,1,Ambulatory oxygen
+1023141000033110,,Oxygen  Cylinder  1360 ml,,,,,,,1,Ambulatory oxygen
+1023241000033115,,Oxygen  Cylinder  1360 litres,,,,,,,1,Ambulatory oxygen
+1025041000033110,,"Oxilitre Athrodax  Oxygen set  mr210, spec 01a",,,,,,,1,"Oxygen therapy, type unknown"
+11427741000033112,32437811000001108,Laryvox O2 HME filter cassette 49802 (Severn Healthcare Technologies Ltd),Laryvox O2 HME filter cassette,,,,,,1,"Oxygen therapy, type unknown"
+1144041000033119,,"Puritan Bennett  Oxygen set  spec 01A, 778435",,,,,,,1,"Oxygen therapy, type unknown"
+12436441000033118,34930111000001105,ProTrach XtraCare HME O2 adaptor 7769 (Atos Medical AB),ProTrach XtraCare HME O2 adaptor,,,,,,1,"Oxygen therapy, type unknown"
+13590241000033111,38708411000001100,Freevent XtraCare HME O2 adaptor 7769 (Atos Medical AB),Freevent XtraCare HME O2 adaptor,,,,,,1,"Oxygen therapy, type unknown"
+14143041000033111,39898411000001102,Oxygen cylinders size ZH with integral headset (BOC Ltd),Oxygen cylinders size ZH with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,"Oxygen therapy, type unknown"
+1919341000033111,,"Therapy Equipment Dialreg Set  Oxygen set  spec 01A, 5120",,,,,,,1,"Oxygen therapy, type unknown"
+1920541000033115,,Sabre Medical Oxydom  Oxygen set  spec 01A,,,,,,,1,"Oxygen therapy, type unknown"
+1920641000033119,,"Oxylitre  Oxygen set  spec 01A, M 210 ",,,,,,,1,"Oxygen therapy, type unknown"
+1920741000033111,,Oxygen  Composite cylinder with integral headset  1360 litres,,,,,,,1,"Oxygen therapy, type unknown"
+2188041000033119,,"Oxylitre  Oxygen set  spec 01A, M 410",,,,,,,1,"Oxygen therapy, type unknown"
+22841000033111,,"Air Apparatus And Valve  Oxygen set  d24, spec 01b",,,,,,,1,"Oxygen therapy, type unknown"
+2490041000033119,,*Oxygen  Liquid  ,,,,,,,1,"Oxygen therapy, type unknown"
+2639941000033118,,"Oxygen Cylinder  Lightweight Portable  PA2, 430 litres with integral headset",,,,,,,1,Ambulatory oxygen
+2658441000033117,,"Oxygen Cylinder  Lightweight Portable  DD, 460 litres with integral headset",,,,,,,1,Ambulatory oxygen
+2740941000033115,,"Oxygen  Cylinder  PD Lite, 429 litres",,,,,,,1,Ambulatory oxygen
+2863541000033110,,"Oxygen Cylinder  Lightweight Portable  CD, 460 litres with integral headset",,,,,,,1,Ambulatory oxygen
+2927141000033112,,Oxygen  Mask  ,,,,,,,1,"Oxygen therapy, type unknown"
+2927241000033117,,Oxygen  Set  Specification 01A,,,,,,,1,"Oxygen therapy, type unknown"
+2927341000033110,,Oxygen  Set  Specification 01B,,,,,,,1,"Oxygen therapy, type unknown"
+3008841000033113,,Nasal Cannula  Equipment For Use With Oxygen Concentrator  ,,,,,,,1,"Oxygen therapy, type unknown"
+3008941000033117,,Humidifier  Equipment For Use With Oxygen Concentrator  ,,,,,,,1,"Oxygen therapy, type unknown"
+3332741000033113,,"Oxygen  Composite cylinder with integral headset  B10C, 1360 litres",,,,,,,1,Ambulatory oxygen
+3342841000033116,,Oxygen  Composite cylinder with integral headset  2122 litres,,,,,,,1,Ambulatory oxygen
+3345341000033118,,Oxygen  Cylinder  340 litres Size D,,,,,,,1,Ambulatory oxygen
+3951341000033111,,Oxygen  Cylinder  170 litres Size C,,,,,,,1,Ambulatory oxygen
+3951441000033117,,Oxygen  Cylinder  680 litres Size E,,,,,,,1,Ambulatory oxygen
+4818741000033115,14656711000001106,Oxygen cylinders size CD with integral headset (BOC Ltd),Oxygen cylinders size CD with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4818841000033113,14647711000001107,Oxygen cylinders size AF (BOC Ltd),Oxygen cylinders size AF,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4818941000033117,14656911000001108,Oxygen cylinders size DD with integral headset (BOC Ltd),Oxygen cylinders size DD with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4819041000033114,14648011000001106,Oxygen cylinders size F (BOC Ltd),Oxygen cylinders size F,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4819141000033113,14645211000001108,Oxygen composite cylinders size DF with integral headset (BOC Ltd),Oxygen composite cylinders size DF with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4819241000033118,14650011000001106,Oxygen cylinders size C (BOC Ltd),Oxygen cylinders size C,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4819341000033111,14658511000001100,Oxygen cylinders size E (BOC Ltd),Oxygen cylinders size E,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4819441000033117,14654911000001100,Oxygen cylinders size PD (BOC Ltd),Oxygen cylinders size PD,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4819541000033116,14645011000001103,Oxygen composite cylinders size F with integral headset (Medigas Ltd),Oxygen composite cylinders size F with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4819641000033115,14648811000001100,Oxygen cylinders (Medigas Ltd),Oxygen cylinders,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4819741000033112,14646411000001103,Oxygen composite cylinders size IF2 with integral headset (Medigas Ltd),Oxygen composite cylinders size IF2 with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4819841000033119,14645611000001105,Oxygen composite cylinders size B10C with integral headset (Air Products Plc),Oxygen composite cylinders size B10C with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4819941000033110,14655111000001104,Oxygen cylinders size PD (Air Products Plc),Oxygen cylinders size PD,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4820041000033113,14646111000001108,Oxygen composite cylinders with integral headset (Air Products Plc),Oxygen composite cylinders with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Ambulatory oxygen
+4820141000033112,14648411000001102,Oxygen cylinders size B10S (Air Products Plc),Oxygen cylinders size B10S,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4820241000033117,14650411000001102,Medical Oxygen cylinders size C (Linde Gas UK Ltd),Medical Oxygen cylinders size C,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4820341000033110,14655911000001101,Medical Oxygen cylinders size D (Linde Gas UK Ltd),Medical Oxygen cylinders size D,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4820441000033116,14658811000001102,Medical Oxygen cylinders size E (Linde Gas UK Ltd),Medical Oxygen cylinders size E,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4820541000033115,14656111000001105,Medical Oxygen cylinders size AD 200 (Linde Gas UK Ltd),Medical Oxygen cylinders size AD 200,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4820641000033119,14655311000001102,Medical Oxygen cylinders size CC (Linde Gas UK Ltd),Medical Oxygen cylinders size CC,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4820741000033111,14649211000001106,Medical Oxygen cylinders size F (Linde Gas UK Ltd),Medical Oxygen cylinders size F,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4820841000033118,14657111000001108,Oxygen cylinders size AD with integral headset (Linde Gas UK Ltd),Oxygen cylinders size AD with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4821041000033116,14649711000001104,Oxygen cylinders size AF (Linde Gas UK Ltd),Oxygen cylinders size AF,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4821241000033112,14658111000001109,Oxygen cylinders size CD 300 with integral headset (Linde Gas UK Ltd),Oxygen cylinders size CD 300 with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4821341000033119,14655711000001103,Oxygen cylinders size D (BOC Ltd),Oxygen cylinders size D,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4821441000033113,14656311000001107,Oxygen cylinders size PA2 with integral headset (Air Products Plc),Oxygen cylinders size PA2 with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,Long-term oxygen therapy
+4821541000033114,14656511000001101,Oxygen cylinders size PA2 with integral headset (Oxygen Therapy Company),Oxygen cylinders size PA2 with integral headset,Inhalation gas,Inhalation,Oxygen,1.000ml/1.000ml,,1,"Oxygen therapy, type unknown"
+5027141000033116,,Oxygen Connection Plastic  Tubing  1.8 m,,,,,,,1,Long-term oxygen therapy
+5708741000033113,9820211000001109,Oxygen 28% constant performance masks,Oxygen 28% constant performance masks,,,,,,1,"Oxygen therapy, type unknown"
+5708841000033115,9820311000001101,Oxygen variable performance masks,Oxygen variable performance masks,,,,,,1,"Oxygen therapy, type unknown"
+6333741000033113,,Oxygen  Nasal Cannula  ,,,,,,,1,"Oxygen therapy, type unknown"
+6436341000033114,,"Cirrus  Mask Kit And Oxygen Tube  Adult, 1493",,,,,,,1,"Oxygen therapy, type unknown"
+6436441000033115,,"Cirrus  Mask Kit And Oxygen Tube  Paediatric, 1494",,,,,,,1,"Oxygen therapy, type unknown"
+6436541000033119,,"Cirrus2  Mask Kit And Oxygen Tube  Adult, 1453",,,,,,,1,"Oxygen therapy, type unknown"
+6436641000033118,,"Cirrus2  Mask Kit And Non-PVC Oxygen Tube  Adult, 1453010",,,,,,,1,"Oxygen therapy, type unknown"
+871541000033116,,Mc  Oxygen mask  ,,,,,,,1,"Oxygen therapy, type unknown"
+889041000033117,,"Medishield Domiciliary  Oxygen set  mds 240, spec 01b",,,,,,,1,"Oxygen therapy, type unknown"
+99541000033110,,"B.O.C.  Oxygen set  boc 330228, spec 01a",,,,,,,1,"Oxygen therapy, type unknown"
+99641000033111,,"B.O.C. Domiflow  Oxygen set  888830, spec 01a",,,,,,,1,"Oxygen therapy, type unknown"

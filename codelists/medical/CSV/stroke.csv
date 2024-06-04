@@ -1,0 +1,156 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,stroke
+104563015,G6,G6...00,62914000,104563015,Cerebrovascular disease,1
+118689010,G640,G640.00,71444005,118689010,Cerebral thrombosis,1
+1212072018,ESCTOC3,,373606000,1212072018,Occlusive stroke,1
+1222398015,G64,G64..00,20059004,1222398015,Cerebral arterial occlusion,1
+122361000006113,G64-3,G64..13,230691006,345638019,Stroke due to cerebral arterial occlusion,1
+122401000006115,G66-2,G66..12,230690007,345637012,Stroke unspecified,1
+1227592012,ZV125-2,ZV12512,266995000,397829016,[V]Personal history of cerebrovascular accident (CVA),1
+125470015,G641,G641.00,75543006,125470015,Cerebral embolism,1
+13717171000006112,^ESCT1371717,,16661971000119104,3773590013,Cerebrovascular accident due to stenosis of bilateral carotid arteries,1
+13718621000006117,^ESCT1371862,,16896891000119106,3774524018,History of cerebrovascular accident due to ischaemia,1
+13909861000006114,^ESCT1390986,,788880006,3787578016,Cerebral ischaemic stroke due to dissection of artery,1
+13909881000006116,^ESCT1390988,,788882003,3786067010,Cerebral ischaemic stroke due to global hypoperfusion with watershed infarct,1
+13909891000006118,^ESCT1390989,,788883008,3786069013,Cerebral ischaemic stroke due to hypercoagulable state,1
+14014251000006116,^ESCT1401425,,16644681000119102,3780817010,Cerebrovascular accident due to occlusion of bilateral pontine arteries,1
+14194161000006118,^ESCT1419416,,40076141000119107,3993167019,Acute stroke due to occlusion of left posterior cerebral artery,1
+14194191000006114,^ESCT1419419,,46583221000119102,3993137013,Acute cerebrovascular accident due to stenosis of left carotid artery,1
+14194211000006110,^ESCT1419421,,63230211000119103,3993157012,Acute cerebrovascular accident due to occlusion of left middle cerebral artery,1
+14194281000006115,^ESCT1419428,,137592291000119101,3993169016,Acute cerebrovascular accident due to occlusion of right posterior cerebral artery,1
+14194331000006112,^ESCT1419433,,272202251000119109,3993162013,Acute cerebrovascular accident due to occlusion of right middle cerebral artery,1
+14194491000006118,^ESCT1419449,,407573811000119100,4011845015,Acute cerebrovascular accident due to occlusion of right carotid artery,1
+14194571000006115,^ESCT1419457,,502836591000119106,4011843010,Acute cerebrovascular accident due to occlusion of left carotid artery,1
+14194611000006113,^ESCT1419461,,595899961000119100,4015877011,Acute cerebrovascular accident of basal ganglia,1
+14194641000006112,^ESCT1419464,,652287331000119104,4016003015,Acute cerebrovascular accident of brainstem,1
+14194651000006114,^ESCT1419465,,652287331000119104,4016004014,Acute stroke of brainstem,1
+14194661000006111,^ESCT1419466,,693158221000119105,3993384019,Acute cerebrovascular accident due to stenosis of right carotid artery,1
+14194741000006118,^ESCT1419474,,738478141000119101,3993407012,Acute cerebrovascular accident due to occlusion of right cerebellar artery,1
+14194801000006111,^ESCT1419480,,762005171000119101,4011866011,Acute cerebrovascular accident due to ischaemia,1
+14194811000006114,^ESCT1419481,,762005171000119101,4011863015,Acute ischaemic stroke,1
+14194941000006115,^ESCT1419494,,931164671000119105,4011851013,Acute cerebrovascular accident due to embolism of right middle cerebral artery,1
+14194971000006111,^ESCT1419497,,936648941000119105,4011849014,Acute cerebrovascular accident due to embolism of left middle cerebral artery,1
+14518501000006113,^ESCT1451850,,652287331000119104,4577270011,Cerebrovascular accident of brainstem,1
+1576261000006112,EGTON2EGTON275,,1576261000006108,1576261000006112,Cause of Death- Cerebral Infarct,1
+1780304018,662e,662e.00,699270006,2983515011,CVA annual review,1
+2126181000000114,662e-1,662e.11,699270006,2983500010,Stroke annual review,1
+218511000000117,G64-2,G64..12,432504007,2770034014,Infarction - cerebral,1
+2474651019,G64z4,G64z400,413102000,2474651019,Infarction of basal ganglia,1
+264499015,662M,662M.00,170600009,264499015,Stroke monitoring,1
+267311000006118,G6774,G677400,195236009,300400012,Occlusion and stenosis of multiple and bilateral cerebral arteries,1
+267321000006114,G677,G677.00,195231004,300394010,"Occlusion and stenosis of cerebral arteries, not resulting in cerebral infarction",1
+2729551000000111,^ESCT1171762,,1089411000000104,2729551000000111,Cerebral infarction due to occlusion of cerebral artery,1
+2729571000000119,^ESCT1171763,,1089421000000105,2729571000000119,Cerebral infarction due to stenosis of cerebral artery,1
+294703019,E0304,E030400,191505005,294703019,"Acute confusional state, of cerebrovascular origin",1
+299342019,Fyu56,Fyu5600,230698000,345651012,Lacunar infarction,1
+300312010,G63y0,G63y000,195185009,300312010,Cerebral infarct due to thrombosis of precerebral arteries,1
+300313017,G63y1,G63y100,195186005,300313017,Cerebral infarction due to embolism of precerebral arteries,1
+300321011,G6400,G640000,195189003,300321011,Cerebral infarction due to thrombosis of cerebral arteries,1
+300322016,G6410,G641000,195190007,300322016,Cerebral infarction due to embolism of cerebral arteries,1
+300370010,G667,G667.00,195216008,300370010,Left sided CVA,1
+300371014,G668,G668.00,195217004,300371014,Right sided CVA,1
+300374018,G67,G67..00,62914000,104563015,Other cerebrovascular disease,1
+300380014,G6710,G671000,29322000,49074018,Acute cerebrovascular insufficiency,1
+300395011,G6770,G677000,195232006,300395011,Occlusion and stenosis of middle cerebral artery,1
+300396012,G6771,G677100,195233001,300396012,Occlusion and stenosis of anterior cerebral artery,1
+300398013,G6772,G677200,195234007,300398013,Occlusion and stenosis of posterior cerebral artery,1
+300401011,G67y,G67y.00,62914000,104563015,Other cerebrovascular disease OS,1
+300402016,G67z,G67z.00,62914000,104563015,Other cerebrovascular disease NOS,1
+300419019,G6z,G6z..00,62914000,104563015,Cerebrovascular disease NOS,1
+300941014,Gyu64,Gyu6400,432504007,2770034014,[X]Other cerebral infarction,1
+300943012,Gyu66,Gyu6600,20059004,33759015,Cerebral artery occlusion,1
+306621000000116,9N0p,9N0p.00,201501000000108,306621000000116,Seen in stroke clinic,1
+345650013,G64z-1,G64z.11,95457000,158113017,Brainstem infarction NOS,1
+345655015,G665,G665.00,230699008,345655015,Pure motor lacunar syndrome,1
+345658018,G666,G666.00,230700009,345658018,Pure sensory lacunar syndrome,1
+3505637014,^ESCT1170857,,329491000119109,3505637014,Occlusion of left middle cerebral artery,1
+3505639012,^ESCT1170856,,329481000119106,3505639012,Occlusion of right middle cerebral artery,1
+3505651014,^ESCT1170859,,329571000119107,3505651014,Occlusion of left posterior cerebral artery,1
+3508952018,^ESCT1170889,,330791000119108,3508952018,Cerebrovascular accident due to thrombus of left carotid artery,1
+3508955016,^ESCT1170860,,329641000119104,3508955016,Cerebrovascular accident due to thrombus of basilar artery,1
+3508956015,^ESCT1170861,,329641000119104,3508956015,Stroke due to basilar artery thrombus,1
+3508958019,^ESCT1170862,,329651000119102,3508958019,Cerebrovascular accident due to thrombus of right carotid artery,1
+3508961018,^ESCT1172901,,16002031000119102,3508961018,Cerebrovascular accident due to thrombus of right middle cerebral artery,1
+3508962013,^ESCT1172902,,16002031000119102,3508962013,Stroke due to thrombus of right middle cerebral artery,1
+3508964014,^ESCT1172903,,16002111000119106,3508964014,Cerebrovascular accident due to thrombus of left middle cerebral artery,1
+3508965010,^ESCT1172904,,16002111000119106,3508965010,Stroke due to thrombus of left middle cerebral artery,1
+3509777019,^ESCT1172971,,16023991000119104,3509777019,Cerebrovascular accident due to occlusion of left pontine artery,1
+3509790014,^ESCT1172898,,16000391000119104,3509790014,Cerebrovascular accident due to occlusion of right posterior cerebral artery,1
+3509794017,^ESCT1172900,,16000511000119103,3509794017,Cerebrovascular accident due to occlusion of left middle cerebral artery,1
+3509799010,^ESCT1172897,,16000351000119109,3509799010,Cerebrovascular accident due to occlusion of left posterior cerebral artery,1
+3509810017,^ESCT1172899,,16000431000119109,3509810017,Cerebrovascular accident due to occlusion of right middle cerebral artery,1
+3511955015,^ESCT1164369,,734384004,3511955015,Thrombosis of right middle cerebral artery,1
+3511959014,^ESCT1164367,,734383005,3511959014,Thrombosis of left middle cerebral artery,1
+3512174014,^ESCT1164936,,734963004,3512174014,Embolus of right posterior cerebral artery,1
+3512176011,^ESCT1164937,,734964005,3512176011,Embolus of left middle cerebral artery,1
+3512178012,^ESCT1164938,,734965006,3512178012,Embolus of right middle cerebral artery,1
+3515794015,^ESCT1173136,,16218291000119100,3515794015,Acute cerebral ischaemia,1
+3636133016,^ESCT1170849,,329361000119107,3636133016,Cerebrovascular accident due to occlusion of right middle cerebral artery by embolus,1
+3636969013,^ESCT1169370,,762629007,3636969013,Occlusion of right middle cerebral artery by embolus,1
+3818181000006114,^ESCTLA381818,,81037000,134436018,Lacunar infarct,1
+395780010,G64z,G64z.00,432504007,2770034014,Cerebral infarction,1
+397829016,14A,14A..00,266995000,397829016,H/O: cardiovascular disease,1
+405339016,G66,G66..00,230690007,345637012,Cerebrovascular accident,1
+4057031000006117,^ESCTBR405703,,95457000,158114011,Brain stem infarct,1
+4057041000006110,^ESCTBR405704,,95457000,2966556014,Brain stem stroke,1
+451133011,G64z2,G64z200,307766002,451133011,Left sided cerebral infarction,1
+451134017,G64z3,G64z300,307767006,451134017,Right sided cerebral infarction,1
+460286014,ZV125,ZV12500,266995000,397829016,[V]Personal history of circulatory system disease,1
+4778181000006119,^ESCTLE477818,,195216008,300369014,Left sided cerebral hemisphere cerebrovascular accident,1
+4778201000006118,^ESCTRI477820,,195217004,300372019,Right sided cerebral hemisphere cerebrovascular accident,1
+5010981000006119,^ESCTST501098,,230690007,345636015,Stroke,1
+5011041000006118,^ESCTAN501104,,230693009,345640012,Anterior cerebral circulation infarction,1
+5011051000006116,^ESCTTO501105,,230694003,345644015,Total anterior cerebral circulation infarction,1
+5011061000006119,^ESCTTA501106,,230694003,345641011,TACI - Total anterior cerebral circulation infarction,1
+5011071000006114,^ESCTTO501107,,230694003,345642016,Total anterior cerebral circulation stroke,1
+5011081000006112,^ESCTTA501108,,230694003,345643014,TACS - Total anterior cerebral circulation stroke,1
+5011091000006110,^ESCTPA501109,,230695002,345645019,Partial anterior cerebral circulation infarction,1
+5011101000006116,^ESCTPA501110,,230695002,345646018,PACI - Partial anterior cerebral circulation infarction,1
+5011111000006118,^ESCTPA501111,,230695002,345647010,Partial anterior cerebral circulation stroke,1
+5011121000006114,^ESCTPA501112,,230695002,345648017,PACS - Partial anterior cerebral circulation stroke,1
+5011131000006112,^ESCTPO501113,,230696001,345649013,Posterior cerebral circulation infarction,1
+5011141000006119,^ESCTPO501114,,230696001,2966565019,Posterior cerebral circulation stroke,1
+5011161000006115,^ESCTLA501116,,230698000,345652017,Lacunar stroke,1
+5011171000006110,^ESCTLA501117,,230698000,345653010,LACI - Lacunar infarction,1
+5011191000006111,^ESCTPU501119,,230699008,345656019,Pure motor lacunar infarction,1
+5011211000006112,^ESCTPU501121,,230700009,345657011,Pure sensory lacunar infarction,1
+5011231000006118,^ESCTPU501123,,230701008,345659014,Pure sensorimotor lacunar infarction,1
+5011451000006114,^ESCTST501145,,230713003,345680015,Stroke of uncertain pathology,1
+5011461000006111,^ESCTAN501146,,230714009,345681016,Anterior circulation stroke of uncertain pathology,1
+5011471000006116,^ESCTPO501147,,230715005,345682011,Posterior circulation stroke of uncertain pathology,1
+524541000006117,G64z0,G64z000,95457000,158113017,Brain stem infarction,1
+542261000006114,G6W,G6W..00,125081000119106,3042974014,Cerebral infarction due to occlusion of precerebral artery,1
+542831000006116,G641-1,G641.11,75543006,125470015,Cerebral embolus,1
+543141000006110,G6X,G6X..00,20059004,33759015,Cerebrl infarctn due/unspcf occlusn or sten/cerebrl artrs,1
+5496991000006110,^ESCTHI549699,,266995000,2986568011,History of cardiovascular disease,1
+5582311000006110,^ESCTOC558231,,276219001,412270012,Occipital cerebral infarction,1
+5726831000006118,^ESCTCE572683,,287731003,427284014,Cerebral ischaemia,1
+5967391000006111,^ESCTMU596739,,307363008,450609012,Multiple lacunar infarcts,1
+605461000006117,G64-1,G64..11,230691006,345638019,CVA - cerebrovascular accident due to cerebral artery occlusion,1
+605481000006110,L440-1,L440.11,275434003,411416011,CVA - cerebrovascular accident in the puerperium,1
+605491000006113,G66-3,G66..13,230690007,345635016,CVA - Cerebrovascular accident,1
+605501000006117,G66-1,G66..11,230690007,345637012,CVA unspecified,1
+6348291000006115,^ESCTTH634829,,371040005,1209750017,Thrombotic stroke,1
+6348301000006119,^ESCTEM634830,,371041009,1209751018,Embolic stroke,1
+6837051000006119,^ESCTBA683705,,413102000,2966612019,Basal ganglion stroke,1
+6837061000006117,^ESCTBA683706,,413102000,2966650013,Basal ganglion infarct,1
+6846141000006118,^ESCTCA684614,,413758000,2535208016,Cardioembolic stroke,1
+6990981000006114,^ESCTIS699098,,422504002,2644234018,Ischaemic stroke,1
+6990991000006112,^ESCTIS699099,,422504002,2644233012,Ischemic stroke,1
+7054171000006115,^ESCTAC705417,,426107000,2674093010,Acute lacunar infarction,1
+7071911000006114,^ESCTTH707191,,427296003,2966596011,Thalamic stroke,1
+7515281000006115,^ESCTMU751528,,698970007,2981993016,Multiple lacunar infarcts,1
+7525971000006116,^ESCTEM752597,,699706000,2985799016,Embolism of middle cerebral artery,1
+7598981000006119,^ESCTCE759898,,705128004,3023367013,Cerebral infarction due to embolism of middle cerebral artery,1
+7598991000006116,^ESCTTH759899,,705129007,3023377010,Thrombosis of middle cerebral artery,1
+7599001000006116,^ESCTCE759900,,705130002,3023374015,Cerebral infarction due to thrombosis of middle cerebral artery,1
+7855631000006111,^ESCTCE785563,,724424009,3438036013,Cerebral ischaemic stroke due to small artery occlusion,1
+8044481000006118,^ESCTIS804448,,140921000119102,2967538018,Ischaemic stroke without coma,1
+809431000006118,14AZ,14AZ.00,266995000,397829016,H/O: CVS disease NOS,1
+8265471000006116,^ESCTAC826547,,817701000000103,2130091000000112,Acute stroke care,1
+884521000006115,G66-98,G66..98,685631000000102,884521000006115,Stroke/CVA - undefined,1
+884531000006117,G66-99,G66..99,685631000000102,884531000006117,Stroke,1
+907581000006119,HNG0234,,907581000006103,907581000006119,[RFC] Stroke/CVA,1
+907591000006116,HNG0235,,907591000006100,907591000006116,[RFC] Stroke,1
+908801000006114,HNG0602,,908801000006105,908801000006114,[RFC] Stroke,1
+909171000006115,HNGP003,,909171000006104,909171000006115,[RFC] CVA,1
+9912271000006112,^ESCTCE991227,,16371781000119100,3320493016,Cerebellar stroke,1

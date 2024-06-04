@@ -1,0 +1,32 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,mrc,mrc_dyspnoea_scale,mmrc,mmrc_dyspnoea_scale,emrc,emrc_dyspnoea_scale
+12117571000006117,^ESCT1211757,,1099341000000108,2752211000000115,mMRC (modified Medical Research Council) dyspnoea scale,,,1,,,
+12117601000006112,^ESCT1211760,,1099371000000102,2752271000000113,mMRC (modified Medical Research Council) dyspnoea scale grade 0,,,1,0,,
+12117611000006110,^ESCT1211761,,1099381000000100,2752291000000112,mMRC (modified Medical Research Council) dyspnoea scale grade 1,,,1,1,,
+12117621000006119,^ESCT1211762,,1099391000000103,2752311000000113,mMRC (modified Medical Research Council) dyspnoea scale grade 2,,,1,2,,
+12117631000006116,^ESCT1211763,,1099401000000100,2752331000000117,mMRC (modified Medical Research Council) dyspnoea scale grade 3,,,1,3,,
+12117641000006114,^ESCT1211764,,1099411000000103,2752351000000112,mMRC (modified Medical Research Council) dyspnoea scale grade 4,,,1,4,,
+12371301000006113,^ESCT1237130,,859231000000103,2752581000000112,MRC (Medical Research Council) dyspnoea scale,1,,,,,
+13821601000006110,^ESCT1382160,,391120009,3701317014,Medical Research Council Dyspnoea scale grade 1,1,1,,,,
+13821611000006113,^ESCT1382161,,391123006,3701319012,Medical Research Council Dyspnoea scale grade 2,1,2,,,,
+13821621000006117,^ESCT1382162,,391124000,3701321019,Medical Research Council Dyspnoea scale grade 3,1,3,,,,
+13821631000006119,^ESCT1382163,,391124000,2621395014,Medical Research Council (MRC) Breathlessness Scale: grade 3,1,3,,,,
+13821641000006112,^ESCT1382164,,391125004,3701323016,Medical Research Council Dyspnoea scale grade 4,1,4,,,,
+13821651000006114,^ESCT1382165,,391126003,3701325011,Medical Research Council Dyspnoea scale grade 5,1,5,,,,
+1485144011,173H,173H.00,391120009,1485144011,MRC Breathlessness Scale: grade 1,1,1,,,,
+1485147016,173I,173I.00,391123006,1485147016,MRC Breathlessness Scale: grade 2,1,2,,,,
+1485148014,173J,173J.00,391124000,1485148014,MRC Breathlessness Scale: grade 3,1,3,,,,
+1485149018,173K,173K.00,391125004,1485149018,MRC Breathlessness Scale: grade 4,1,4,,,,
+1485150018,173L,173L.00,391126003,1485150018,MRC Breathlessness Scale: grade 5,1,5,,,,
+2002191000006115,EMISNQMR1,,1060991000000107,2667011000000113,MRC (Medical Research Council) Breathlessness Scale grade 5a,,,,,1,5a
+2002201000006117,EMISNQMR2,,1061001000000106,2667031000000117,MRC (Medical Research Council) Breathlessness Scale grade 5b,,,,,1,5b
+2730801000000116,^ESCT1171833,,1089971000000104,2730801000000116,eMRC (extended Medical Research Council) dyspnoea scale grade 1,,,,,1,1
+2730821000000113,^ESCT1171834,,1089981000000102,2730821000000113,eMRC (extended Medical Research Council) dyspnoea scale grade 2,,,,,1,2
+2730841000000118,^ESCT1171835,,1089991000000100,2730841000000118,eMRC (extended Medical Research Council) dyspnoea scale grade 3,,,,,1,3
+2730861000000117,^ESCT1171836,,1090001000000101,2730861000000117,eMRC (extended Medical Research Council) dyspnoea scale grade 5a,,,,,1,5a
+2730881000000114,^ESCT1171837,,1090011000000104,2730881000000114,eMRC (extended Medical Research Council) dyspnoea scale grade 4,,,,,1,4
+2730901000000112,^ESCT1171838,,1090021000000105,2730901000000112,eMRC (extended Medical Research Council) dyspnoea scale grade 5b,,,,,1,5b
+6519221000006115,^ESCTME651922,,391120009,2621393019,Medical Research Council (MRC) Breathlessness Scale: grade 1,1,1,,,,
+6519271000006119,^ESCTME651927,,391123006,2621394013,Medical Research Council (MRC) Breathlessness Scale: grade 2,1,2,,,,
+6519301000006117,^ESCTME651930,,391124000,2982787016,Medical Research Council Breathlessness Scale: grade 3,1,3,,,,
+6519321000006110,^ESCTME651932,,391125004,2621396010,Medical Research Council (MRC) Breathlessness Scale: grade 4,1,4,,,,
+8295641000006111,^ESCTMR829564,,859231000000103,2222981000000112,MRC (Medical Research Council) breathlessness scale,1,,,,,

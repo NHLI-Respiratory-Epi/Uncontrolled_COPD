@@ -1,0 +1,151 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,depression
+12127531000006113,^ESCT1212753,,16264621000119109,3646259011,Recurrent mild major depressive disorder co-occurrent with anxiety,1
+12127541000006115,^ESCT1212754,,16264821000119108,3646266012,Recurrent severe major depressive disorder co-occurrent with anxiety,1
+12127551000006118,^ESCT1212755,,16264901000119109,3646265011,Recurrent moderate major depressive disorder co-occurrent with anxiety,1
+12626331000006116,^ESCT1262633,,1110911000000106,2779801000000114,QOF (Quality and Outcomes Framework) depression quality indicator-related care invitation,1
+138421012,E135,E135.00,83458005,138421012,Agitated depression,1
+13962531000006113,^ESCT1396253,,870191006,3968431012,Follow up for depression,1
+13974501000006115,^ESCT1397450,,871840004,3977029010,Depressive episode,1
+142521000006110,E1125,E112500,70747007,117520015,"Major depression single episode, in partial remission",1
+142541000006115,E1123,E112300,251000119105,2916281014,"Severe major depression, single episode",1
+14452211000006113,^ESCT1445221,,1153570009,4565097010,Treatment resistant depression,1
+1715181000006114,Eu326,Eu32600,832007,2451016,Moderate major depression,1
+1715191000006112,Eu328,Eu32800,73867007,122670017,Severe major depression with psychotic features,1
+1715771000006112,Eu325,Eu32500,87512008,145089017,Mild major depression,1
+1715781000006110,Eu327,Eu32700,75084000,124707013,Severe major depression without psychotic features,1
+1755901000006112,Eu329,Eu32900,755321000000106,1667601000000117,"[X]Single major depressive episode, severe, with psychosis, psychosis in remission",1
+1755911000006110,Eu32A,Eu32A00,755331000000108,1667611000000115,"[X]Recurrent major depressive episodes, severe, with psychosis, psychosis in remission",1
+1773563015,8BK0,8BK0.00,401174001,1773563015,Depression management programme,1
+1823881000006110,EMISNQDE36,,1823881000006106,1823881000006110,Depression confirmed,1
+182721000006111,E113,E113.00,268621008,401767019,Recurrent major depressive episodes,1
+182771000006112,E1133,E113300,764611000000100,1696221000000111,"Recurrent major depressive episodes, severe",1
+182801000006114,E1135,E113500,764691000000109,1696381000000115,"Recurrent major depressive episodes,partial/unspec remission",1
+1839551000006116,EMISNQPH33,,1839551000006100,1839551000006116,PHQ9 total score 5-9 (mild depression),1
+1839561000006119,EMISNQPH34,,1839561000006103,1839561000006119,PHQ9 total score 10-14 (moderate depression),1
+1839571000006114,EMISNQPH35,,1839571000006105,1839571000006114,PHQ9 total score 15-19 (moderately severe depression),1
+1839581000006112,EMISNQPH36,,1839581000006108,1839581000006112,PHQ9 total score 20-27 (severe depression),1
+1975991000006112,EMISICD10|F3201,,1975991000006108,1975991000006112,"Mild depressive episode, with somatic syndrome",1
+1976021000006115,EMISICD10|F3210,,1976021000006104,1976021000006115,"Moderate depressive episode, without somatic syndrome",1
+1976051000006112,EMISICD10|F3211,,1976051000006108,1976051000006112,"Moderate depressive episode, with somatic syndrome",1
+1976251000006115,EMISICD10|F3310,,1976251000006104,1976251000006115,"Recurrent depressive disorder, current episode moderate, without somatic syndrome",1
+1976271000006113,EMISICD10|F3311,,1976271000006109,1976271000006113,"Recurrent depressive disorder, current episode moderate, with somatic syndrome",1
+213641000000111,Eu324,Eu32400,310495003,213641000000111,[X]Mild depression,1
+223741000000112,Eu322-2,Eu32212,310497006,454084010,Severe depression,1
+226411000000110,9k4,9k4..00,166291000000108,1154541000000116,Depression enhanced services administration,1
+226581000000119,9k40,9k40.00,166481000000107,1154701000000110,Depression enhanced service completed,1
+2474715017,9HA0,9HA0.00,413169006,2474715017,On depression register,1
+2533375017,8CAa,8CAa.00,415044007,2533375017,Patient given advice about management of depression,1
+2534091015,9H92,9H92.00,413973005,2534091015,Depression interim review,1
+2534092010,9H91,9H91.00,413974004,2534092010,Depression medication review,1
+2534096013,9H90,9H90.00,413972000,2534096013,Depression annual review,1
+2729751000000118,^ESCT1171772,,1089511000000100,2729751000000118,Recurrent depression with current severe episode and psychotic features,1
+2729991000000112,^ESCT1171782,,1089631000000109,2729991000000112,Recurrent depression with current severe episode without psychotic features,1
+2730011000000110,^ESCT1171783,,1089641000000100,2730011000000110,Recurrent depression with current moderate episode,1
+2798691000006112,^ESCTMO279869,,18818009,31734016,Moderate recurrent major depression,1
+294824018,E1120,E112000,36923009,61590015,"Single major depressive episode, unspecified",1
+294825017,E1121,E112100,79298009,131561018,"Mild major depression, single episode",1
+294826016,E1122,E112200,15639000,26507014,"Moderate major depression, single episode",1
+294828015,E1124,E112400,191604000,294828015,"Single major depressive episode, severe, with psychosis",1
+294831019,E1126,E112600,19527009,3304522019,Single episode of major depression in full remission,1
+294832014,E112z,E112z00,36923009,61590015,Single major depressive episode NOS,1
+294836012,E1130,E113000,268621008,401767019,"Recurrent major depressive episodes, unspecified",1
+294837015,E1131,E113100,191610000,294837015,"Recurrent major depressive episodes, mild",1
+294838013,E1132,E113200,191611001,294838013,"Recurrent major depressive episodes, moderate",1
+294840015,E1134,E113400,191613003,294840015,"Recurrent major depressive episodes, severe, with psychosis",1
+294844012,E1137,E113700,191616006,294844012,Recurrent depression,1
+294845013,E113z,E113z00,268621008,401767019,Recurrent major depressive episode NOS,1
+294917018,E130,E130.00,191676002,294917018,Reactive depressive psychosis,1
+294918011,E130-1,E130.11,191676002,294918011,Psychotic reactive depression,1
+295494011,E290z,E290z00,192046006,295490019,Brief depressive reaction NOS,1
+295535012,E2B,E2B..00,35489007,59212011,Depressive disorder,1
+295537016,E2B1,E2B1.00,192080009,295537016,Chronic depression,1
+2957311000006113,^ESCTSE295731,,28475009,47670016,Severe recurrent major depression with psychotic features,1
+296137015,Eu320,Eu32000,310495003,454082014,Mild depression,1
+296138013,Eu321,Eu32100,310496002,454083016,[X]Moderate depressive episode,1
+296180012,Eu330,Eu33000,310495003,454082014,"[X]Recurrent depressive disorder, current episode mild",1
+296181011,Eu331,Eu33100,310496002,454083016,"[X]Recurrent depressive disorder, current episode moderate",1
+296198011,Eu334,Eu33400,698957003,2981573016,"[X]Recurrent depressive disorder, currently in remission",1
+296199015,Eu33y,Eu33y00,191616006,294844012,[X]Other recurrent depressive disorders,1
+300711000000119,8HHq,8HHq.00,199111000000100,300711000000119,Referral for guided self-help for depression,1
+3071791000006111,^ESCTDE307179,,35489007,486186018,Depressive illness,1
+3071801000006112,^ESCTDE307180,,35489007,486187010,Depressed,1
+3087971000006112,^ESCTSE308797,,36474008,60885016,Severe recurrent major depression without psychotic features,1
+3153071000006116,^ESCTRE315307,,40568001,67653019,Recurrent brief depressive disorder,1
+3190221000006112,^ESCTMA319022,,42810003,71441018,Major depression in remission,1
+346972018,E112-3,E112.13,231499006,346972018,Endogenous depression first episode,1
+3578861000006116,^ESCTRE357886,,66344007,110186015,Recurrent major depressive disorder,1
+359121000006116,Eu32z-4,Eu32z14,87414006,2951871015,Reactive depression,1
+366561000006119,Eu32y-1,Eu32y11,191659001,294894013,[X]Atypical depression,1
+367061000006114,Eu315,Eu31500,765176007,3657334019,Psychosis and severe depression co-occurrent and due to bipolar affective disorder,1
+367101000006112,Eu31,Eu31.00,13746004,2839307017,Bipolar affective disorder,1
+369982012,E118,E118.00,247803002,369982012,Seasonal affective disorder,1
+3743451000006110,^ESCTSE374345,,76441001,126947013,"Severe major depression, single episode, without psychotic features",1
+376691000006116,Eu32z-1,Eu32z11,35489007,486184015,Depression,1
+376701000006116,Eu920,Eu92000,231542000,347030014,[X]Depressive conduct disorder,1
+376711000006118,Eu32z-2,Eu32z12,35489007,486185019,[X]Depressive disorder NOS,1
+376721000006114,Eu32,Eu32.00,35489007,486185019,Depressive episode,1
+376741000006119,Eu341-1,Eu34111,78667006,130534012,[X]Depressive neurosis,1
+376751000006117,Eu341-2,Eu34112,1084061000000106,2716551000000112,Depressive personality disorder,1
+3767531000006119,^ESCTSE376753,,77911002,129301014,"Severe major depression, single episode, with psychotic features, mood-congruent",1
+379771000006116,Eu333-1,Eu33311,73867007,122670017,[X]Endogenous depression with psychotic symptoms,1
+379781000006118,Eu332-1,Eu33211,300706003,441826016,[X]Endogenous depression without psychotic symptoms,1
+396081000006116,Eu332-2,Eu33212,268621008,401767019,"[X]Major depression, recurrent without psychotic symptoms",1
+399961000006118,Eu341-3,Eu34113,78667006,130534012,Depressive neurosis,1
+401766011,E112,E112.00,36923009,61590015,"Major depression, single episode",1
+401866015,Eu322,Eu32200,310497006,454084010,[X]Severe depressive episode without psychotic symptoms,1
+401869010,Eu323,Eu32300,191604000,294828015,[X]Severe depressive episode with psychotic symptoms,1
+401871010,Eu32y,Eu32y00,35489007,59212011,[X]Other depressive episodes,1
+401872015,Eu32z,Eu32z00,35489007,486185019,"[X]Depressive episode, unspecified",1
+401873013,Eu33,Eu33.00,191616006,294844012,[X]Recurrent depressive disorder,1
+401876017,Eu33z,Eu33z00,191616006,294844012,"[X]Recurrent depressive disorder, unspecified",1
+406881000000111,9Ov,9Ov..00,713831000000108,1565071000000118,Depression monitoring administration,1
+408521000000112,9Ov0,9Ov0.00,717211000000107,1569751000000114,Depression monitoring first letter,1
+408541000000117,9Ov1,9Ov1.00,716681000000100,1569231000000114,Depression monitoring second letter,1
+408561000000116,9Ov2,9Ov2.00,716961000000102,1569511000000115,Depression monitoring third letter,1
+408581000000113,9Ov3,9Ov3.00,717261000000109,1569801000000119,Depression monitoring verbal invitation,1
+408601000000116,9Ov4,9Ov4.00,716421000000103,1568971000000112,Depression monitoring telephone invitation,1
+410861011,E113-1,E113.11,274948002,410861011,Endogenous depression - recurrent,1
+424531000006118,Eu332,Eu33200,310497006,454084010,[X]Recurr depress disorder cur epi severe without psyc sympt,1
+424541000006111,Eu333-3,Eu33313,28475009,47670016,[X]Recurr severe episodes/major depression+psychotic symptom,1
+424561000006110,Eu3y1-1,Eu3y111,40568001,67653019,[X]Recurrent brief depressive episodes,1
+424571000006115,Eu333,Eu33300,28475009,47670016,[X]Recurrent depress disorder cur epi severe with psyc symp,1
+424631000006119,Eu33-1,Eu33.11,191616006,294844012,[X]Recurrent episodes of depressive reaction,1
+424641000006112,Eu33-2,Eu33.12,191616006,294844012,[X]Recurrent episodes of psychogenic depression,1
+424651000006114,Eu33-3,Eu33.13,191616006,294844012,[X]Recurrent episodes of reactive depression,1
+424671000006116,Eu333-5,Eu33315,191613003,294840015,[X]Recurrent severe episodes of psychotic depression,1
+424681000006118,Eu333-6,Eu33316,1086471000000103,2721771000000114,"Recurrent reactive depressive episodes, severe, with psychosis",1
+425411000006110,Eu33-5,Eu33.15,247803002,369983019,SAD - Seasonal affective disorder,1
+425751000006115,Eu33-4,Eu33.14,247803002,369982012,[X]Seasonal depressive disorder,1
+426891000006114,Eu322-1,Eu32211,310497006,454084010,[X] Single episode agitated depression without psychotic symptoms,1
+426911000006111,Eu32-1,Eu32.11,87414006,2951871015,[X]Single episode of depressive reaction,1
+426921000006115,Eu323-1,Eu32311,191604000,294828015,[X]Single episode of major depression and psychotic symptoms,1
+426941000006110,Eu32-2,Eu32.12,87414006,2951871015,[X]Single episode of psychogenic depression,1
+426961000006114,Eu323-3,Eu32313,191604000,294828015,[X]Single episode of psychotic depression,1
+426971000006119,Eu32-3,Eu32.13,87414006,2951871015,[X]Single episode of reactive depression,1
+426981000006116,Eu323-4,Eu32314,191676002,294917018,[X]Single episode of reactive depressive psychosis,1
+441826016,E112-4,E112.14,300706003,441826016,Endogenous depression,1
+474171000006112,E112-1,E112.11,83458005,138421012,Agitated depression,1
+5359021000006116,^ESCTDE535902,,255339005,380529010,Depression,1
+6000711000006112,^ESCTMO600071,,310496002,454083016,Moderate depression,1
+613781000006118,E2112,E211200,78667006,130532011,Depressive personality disorder,1
+613791000006115,E11-2,E11..12,35489007,59212011,Depressive psychoses,1
+6337491000006116,^ESCTMA633749,,370143000,1208903011,Major depressive disorder,1
+642461000006116,E112-2,E112.12,231499006,346972018,Endogenous depression first episode,1
+675861000006113,E204,E204.00,87414006,144929012,Reactive depression (situational),1
+7788661000006119,^ESCTMO778866,,719593009,3317073015,Moderately severe depression,1
+7803711000006118,^ESCTMO780371,,720453001,3320815018,Moderately severe major depression single episode,1
+8035341000006119,^ESCTPO803534,,112001000119100,3320737018,Positive screening for depression on PHQ-9 (Patient Health Questionnaire 9),1
+8214741000006117,^ESCTDE821474,,711451000000102,1555921000000113,Depression monitoring invitation,1
+8232571000006118,^ESCTSI823257,,755321000000106,1662041000000111,"Single major depressive episode, severe, with psychosis, psychosis in remission",1
+8232591000006117,^ESCTRE823259,,755331000000108,1662061000000112,"Recurrent major depressive episodes, severe, with psychosis, psychosis in remission",1
+8459491000006110,^ESCTDE845949,,1083071000000102,2714071000000117,Depression monitoring invitation SMS (short message service) text message,1
+8465321000006112,^ESCTRE846532,,1086661000000108,2722161000000114,"Reactive depression, prolonged single episode",1
+882401000006115,E204-99,E204.99,87414006,882401000006115,Reactive (neurotic) depression,1
+882421000006113,E2112-99,E211299,78667006,882421000006113,Depressive personality,1
+882671000006112,E2B-98,E2B..98,609311000000100,882671000006112,Depression,1
+882681000006110,E2B-99,E2B..99,609311000000100,882681000006110,Depression NOS,1
+882811000006119,Eu320-99,Eu32099,430421000000104,882811000006119,Mild depression,1
+882821000006110,Eu321-99,Eu32199,465441000000108,882821000006110,Moderate depression,1
+882831000006113,Eu322-99,Eu32299,397701000000102,882831000006113,Severe depression,1
+909681000006110,HNGNQRF13,,909681000006106,909681000006110,[RFC] Depression,1
+9901161000006119,^ESCTMI990116,,16265951000119109,3447118014,Mild major depressive disorder co-occurrent with anxiety single episode,1

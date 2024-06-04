@@ -1,0 +1,15 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,pulmonary_rehab,referred,commenced,completed
+25607012,8FA,8FA..00,15081005,25607012,Pulmonary rehabilitation,1,1,,
+61911000000113,8H7u,8H7u.00,24461000000105,61911000000113,Referral to pulmonary rehabilitation,1,1,,
+1476257010,8FA2,8FA2.00,391130000,1476257010,Pulmonary rehabilitation programme completed,1,,1,1
+6519421000006116,^ESCTPU651942,,391130000,1477218011,Pulmonary rehabilitation program completed,1,,1,1
+8458451000006110,^ESCTEM845845,,1082401000000105,2712491000000116,Emergency hospital admission to programmed pulmonary rehabilitation service,1,,1,
+5000301000006110,^ESCTPU500030,,229823004,344519012,Pulmonary rehabilitation class,1,,1,
+7973361000006117,^ESCTPU797336,,2461000175101,3030731011,Pulmonary rehabilitation service,1,,1,
+1485151019,8FA0,8FA0.00,391127007,1485151019,Assessment for pulmonary rehabilitation completed,1,,1,
+1476256018,8FA1,8FA1.00,391128002,1476256018,Pulmonary rehabilitation programme commenced,1,,1,
+6519391000006112,^ESCTPU651939,,391128002,1477217018,Pulmonary rehabilitation program commenced,1,,1,
+8275341000006112,^ESCTPR827534,,828861000000102,2154671000000112,Programmed pulmonary rehabilitation service,1,,1,
+2226551000000114,8I86,8I86.00,860931000000107,2226551000000114,Did not complete pulmonary rehabilitation programme,1,,1,
+8306431000006119,^ESCTPU830643,,878051000000107,2265931000000111,Pulmonary rehabilitation review,1,,1,
+2448471000000116,^ESCT1171182,,960551000000102,2448471000000116,Pulmonary rehabilitation programme plan,1,,1,

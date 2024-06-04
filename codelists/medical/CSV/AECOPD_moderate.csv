@@ -1,0 +1,21 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,aecopd,aecopd_count
+1173471000000110,8BP8,8BP8.00,525691000000103,1173471000000110,Antibiotic therapy for acute pulmonary exacerbation,1,0
+1882421000006113,EMISNQ1C1,,1882421000006109,1882421000006113,1 COPD exacerbation in past year,0,1
+1882431000006111,EMISNQ3C1,,1882431000006107,1882431000006111,3+ COPD exacerbations in past year,0,1
+1882441000006118,EMISNQ2C1,,1882441000006102,1882441000006118,2 COPD exacerbations in past year,0,1
+1882451000006116,EMISNQNO109,,1882451000006100,1882451000006116,No COPD exacerbations in past year,0,1
+2010061000006113,EMISNQAC878,,847091000000104,2196421000000114,Acute non-infective exacerbation of chronic obstructive pulmonary disease,1,0
+2160051010,8H2R,8H2R.00,408501008,3082901016,Emergency hospital admission for chronic obstructive pulmonary disease,1,0
+301453013,H3122,H312200,195951007,301453013,Acute exacerbation of chronic obstructive airways disease,1,0
+424365019,ESCTAC8,,285381006,424365019,Acute infective exacerbation of chronic obstructive airways disease,1,0
+4781421000006111,^ESCTAC478142,,195951007,3012683010,Acute exacerbation of COPD,1,0
+4781431000006114,^ESCTAC478143,,195951007,3012710012,Acute exacerbation of chronic obstructive pulmonary disease,1,0
+553211000006119,H3y1,H3y1.00,195951007,301453013,"Chron obstruct pulmonary dis wth acute exacerbation, unspec",1,0
+6763251000006114,^ESCTEM676325,,408501008,3082978011,Emergency hospital admission for COPD (chronic obstructive pulmonary disease),1,0
+7970171000006119,^ESCTAC797017,,1751000119100,2967380018,Acute exacerbation of chronic obstructive airways disease with asthma,1,0
+8287171000006115,^ESCTAC828717,,847091000000104,2196431000000111,Acute non-infective exacerbation of COPD (chronic obstructive pulmonary disease),1,0
+8437811000006110,^ESCTNU843781,,1065151000000105,2675601000000117,Number of hospital admissions due to COPD (chronic obstructive pulmonary disease) in past year,0,1
+977891000006112,66Yd,66Yd.00,413845009,2533538014,Chronic obstructive pulmonary disease accident and emergency attendance since last visit,0,1
+977901000006111,66Ye,66Ye.00,414087000,2533539018,Emergency chronic obstructive pulmonary disease admission since last appointment,0,1
+977911000006114,66Yf,66Yf.00,723245007,3335171010,Number of chronic obstructive pulmonary disease exacerbations in past year,0,1
+998281000006115,66Yi,66Yi.00,198901000000105,300201000000114,Multiple chronic obstructive pulmonary disease emergency hospital admissions,0,1

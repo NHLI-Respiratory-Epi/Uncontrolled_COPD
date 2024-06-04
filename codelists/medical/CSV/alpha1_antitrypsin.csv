@@ -1,0 +1,6 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,alpha1
+5288811000006111,^ESCTAL528881,,250686001,373747012,Alpha-1-antitrypsin phenotype PiZZ,1
+5288831000006117,^ESCTAL528883,,250688000,373749010,Alpha-1-antitrypsin phenotype PiSZ,1
+5288841000006110,^ESCTAL528884,,250689008,373750010,Alpha-1-antitrypsin phenotype PiMZ,1
+5288851000006112,^ESCTAL528885,,250690004,373751014,Alpha-1-antitrypsin phenotype PiMS,1
+50516016,C3762,C376200,30188007,484512015,alpha-1-Antitrypsin deficiency,1

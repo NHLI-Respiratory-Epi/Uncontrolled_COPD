@@ -1,0 +1,43 @@
+prodcodeid,dmdid,termfromemis,productname,formulation,routeofadministration,drugsubstancename,substancestrength,bnfchapter,ocs
+10212141000033111,28808411000001103,Prednisolone 10mg tablets,Prednisolone 10mg tablets,Tablet,Oral,Prednisolone,10.000mg,6030200,1
+10212341000033114,28808711000001109,Prednisolone 20mg tablets,Prednisolone 20mg tablets,Tablet,Oral,Prednisolone,20.000mg,6030200,1
+10212441000033115,28798211000001102,Pevanti 2.5mg tablets (Advanz Pharma),Pevanti 2.5mg tablets,Tablet,Oral,Prednisolone,2.500mg,,1
+10212541000033119,28799011000001102,Pevanti 5mg tablets (Advanz Pharma),Pevanti 5mg tablets,Tablet,Oral,Prednisolone,5.000mg,,1
+10212641000033118,28799311000001104,Pevanti 10mg tablets (Advanz Pharma),Pevanti 10mg tablets,Tablet,Oral,Prednisolone,10.000mg,,1
+10212741000033110,28799611000001109,Pevanti 20mg tablets (Advanz Pharma),Pevanti 20mg tablets,Tablet,Oral,Prednisolone,20.000mg,,1
+10212941000033113,28799811000001108,Pevanti 25mg tablets (Advanz Pharma),Pevanti 25mg tablets,Tablet,Oral,Prednisolone,25.000mg,,1
+10266841000033117,29424511000001109,Prednisolone 5mg/5ml oral solution unit dose,Prednisolone 5mg/5ml oral solution unit dose,Oral solution,Oral,Prednisolone,1.000mg/1.000ml,6030200,1
+10494341000033117,29904211000001102,Prednisolone 10mg/ml oral solution sugar free,Prednisolone 10mg/ml oral solution sugar free,Oral solution,Oral,Prednisolone,10.000mg/1.000ml,6030200,1
+10988941000033111,,Prednisolone Dompe  Oral solution  5 mg/5 ml unit dose,,,,,,,1
+1114241000033116,42086911000001101,Prednisolone 2.5mg gastro-resistant tablets,Prednisolone 2.5mg gastro-resistant tablets,Gastro-resistant tablet,Oral,Prednisolone,2.500mg,6030200,1
+1114341000033114,42087211000001107,Prednisolone 5mg gastro-resistant tablets,Prednisolone 5mg gastro-resistant tablets,Gastro-resistant tablet,Oral,Prednisolone,5.000mg,6030200,1
+1127341000033111,39722711000001103,Prednisolone 5mg soluble tablets,Prednisolone 5mg soluble tablets,Soluble tablet/,Oral,Prednisolone sodium phosphate,5.000mg,6030200,1
+1130741000033110,42087011000001102,Prednisolone 25mg tablets,Prednisolone 25mg tablets,Tablet,Oral,Prednisolone,25.000mg,6030200,1
+1130841000033117,,Prednisolone Steaglate  Tablets  6.65 mg,,,,,,,1
+1131741000033117,42086811000001106,Prednisolone 1mg tablets,Prednisolone 1mg tablets,Tablet,Oral,Prednisolone,1.000mg,6030200,1
+1131841000033110,28808611000001100,Prednisolone 2.5mg tablets,Prednisolone 2.5mg tablets,Tablet,Oral,Prednisolone,2.500mg,6030200,1
+1131941000033119,42087311000001104,Prednisolone 5mg tablets,Prednisolone 5mg tablets,Tablet,Oral,Prednisolone,5.000mg,6030200,1
+1132041000033113,,Prednisone  Tablets  1 mg,,,,,,,1
+1132141000033112,,Prednisone  Tablets  5 mg,,,,,,,1
+11507841000033115,32611811000001105,Prednisolone 1mg gastro-resistant tablets,Prednisolone 1mg gastro-resistant tablets,Gastro-resistant tablet,Oral,Prednisolone,1.000mg,6030200,1
+11664841000033116,32781411000001102,Prednisolone 30mg tablets,Prednisolone 30mg tablets,Tablet,Oral,Prednisolone,30.000mg,6030200,1
+14212541000033116,41968411000001104,Prednisolone 4mg tablets,Prednisolone 4mg tablets,Tablet,Oral,Prednisolone,4.000mg,6030200,1
+14212641000033115,41968311000001106,Prednisolone 3mg tablets,Prednisolone 3mg tablets,Tablet,Oral,Prednisolone,3.000mg,6030200,1
+14212741000033112,41968211000001103,Prednisolone 2mg tablets,Prednisolone 2mg tablets,Tablet,Oral,Prednisolone,2.000mg,6030200,1
+2509341000033118,,*Prednisolone  Tablets  ,,,,,,,1
+2509541000033113,,*Prednisolone  Liquid  ,,,,,,,1
+2509741000033117,,*Prednisolone  Pills (Sucrose)  ,,,,,,,1
+429141000033119,,Decortisyl  Tablets  5 mg,,,,,,,1
+429441000033110,,Deltastab  Tablets  1 mg,,,,,,,1
+429541000033111,,Deltastab  Tablets  5 mg,,,,,,,1
+431541000033114,459611000001100,Deltacortril 2.5mg gastro-resistant tablets (Phoenix Labs Ltd),Deltacortril 2.5mg gastro-resistant tablets,Gastro-resistant tablet,Oral,Prednisolone,2.500mg,,1
+431641000033110,331111000001100,Deltacortril 5mg gastro-resistant tablets (Phoenix Labs Ltd),Deltacortril 5mg gastro-resistant tablets,Gastro-resistant tablet,Oral,Prednisolone,5.000mg,,1
+5990141000033115,17872811000001100,Prednisone 1mg modified-release tablets,Prednisone 1mg modified-release tablets,Modified-release tablet,Oral,Prednisone,1.000mg,6030200,1
+5990241000033110,17873211000001107,Prednisone 2mg modified-release tablets,Prednisone 2mg modified-release tablets,Modified-release tablet,Oral,Prednisone,2.000mg,6030200,1
+5990341000033117,17873811000001108,Prednisone 5mg modified-release tablets,Prednisone 5mg modified-release tablets,Modified-release tablet,Oral,Prednisone,5.000mg,6030200,1
+5990641000033113,17872911000001105,Lodotra 1mg modified-release tablets (Napp Pharmaceuticals Ltd),Lodotra 1mg modified-release tablets,Modified-release tablet,Oral,Prednisone,1.000mg,,1
+5990741000033116,17873311000001104,Lodotra 2mg modified-release tablets (Napp Pharmaceuticals Ltd),Lodotra 2mg modified-release tablets,Modified-release tablet,Oral,Prednisone,2.000mg,,1
+5990841000033114,17873911000001103,Lodotra 5mg modified-release tablets (Napp Pharmaceuticals Ltd),Lodotra 5mg modified-release tablets,Modified-release tablet,Oral,Prednisone,5.000mg,,1
+8494441000033110,32652311000001103,Dilacort 2.5mg gastro-resistant tablets (Crescent Pharma Ltd),Dilacort 2.5mg gastro-resistant tablets,Gastro-resistant tablet,Oral,Prednisolone,2.500mg,,1
+8494541000033111,32652511000001109,Dilacort 5mg gastro-resistant tablets (Crescent Pharma Ltd),Dilacort 5mg gastro-resistant tablets,Gastro-resistant tablet,Oral,Prednisolone,5.000mg,,1
+9119141000033118,42086611000001107,Prednisolone 15mg/5ml oral solution,Prednisolone 15mg/5ml oral solution,Oral solution,Oral,Prednisolone,3.000mg/1.000ml,6030200,1

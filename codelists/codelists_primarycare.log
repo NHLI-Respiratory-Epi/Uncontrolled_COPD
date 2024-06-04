@@ -1,0 +1,2083 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  D:\GitHub\Uncontrolled_COPD\codelists\codelists_primarycare.log
+  log type:  text
+ opened on:  29 May 2024, 19:43:41
+
+. 
+. local aurum_build "202312"
+
+. local browser_dir "Z:\PCPH\CPRD_Research_Data\Code_Browsers\CPRD_CodeBrowser_`aurum_build'_Aurum"
+
+. local codelists_dir "D:\GitHub\code_lists"
+
+. 
+. 
+. //IMPORT BROWSERS...
+. //==================
+. 
+. //CPRD Aurum medical browser
+. import delimited "`browser_dir'/CPRDAurumMedical.txt", ///
+>         stringcols(1 6 7) favorstrfixed clear
+(encoding automatically selected: UTF-8)
+(9 vars, 247,118 obs)
+
+. 
+. //Drop useless variables
+. drop release emiscodecategoryid
+
+. 
+. //Remove observations (in case of issues with making public)
+. drop observations
+
+. 
+. order medcodeid originalreadcode cleansedreadcode ///
+>         snomedctconceptid snomedctdescriptionid term
+
+. 
+. //Save medical code browser to a tempfile
+. tempfile medical
+
+. save `medical'
+file C:\Users\pstone\AppData\Local\Temp\ST_5514_000001.tmp saved as .dta format
+
+. 
+. 
+. //CPRD Aurum product browser
+. import delimited "`browser_dir'/CPRDAurumProduct.txt", ///
+>         bindquote(nobind) stringcols(1 2) favorstrfixed clear
+(encoding automatically selected: ISO-8859-1)
+(10 vars, 74,483 obs)
+
+. 
+. //Remove drugissues (in case of issues with making public)
+. drop drugissues
+
+. 
+. //Save medical code browser to a tempfile
+. tempfile product
+
+. save `product'
+file C:\Users\pstone\AppData\Local\Temp\ST_5514_000002.tmp saved as .dta format
+
+. 
+. 
+. //FIND AND FORMAT CODELISTS...
+. //============================
+. 
+. //COPD
+. use `codelists_dir'/10_Respiratory_System/COPD/Aurum/2023_12/copd, clear
+
+. drop observations
+
+. 
+. keep if prevalent == 1
+(104 observations deleted)
+
+. drop if aecopd == 1
+(15 observations deleted)
+
+. 
+. keep medcodeid incident prevalent
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       246,952
+        from master                         3  (_merge==1)
+        from using                    246,949  (_merge==2)
+
+    Matched                               169  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(246,949 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(3 observations deleted)
+
+. drop _merge
+
+. 
+. order prevalent incident, last
+
+. rename prevalent copd_prevalent
+
+. rename incident copd_incident
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str17
+  variable snomedctdescriptionid was str18 now str17
+  variable term was str233 now str156
+  (14,534 bytes saved)
+
+. save medical/DTA/COPD_exAECOPD, replace
+file medical/DTA/COPD_exAECOPD.dta saved
+
+. export delimited medical/CSV/COPD_exAECOPD, replace
+file medical/CSV/COPD_exAECOPD.csv saved
+
+. 
+. //Compact version
+. keep medcodeid copd_prevalent copd_incident
+
+. save medical/compact/COPD_exAECOPD, replace
+file medical/compact/COPD_exAECOPD.dta saved
+
+. 
+. 
+. //SMOKING STATUS
+. use `codelists_dir'/21_Health_Status_and_Health_Services/Smoking/CPRD/Aurum/2023_12/smoking_status, clear
+
+. drop observations
+
+. 
+. keep if smoking_status != .
+(157 observations deleted)
+
+. 
+. drop drugs passive vape smokeless_tobacco packyears gp_recorded_smoking
+
+. 
+. compress
+  variable snomedctconceptid was str17 now str16
+  (282 bytes saved)
+
+. save medical/DTA/smoking_status, replace
+file medical/DTA/smoking_status.dta saved
+
+. export delimited medical/CSV/smoking_status, replace
+file medical/CSV/smoking_status.csv saved
+
+. 
+. //Compact version
+. keep medcodeid smoking_status ever_smoker
+
+. save medical/compact/smoking_status, replace
+file medical/compact/smoking_status.dta saved
+
+. 
+. 
+. //SPIROMETRY
+. use `codelists_dir'/18_Symptoms_Signs_Laboratory/Lung_function_spirometry_GOLDgrade/Aurum/2023_12/lungfunction_comprehensive_1s_gold_subflags_1s_jkq, clear
+
+. 
+. keep if forced_fev1_fvc == 1 ///
+>         | fev1 == 1 ///
+>         | fev1_predicted == 1 ///
+>         | fev1_percent_pred == 1 ///
+>         | fvc == 1 ///
+>         | fvc_predicted == 1 ///
+>         | fvc_percent_pred == 1 ///
+>         | fev1_fvc_ratio == 1 ///
+>         | fev1_fvc_ratio_predicted == 1 ///
+>         | fev1_fvc_ratio_percent_pred == 1 ///
+>         | reversibility_test_fev1_indic == 1
+(95 observations deleted)
+
+. 
+. keep medcodeid forced_fev1_fvc fev1 fev1_predicted fev1_percent_pred fvc ///
+>         fvc_predicted fvc_percent_pred fev1_fvc_ratio fev1_fvc_ratio_predicted ///
+>         fev1_fvc_ratio_percent_pred reversibility_test_fev1_indic bronchdil
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,050
+        from master                        17  (_merge==1)
+        from using                    247,033  (_merge==2)
+
+    Matched                                85  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(247,033 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(17 observations deleted)
+
+. drop _merge
+
+. 
+. order forced_fev1_fvc fev1 fev1_predicted fev1_percent_pred fvc ///
+>         fvc_predicted fvc_percent_pred fev1_fvc_ratio fev1_fvc_ratio_predicted ///
+>         fev1_fvc_ratio_percent_pred reversibility_test_fev1_indic bronchdil, last
+
+. 
+. encode bronchdil, generate(bronchodilator)
+
+. drop bronchdil
+
+. 
+. compress
+  variable bronchodilator was long now byte
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str89
+  (13,430 bytes saved)
+
+. save medical/DTA/spirometry, replace
+file medical/DTA/spirometry.dta saved
+
+. export delimited medical/CSV/spirometry, replace
+file medical/CSV/spirometry.csv saved
+
+. 
+. //Compact version
+. keep medcodeid forced_fev1_fvc fev1 fev1_predicted fev1_percent_pred fvc ///
+>         fvc_predicted fvc_percent_pred fev1_fvc_ratio fev1_fvc_ratio_predicted ///
+>         fev1_fvc_ratio_percent_pred reversibility_test_fev1_indic bronchodilator
+
+. save medical/compact/spirometry, replace
+file medical/compact/spirometry.dta saved
+
+. 
+. 
+. //MRC GRADE
+. use `codelists_dir'/18_Symptoms_Signs_Laboratory/Breathlessness_MRC/CPRD/Aurum/2023_12/mrc_dyspnoea_scale_raw, clear
+
+. 
+. keep if final_allmrc_JKQ_bro_2023_12 == 1
+(0 observations deleted)
+
+. 
+. keep medcodeid mrc mrc_dyspnoea_scale mmrc mmrc_dyspnoea_scale emrc emrc_dyspnoea_scale
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,100
+        from master                        13  (_merge==1)
+        from using                    247,087  (_merge==2)
+
+    Matched                                31  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(247,087 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(13 observations deleted)
+
+. drop _merge
+
+. 
+. order mrc mrc_dyspnoea_scale mmrc mmrc_dyspnoea_scale emrc emrc_dyspnoea_scale, last
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str64
+  (5,580 bytes saved)
+
+. save medical/DTA/MRC_grade, replace
+file medical/DTA/MRC_grade.dta saved
+
+. export delimited medical/CSV/MRC_grade, replace
+file medical/CSV/MRC_grade.csv saved
+
+. 
+. //Compact version
+. keep medcodeid mrc mrc_dyspnoea_scale mmrc mmrc_dyspnoea_scale emrc emrc_dyspnoea_scale
+
+. save medical/compact/MRC_grade, replace
+file medical/compact/MRC_grade.dta saved
+
+. 
+. 
+. //CHRONIC BRONCHITIS/COUGH
+. use `codelists_dir'/18_Symptoms_Signs_Laboratory/Cough_and_sputum/CPRD/Aurum/2023_12/cough_raw, clear
+
+. 
+. keep if final_chroniccough_JKQ_bro202312 == 1
+(153 observations deleted)
+
+. rename final_chroniccough_JKQ_bro202312 chronic_cough
+
+. 
+. keep medcodeid chronic_cough
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,114
+        from master                         0  (_merge==1)
+        from using                    247,114  (_merge==2)
+
+    Matched                                 4  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(247,114 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order chronic_cough, last
+
+. 
+. compress
+  variable medcodeid was str18 now str9
+  variable originalreadcode was str19 now str5
+  variable snomedctconceptid was str18 now str9
+  variable snomedctdescriptionid was str18 now str9
+  variable term was str233 now str17
+  (1,028 bytes saved)
+
+. save medical/DTA/chronic_cough, replace
+file medical/DTA/chronic_cough.dta saved
+
+. export delimited medical/CSV/chronic_cough, replace
+file medical/CSV/chronic_cough.csv saved
+
+. 
+. //Compact version
+. keep medcodeid chronic_cough
+
+. save medical/compact/chronic_cough, replace
+file medical/compact/chronic_cough.dta saved
+
+. 
+. 
+. //INHALED THERAPY (ICS/LABA/LAMA)
+. use `codelists_dir'/10_Respiratory_System/Medications/Inhalers/2023_12/0301_0302_COPDrx_inhalers_prodbrowsing_raw, clear
+
+. 
+. keep if final_COPDinh_JKQ_bro_2023_12 == 1
+(5 observations deleted)
+
+. 
+. keep prodcodeid category
+
+. 
+. merge 1:1 prodcodeid using `product'
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        74,016
+        from master                        13  (_merge==1)
+        from using                     74,003  (_merge==2)
+
+    Matched                               480  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(74,003 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(13 observations deleted)
+
+. drop _merge
+
+. 
+. //Dont need SABA/SAMA inhalers
+. list term category if strmatch(category, "*saba*") | strmatch(category, "*sama*")
+
+     +--------------------------------------------------------------------------------------------------------+
+     |                                                                               termfromemis    category |
+     |--------------------------------------------------------------------------------------------------------|
+ 29. |                                                 Salbutamol  Accuhaler  200 micrograms/dose        saba |
+ 30. |                          Salbutamol  Aerosol inhalation  100 micrograms/metered inhalation        saba |
+ 32. |                                                 Salbutamol  Autohaler  100 micrograms/puff        saba |
+ 36. |                         Salamol Easi-Breathe  Breath-actuated inhaler  100 micrograms/puff        saba |
+ 37. |                                      Salbutamol 100micrograms/dose breath actuated inhaler        saba |
+     |--------------------------------------------------------------------------------------------------------|
+ 38. |                                             Salbutamol 100micrograms/dose inhaler CFC free        saba |
+ 39. |                                                      Salbutamol  Cyclocaps  200 micrograms        saba |
+ 40. |                                                      Salbutamol  Cyclocaps  400 micrograms        saba |
+ 42. |                             Salbutamol 200microgram inhalation powder blisters with device        saba |
+ 43. |                             Salbutamol 400microgram inhalation powder blisters with device        saba |
+     |--------------------------------------------------------------------------------------------------------|
+ 54. |                                                      Salamol  Inhaler  100 micrograms/puff        saba |
+ 55. |                                   Salbulin 100micrograms/dose inhaler (3M Health Care Ltd)        saba |
+ 56. |                                                      Salbutamol 100micrograms/dose inhaler        saba |
+ 57. |                   Salbutamol  Inhaler with vortex generating actuator  100 micrograms/dose        saba |
+ 58. |                       Inhalvent 20micrograms/dose inhaler (Alissa Healthcare Research Ltd)        sama |
+     |--------------------------------------------------------------------------------------------------------|
+ 62. |                                                                Salbulin  Liquid  2 mg/5 ml        saba |
+ 63. |                                         Salbutamol 200microgram inhalation powder blisters        saba |
+ 64. |                                         Salbutamol 400microgram inhalation powder blisters        saba |
+ 66. |                                                       Salbutamol  Rotacaps  200 micrograms        saba |
+ 67. |                                                       Salbutamol  Rotacaps  400 micrograms        saba |
+     |--------------------------------------------------------------------------------------------------------|
+ 68. |                                                                   Salbutamol  Rotahaler  1        saba |
+ 73. |                                                                 Salbutamol  Spandets  8 mg        saba |
+ 74. |                                                Salbutamol  Spacehaler  100 micrograms/puff        saba |
+ 75. |                                                            Salbutamol Sr  Spandet(s)  8 mg        saba |
+ 76. |                                                               Salbutamol  Syrup  1 mg/5 ml        saba |
+     |--------------------------------------------------------------------------------------------------------|
+ 92. |                                       Berotec  Inhaler with extension  200 micrograms/puff        saba |
+104. |                              Berotec 200micrograms/dose inhaler (Boehringer Ingelheim Ltd)        saba |
+105. |                                                      Berotec  Inhaler  100 micrograms/puff        saba |
+115. |                                 Ipravent 20micrograms/dose inhaler CFC free (Cipla EU Ltd)        sama |
+145. |                                                                 Berotec  Solution  5 mg/ml        saba |
+     |--------------------------------------------------------------------------------------------------------|
+164. |                                                     Terbutaline 250micrograms/dose inhaler        saba |
+166. |                                  Terbutaline Sulfate  Refill canister  250 micrograms/puff        saba |
+167. |                                        Terbutaline Sulfate  Respirator solution  2.5 mg/ml        saba |
+168. |                                         Terbutaline 250micrograms/dose inhaler with spacer        saba |
+169. |                             Ventolin 200micrograms/dose Accuhaler (GlaxoSmithKline UK Ltd)        saba |
+     |--------------------------------------------------------------------------------------------------------|
+170. |                        Ventolin Easi-Breathe  Breath-actuated inhaler  100 micrograms/puff        saba |
+171. |                            Ventodisks 200microgram with Diskhaler (GlaxoSmithKline UK Ltd)        saba |
+172. |                            Ventodisks 400microgram with Diskhaler (GlaxoSmithKline UK Ltd)        saba |
+173. |                                                     Ventolin  Inhaler  100 micrograms/puff        saba |
+174. |                                           Ventodisks 200microgram (GlaxoSmithKline UK Ltd)        saba |
+     |--------------------------------------------------------------------------------------------------------|
+175. |                                           Ventodisks 400microgram (GlaxoSmithKline UK Ltd)        saba |
+176. |                                    Ventolin 200microgram Rotacaps (GlaxoSmithKline UK Ltd)        saba |
+177. |                                    Ventolin 400microgram Rotacaps (GlaxoSmithKline UK Ltd)        saba |
+178. |                                                Ventolin Rotahaler (GlaxoSmithKline UK Ltd)        saba |
+179. |                                                                   Ventolin  Spandets  8 mg        saba |
+     |--------------------------------------------------------------------------------------------------------|
+184. |                                                               Bricanyl Expectorant  Elixir        saba |
+186. |               Bricanyl Turbohaler  Breath-Actuated Dry Powder Inhaler  500 micrograms/dose        saba |
+189. |                                   Bricanyl 250micrograms/dose inhaler (AstraZeneca UK Ltd)        saba |
+190. |                                             Bricanyl  Refill canister  250 micrograms/puff        saba |
+191. |                                                   Bricanyl  Respirator solution  2.5 mg/ml        saba |
+     |--------------------------------------------------------------------------------------------------------|
+192. |                            Bricanyl 250micrograms/dose spacer inhaler (AstraZeneca UK Ltd)        saba |
+193. |                                Bricanyl 500micrograms/dose Turbohaler (AstraZeneca UK Ltd)        saba |
+203. |                                          Terbutaline 500micrograms/dose dry powder inhaler        saba |
+204. |                              Ventolin 100micrograms/dose Evohaler (GlaxoSmithKline UK Ltd)        saba |
+207. |                 Aerolin Autohaler  Breath-Actuated Inhaler (Cfc-Free)  100 micrograms/dose        saba |
+     |--------------------------------------------------------------------------------------------------------|
+208. |                                         Airomir 100micrograms/dose Autohaler (Teva UK Ltd)        saba |
+213. |                             Salbutamol 100micrograms/dose breath actuated inhaler CFC free        saba |
+217. |                                            Salbulin  Cfc-free inhaler  100 micrograms/puff        saba |
+218. |                       Fenoterol 100micrograms/dose / Ipratropium 40micrograms/dose inhaler   saba-sama |
+219. |                                                            Salbutamol  Insufflator  type 4        saba |
+     |--------------------------------------------------------------------------------------------------------|
+220. |                                         Salbutamol 200microgram inhalation powder capsules        saba |
+221. |                                         Salbutamol 400microgram inhalation powder capsules        saba |
+222. |                                Salbutamol  Dry powder disks + disk inhaler  200 micrograms        saba |
+223. |                                Salbutamol  Dry powder disks + disk inhaler  400 micrograms        saba |
+224. |                                           Salbutamol 200micrograms/dose dry powder inhaler        saba |
+     |--------------------------------------------------------------------------------------------------------|
+225. |                                 Salbutamol  Dry powder for inhalation  400 micrograms/dose        saba |
+236. |                                Aerolin 400  Aerosol inhalation  100 mcg/metered inhalation        saba |
+237. |                              Aerolin Auto  Aerosol inhalation  100 micrograms/metered dose        saba |
+238. |                                  Aerolin 100micrograms/dose Autohaler (3M Health Care Ltd)        saba |
+242. |                                               Aerocrom inhaler (Castlemead Healthcare Ltd)        saba |
+     |--------------------------------------------------------------------------------------------------------|
+243. |                                 Aerocrom Syncroner with spacer (Castlemead Healthcare Ltd)        saba |
+248. |                                  Salamol 100micrograms/dose inhaler CFC free (Teva UK Ltd)        saba |
+254. |                                            Salbutamol 95micrograms/dose dry powder inhaler        saba |
+255. |                                           Airomir 100micrograms/dose inhaler (Teva UK Ltd)        saba |
+258. |                              Salamol 100micrograms/dose Easi-Breathe inhaler (Teva UK Ltd)        saba |
+     |--------------------------------------------------------------------------------------------------------|
+259. |                     Pulvinal Salbutamol 200micrograms/dose dry powder inhaler (Chiesi Ltd)        saba |
+270. |                                                     Salbutamol 200 Cyclocaps (Teva UK Ltd)        saba |
+271. |                                                     Salbutamol 400 Cyclocaps (Teva UK Ltd)        saba |
+278. |               Salbutamol  Breath Actuated Pressurised Inhalation  100 micrograms/actuation        saba |
+288. |     Salbutamol  Breath Actuated Pressurised Inhalation, Cfc-free  100 micrograms/actuation        saba |
+     |--------------------------------------------------------------------------------------------------------|
+289. |                                     Ipratropium bromide 20micrograms/dose inhaler CFC free        sama |
+290. |                     Atrovent 20micrograms/dose inhaler CFC free (Boehringer Ingelheim Ltd)        sama |
+321. |                      Salbutamol 100micrograms/dose / Ipratropium 20micrograms/dose inhaler   saba-sama |
+331. | Easyhaler Salbutamol sulfate 100micrograms/dose dry powder inhaler (Orion Pharma (UK) Ltd)        saba |
+332. | Easyhaler Salbutamol sulfate 200micrograms/dose dry powder inhaler (Orion Pharma (UK) Ltd)        saba |
+     |--------------------------------------------------------------------------------------------------------|
+343. |                                               Combivent inhaler (Boehringer Ingelheim Ltd)   saba-sama |
+345. |                                           Salbutamol 100micrograms/dose dry powder inhaler        saba |
+346. |                         Salbutamol  Dry Powder Inhaler  200 micrograms/actuation, 200 dose        saba |
+370. |                  Salbutamol 100micrograms/dose dry powder inhalation cartridge with device        saba |
+371. |                              Salbutamol 100micrograms/dose dry powder inhalation cartridge        saba |
+     |--------------------------------------------------------------------------------------------------------|
+372. |                     Novolizer Salbulin  Inhalation Cartridge + Device  100 micrograms/dose        saba |
+373. |                       Novolizer Salbulin  Inhalation Cartridge Refill  100 micrograms/dose        saba |
+380. |                                               Duovent Autohaler (Boehringer Ingelheim Ltd)   saba-sama |
+381. |                                                 Duovent inhaler (Boehringer Ingelheim Ltd)   saba-sama |
+383. |        Salbulin Novolizer 100micrograms/dose inhalation powder (Viatris UK Healthcare Ltd)        saba |
+     |--------------------------------------------------------------------------------------------------------|
+384. | Salbulin Novolizer 100micrograms/dose inhalation powder refill (Viatris UK Healthcare Ltd)        saba |
+387. |             Fenoterol Hydrobromide With Extension  Aerosol inhalation  200 micrograms/puff        saba |
+388. |                                                       Fenoterol 200micrograms/dose inhaler        saba |
+389. |                                       Fenoterol Hydrobromide  Inhaler  100 micrograms/puff        saba |
+390. |                                                  Fenoterol Hydrobromide  Solution  5 mg/ml        saba |
+     |--------------------------------------------------------------------------------------------------------|
+433. |                        Asmavent 100micrograms/dose inhaler CFC free (Kent Pharma (UK) Ltd)        saba |
+435. |                                              Ipratropium bromide 40micrograms/dose inhaler        sama |
+436. |                                              Ipratropium bromide 20micrograms/dose inhaler        sama |
+437. |                              Ipratropium bromide 20micrograms/dose breath actuated inhaler        sama |
+438. |                                 Ipratropium bromide 40microgram inhalation powder capsules        sama |
+     |--------------------------------------------------------------------------------------------------------|
+439. |                     Ipratropium bromide 40microgram inhalation powder capsules with device        sama |
+451. |                           Asmasal 95micrograms/dose Clickhaler (Focus Pharmaceuticals Ltd)        saba |
+452. |           Asmasal Spacehaler  Inhaler with vortex generating actuator  100 micrograms/dose        saba |
+455. |                                   AirSalb 100micrograms/dose inhaler CFC free (Sandoz Ltd)        saba |
+457. |                                                     Maxivent  Inhaler  100 micrograms/puff        saba |
+     |--------------------------------------------------------------------------------------------------------|
+458. |                              Atrovent 20micrograms/dose inhaler (Boehringer Ingelheim Ltd)        sama |
+459. |                                   Atrovent 40microgram Aerocaps (Boehringer Ingelheim Ltd)        sama |
+460. |                    Atrovent 40microgram Aerocaps with Aerohaler (Boehringer Ingelheim Ltd)        sama |
+461. |                            Atrovent 20micrograms/dose Autohaler (Boehringer Ingelheim Ltd)        sama |
+462. |                        Atrovent Forte 40micrograms/dose inhaler (Boehringer Ingelheim Ltd)        sama |
+     +--------------------------------------------------------------------------------------------------------+
+
+. drop if strmatch(category, "*saba*") | strmatch(category, "*sama*")
+(115 observations deleted)
+
+. 
+. encode category, generate(inhaler)
+
+. drop category
+
+. 
+. compress
+  variable inhaler was long now byte
+  variable termfromemis was str211 now str152
+  variable productname was str211 now str124
+  variable formulation was str72 now str24
+  variable routeofadministration was str115 now str38
+  variable drugsubstancename was str999 now str81
+  variable substancestrength was str619 now str83
+  (630,720 bytes saved)
+
+. save product/DTA/inhaled_therapy, replace
+file product/DTA/inhaled_therapy.dta saved
+
+. export delimited product/CSV/inhaled_therapy, replace
+file product/CSV/inhaled_therapy.csv saved
+
+. 
+. //Compact version
+. keep prodcodeid inhaler
+
+. save product/compact/inhaled_therapy, replace
+file product/compact/inhaled_therapy.dta saved
+
+. 
+. 
+. //EOSINOPHILS
+. use `codelists_dir'/03_Blood_and_Immune_Diseases/Eosinophils/CPRD/Aurum/2023_12/eosinophils, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/eosinophils, replace
+file medical/DTA/eosinophils.dta saved
+
+. export delimited medical/CSV/eosinophils, replace
+file medical/CSV/eosinophils.csv saved
+
+. 
+. //Compact version
+. keep medcodeid eosinophils
+
+. save medical/compact/eosinophils, replace
+file medical/compact/eosinophils.dta saved
+
+. 
+. 
+. //ASTHMA
+. use `codelists_dir'/10_Respiratory_System/Asthma/CPRD/Aurum/2023_12/asthma, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/asthma, replace
+file medical/DTA/asthma.dta saved
+
+. export delimited medical/CSV/asthma, replace
+file medical/CSV/asthma.csv saved
+
+. 
+. //Compact version
+. keep medcodeid asthma
+
+. save medical/compact/asthma, replace
+file medical/compact/asthma.dta saved
+
+. 
+. 
+. //LUNG FIBROSIS, SARCOIDOSIS, INTERSTITIAL LUNG DISEASE, CHURG-STRAUSS SYNDROME (EOSINOPHILIC GRANULOMATOSIS WITH POLYANGIITIS (EGPA)) (**Not a Dec 2023 build codelist**)
+. import delimited ///
+> "https://github.com/NHLI-Respiratory-Epi/Curation-Harmonisation/raw/txt_to_tsv/codelists/definite_ild_incidence_prevalence_classification-aurum_snomed_read.tsv", ///
+>         stringcols(1 2 3) clear
+(encoding automatically selected: ISO-8859-1)
+(13 vars, 328 obs)
+
+. 
+. keep if prevalent == 1
+(0 observations deleted)
+
+. 
+. keep medcodeid prevalent
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,072
+        from master                       141  (_merge==1)
+        from using                    246,931  (_merge==2)
+
+    Matched                               187  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(246,931 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(141 observations deleted)
+
+. drop _merge
+
+. 
+. order prevalent, last
+
+. rename prevalent ild
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str62
+  (34,034 bytes saved)
+
+. save medical/DTA/interstitial_lung_disease, replace
+file medical/DTA/interstitial_lung_disease.dta saved
+
+. export delimited medical/CSV/interstitial_lung_disease, replace
+file medical/CSV/interstitial_lung_disease.csv saved
+
+. 
+. //Compact version
+. keep medcodeid ild
+
+. save medical/compact/interstitial_lung_disease, replace
+file medical/compact/interstitial_lung_disease.dta saved
+
+. 
+. 
+. //PULMONARY HYPERTENSION, COR PULMONALE, EVIDENCE OF RIGHT CARDIAC FAILURE
+. use `codelists_dir'/09_Circulatory_System/Pulmonary_Vascular_Diseases/Pulmonary_Arterial_Hypertension/Aurum/2023_12/pulmonary_arterial_hypertension, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/pulmonary_arterial_hypertension, replace
+file medical/DTA/pulmonary_arterial_hypertension.dta saved
+
+. export delimited medical/CSV/pulmonary_arterial_hypertension, replace
+file medical/CSV/pulmonary_arterial_hypertension.csv saved
+
+. 
+. //Compact version
+. keep medcodeid pah
+
+. save medical/compact/pulmonary_arterial_hypertension, replace
+file medical/compact/pulmonary_arterial_hypertension.dta saved
+
+. 
+. 
+. //BRONCHIECTASIS
+. use `codelists_dir'/10_Respiratory_System/Bronchiectasis/CPRD/Aurum/2023_12/bronchiectasis, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/bronchiectasis, replace
+file medical/DTA/bronchiectasis.dta saved
+
+. export delimited medical/CSV/bronchiectasis, replace
+file medical/CSV/bronchiectasis.csv saved
+
+. 
+. //Compact version
+. keep medcodeid bronchiectasis
+
+. save medical/compact/bronchiectasis, replace
+file medical/compact/bronchiectasis.dta saved
+
+. 
+. 
+. //EOSINOPHILIC OESOPHAGITIS
+. use "`codelists_dir'/11_Digestive_System/Eosinophilic oesophagitis/CPRD/Aurum/2023_12/eosinophilic_oesophagitis", clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/eosinophilic_oesophagitis, replace
+file medical/DTA/eosinophilic_oesophagitis.dta saved
+
+. export delimited medical/CSV/eosinophilic_oesophagitis, replace
+file medical/CSV/eosinophilic_oesophagitis.csv saved
+
+. 
+. //Compact version
+. keep medcodeid eosinophilic_oesophagitis
+
+. save medical/compact/eosinophilic_oesophagitis, replace
+file medical/compact/eosinophilic_oesophagitis.dta saved
+
+. 
+. 
+. //OXYGEN TREATMENT, LONG-TERM OXYGEN THERAPY
+. //medcodeid
+. use `codelists_dir'/10_Respiratory_System/Medications/Additional_Oxygen/CPRD/Aurum/2023_12/oxygen_medcode, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/oxygen_medcode, replace
+file medical/DTA/oxygen_medcode.dta saved
+
+. export delimited medical/CSV/oxygen_medcode, replace
+file medical/CSV/oxygen_medcode.csv saved
+
+. 
+. //Compact version
+. keep medcodeid oxygen ltot
+
+. save medical/compact/oxygen_medcode, replace
+file medical/compact/oxygen_medcode.dta saved
+
+. 
+. //prodcodeid
+. use `codelists_dir'/10_Respiratory_System/Medications/Additional_Oxygen/CPRD/Aurum/2023_12/oxygen_prodcode, clear
+
+. 
+. drop drugissues jkq
+
+. rename JKQ_therapy_type oxygen_therapy_type
+
+. 
+. compress
+  (0 bytes saved)
+
+. save product/DTA/oxygen_prodcode, replace
+file product/DTA/oxygen_prodcode.dta saved
+
+. export delimited product/CSV/oxygen_prodcode, replace
+file product/CSV/oxygen_prodcode.csv saved
+
+. 
+. //Compact version
+. keep prodcodeid oxygen oxygen_therapy_type
+
+. save product/compact/oxygen_prodcode, replace
+file product/compact/oxygen_prodcode.dta saved
+
+. 
+. 
+. //HYPERCAPNIA REQUIRING BI-LEVEL VENTILATION
+. //Hypercapnia
+. use `codelists_dir'/18_Symptoms_Signs_Laboratory/Hypercapnia/CPRD/Aurum/2023_12/hypercapnia, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/hypercapnia, replace
+file medical/DTA/hypercapnia.dta saved
+
+. export delimited medical/CSV/hypercapnia, replace
+file medical/CSV/hypercapnia.csv saved
+
+. 
+. //Compact version
+. keep medcodeid hypercapnia
+
+. save medical/compact/hypercapnia, replace
+file medical/compact/hypercapnia.dta saved
+
+. 
+. //NIV
+. use `codelists_dir'/21_Health_Status_and_Health_Services/Non_Invasive_Ventilation/CPRD/Aurum/2023_12/non_invasive_ventilation, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/non_invasive_ventilation, replace
+file medical/DTA/non_invasive_ventilation.dta saved
+
+. export delimited medical/CSV/non_invasive_ventilation, replace
+file medical/CSV/non_invasive_ventilation.csv saved
+
+. 
+. //Compact version
+. keep medcodeid niv
+
+. save medical/compact/non_invasive_ventilation, replace
+file medical/compact/non_invasive_ventilation.dta saved
+
+. 
+. 
+. //MODERATE AECOPD
+. //AECOPD codes
+. use `codelists_dir'/10_Respiratory_System/COPD/AECOPD/Aurum/2023_12/AECOPD_raw, clear
+
+. 
+. keep if final_aecopddx_JKQ_bro_2023_12 == 1 | final_countaecopd_JKQ_bro_202312 == 1
+(0 observations deleted)
+
+. 
+. rename final_aecopddx_JKQ_bro_2023_12 aecopd
+
+. rename final_countaecopd_JKQ_bro_202312 aecopd_count
+
+. 
+. keep medcodeid aecopd aecopd_count
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str16, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,098
+        from master                         0  (_merge==1)
+        from using                    247,098  (_merge==2)
+
+    Matched                                20  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(247,098 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order aecopd aecopd_count, last
+
+. 
+. compress
+  variable medcodeid was str18 now str16
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str94
+  (3,020 bytes saved)
+
+. save medical/DTA/AECOPD_moderate, replace
+file medical/DTA/AECOPD_moderate.dta saved
+
+. export delimited medical/CSV/AECOPD_moderate, replace
+file medical/CSV/AECOPD_moderate.csv saved
+
+. keep medcodeid aecopd aecopd_count
+
+. save medical/compact/AECOPD_moderate, replace
+file medical/compact/AECOPD_moderate.dta saved
+
+. 
+. //AECOPD symptoms
+. use `codelists_dir'/10_Respiratory_System/COPD/AECOPD/Aurum/2023_12/AECOPD_symptoms_1s_qualdata, clear
+
+. 
+. keep if final_aecopd_bl_JKQ_bro202312 == 1 ///
+>         | final_cough_JKQ_bro_2023_12 == 1 ///
+>         | final_sput_JKQ_bro_2023_12 == 1
+(0 observations deleted)
+
+. 
+. rename final_aecopd_bl_JKQ_bro202312 dyspnoea
+
+. rename final_cough_JKQ_bro_2023_12 cough
+
+. rename final_sput_JKQ_bro_2023_12 sputum
+
+. 
+. keep medcodeid dyspnoea cough sputum
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       246,905
+        from master                         0  (_merge==1)
+        from using                    246,905  (_merge==2)
+
+    Matched                               213  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(246,905 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order dyspnoea cough sputum, last
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str17
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str54
+  (40,257 bytes saved)
+
+. save medical/DTA/AECOPD_symptoms, replace
+file medical/DTA/AECOPD_symptoms.dta saved
+
+. export delimited medical/CSV/AECOPD_symptoms, replace
+file medical/CSV/AECOPD_symptoms.csv saved
+
+. keep medcodeid dyspnoea cough sputum
+
+. save medical/compact/AECOPD_symptoms, replace
+file medical/compact/AECOPD_symptoms.dta saved
+
+. 
+. //Systemic corticosteroids (intramuscular, intrvenous, oral)
+. use `codelists_dir'/10_Respiratory_System/Medications/Oral_corticosteroids/CPRD/Aurum/2023_12/ocs, clear
+
+. 
+. keep if jkq_202312 == 1
+(0 observations deleted)
+
+. 
+. keep prodcodeid jkq_202312
+
+. rename jkq_202312 ocs
+
+. 
+. merge 1:1 prodcodeid using `product'
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        74,450
+        from master                         9  (_merge==1)
+        from using                     74,441  (_merge==2)
+
+    Matched                                42  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(74,441 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(9 observations deleted)
+
+. drop _merge
+
+. 
+. order ocs, last
+
+. 
+. compress
+  variable termfromemis was str211 now str63
+  variable productname was str211 now str45
+  variable formulation was str72 now str23
+  variable routeofadministration was str115 now str4
+  variable drugsubstancename was str999 now str29
+  variable substancestrength was str619 now str16
+  (85,974 bytes saved)
+
+. save product/DTA/oral_corticosteroids, replace
+file product/DTA/oral_corticosteroids.dta saved
+
+. export delimited product/CSV/oral_corticosteroids, replace
+file product/CSV/oral_corticosteroids.csv saved
+
+. keep prodcodeid ocs
+
+. save product/compact/oral_corticosteroids, replace
+file product/compact/oral_corticosteroids.dta saved
+
+. 
+. //Antibiotics
+. use `codelists_dir'/10_Respiratory_System/Medications/Antibiotics/CPRD/Aurum/2023_12/antibiotics, clear
+
+. 
+. keep if abx_jkq_202312 == 1
+(0 observations deleted)
+
+. 
+. keep prodcodeid abx_jkq_202312
+
+. rename abx_jkq_202312 abx
+
+. 
+. merge 1:1 prodcodeid using `product'
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        74,255
+        from master                         8  (_merge==1)
+        from using                     74,247  (_merge==2)
+
+    Matched                               236  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(74,247 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(8 observations deleted)
+
+. drop _merge
+
+. 
+. order abx, last
+
+. 
+. compress
+  variable termfromemis was str211 now str74
+  variable productname was str211 now str65
+  variable formulation was str72 now str24
+  variable routeofadministration was str115 now str4
+  variable drugsubstancename was str999 now str45
+  variable substancestrength was str619 now str35
+  (467,280 bytes saved)
+
+. save product/DTA/antibiotics, replace
+file product/DTA/antibiotics.dta saved
+
+. export delimited product/CSV/antibiotics, replace
+file product/CSV/antibiotics.csv saved
+
+. keep prodcodeid abx
+
+. save product/compact/antibiotics, replace
+file product/compact/antibiotics.dta saved
+
+. 
+. //Lower respiratory tract infection
+. use `codelists_dir'/10_Respiratory_System/Lower_Respiratory_Tract_Infection/CPRD/Aurum/2023_12/lrti, clear
+
+. 
+. keep if jkq_202312 == 1
+(0 observations deleted)
+
+. 
+. keep medcodeid jkq_202312
+
+. rename jkq_202312 lrti
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       246,981
+        from master                        16  (_merge==1)
+        from using                    246,965  (_merge==2)
+
+    Matched                               153  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(246,965 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(16 observations deleted)
+
+. drop _merge
+
+. 
+. order lrti, last
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str81
+  (24,939 bytes saved)
+
+. save medical/DTA/LRTI, replace
+file medical/DTA/LRTI.dta saved
+
+. export delimited medical/CSV/LRTI, replace
+file medical/CSV/LRTI.csv saved
+
+. keep medcodeid lrti
+
+. save medical/compact/LRTI, replace
+file medical/compact/LRTI.dta saved
+
+. 
+. //COPD annual review
+. use `codelists_dir'/10_Respiratory_System/COPD/AECOPD/Aurum/2023_12/COPD_annual_review, clear
+
+. 
+. keep medcodeid
+
+. generate byte copd_annual_review = 1
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str16, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,111
+        from master                         0  (_merge==1)
+        from using                    247,111  (_merge==2)
+
+    Matched                                 7  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(247,111 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order copd_annual_review, last
+
+. 
+. compress
+  variable medcodeid was str18 now str16
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str62
+  (1,281 bytes saved)
+
+. save medical/DTA/COPD_annual_review, replace
+file medical/DTA/COPD_annual_review.dta saved
+
+. export delimited medical/CSV/COPD_annual_review, replace
+file medical/CSV/COPD_annual_review.csv saved
+
+. keep medcodeid copd_annual_review
+
+. save medical/compact/COPD_annual_review, replace
+file medical/compact/COPD_annual_review.dta saved
+
+. 
+. 
+. //PNEUMONECTOMY, LUNG VOLUME REDUCTION SURGERY
+. use `codelists_dir'/21_Health_Status_and_Health_Services/Lung_Volume_Reduction_Surgery/CPRD/Aurum/2023_12/lung_volume_reduction_surgery, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/lung_volume_reduction_surgery, replace
+file medical/DTA/lung_volume_reduction_surgery.dta saved
+
+. export delimited medical/CSV/lung_volume_reduction_surgery, replace
+file medical/CSV/lung_volume_reduction_surgery.csv saved
+
+. keep medcodeid lvrs
+
+. save medical/compact/lung_volume_reduction_surgery, replace
+file medical/compact/lung_volume_reduction_surgery.dta saved
+
+. 
+. 
+. //PULMONARY REHABILITATION
+. use `codelists_dir'/21_Health_Status_and_Health_Services/Pulmonary_Rehabilitation/CPRD/Aurum/2023_12/pulmonary_rehabilitation, clear
+
+. 
+. drop observations
+
+. 
+. //Don't want anyone that wasn't at least referred
+. list term if considered == 1 & referred == . & commenced == . & completed == .
+
+     +----------------------------------------------------------------------------------------------+
+     |                                                                                         term |
+     |----------------------------------------------------------------------------------------------|
+  3. |                                                      Unsuitable for pulmonary rehabilitation |
+  4. |          QOF (Quality and Outcomes Framework) pulmonary rehabilitation service not available |
+  5. |                                         COPD patient unsuitable for pulmonary rehabilitation |
+  6. |                                                            Pulmonary rehabilitation declined |
+  7. |        Chronic obstructive pulmonary disease patient unsuitable for pulmonary rehabilitation |
+     |----------------------------------------------------------------------------------------------|
+  8. |                                         COPD patient unsuitable for pulmonary rehabilitation |
+  9. | COPD (Chronic obstructive pulmonary disease) patient unsuitable for pulmonary rehabilitation |
+ 10. |                                                             Pulmonary rehabilitation offered |
+ 11. |                                             Pulmonary rehabilitation programme not available |
+     +----------------------------------------------------------------------------------------------+
+
+. drop if considered == 1 & referred == . & commenced == . & completed == .
+(9 observations deleted)
+
+. drop considered
+
+. 
+. compress
+  variable medcodeid was str17 now str16
+  variable term was str92 now str75
+  (252 bytes saved)
+
+. save medical/DTA/pulmonary_rehabilitation, replace
+file medical/DTA/pulmonary_rehabilitation.dta saved
+
+. export delimited medical/CSV/pulmonary_rehabilitation, replace
+file medical/CSV/pulmonary_rehabilitation.csv saved
+
+. keep medcodeid pulmonary_rehab referred commenced completed
+
+. save medical/compact/pulmonary_rehabilitation, replace
+file medical/compact/pulmonary_rehabilitation.dta saved
+
+. 
+. 
+. //ALPHA-1 ANTI-TRYPSIN DEFICIENCY
+. use `codelists_dir'/10_Respiratory_System/Alpha_1_Antitrypsin/CPRD/Aurum/2023_12/alpha1_antitrypsin, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/alpha1_antitrypsin, replace
+file medical/DTA/alpha1_antitrypsin.dta saved
+
+. export delimited medical/CSV/alpha1_antitrypsin, replace
+file medical/CSV/alpha1_antitrypsin.csv saved
+
+. keep medcodeid alpha1
+
+. save medical/compact/alpha1_antitrypsin, replace
+file medical/compact/alpha1_antitrypsin.dta saved
+
+. 
+. 
+. //BODY MASS INDEX (BMI)
+. //Pre-calculated BMI
+. use `codelists_dir'/21_Health_Status_and_Health_Services/Body_Mass_Index/Aurum/adult_and_paeds/2023_12/bmi_raw, clear
+
+. 
+. keep if final_adultBMI_JKQ_bro_202312 == 1
+(43 observations deleted)
+
+. drop if flag_centile == 1  //don't need centile codes
+(8 observations deleted)
+
+. 
+. keep medcodeid final_adultBMI_JKQ_bro_202312
+
+. rename final_adultBMI_JKQ_bro_202312 bmi
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,087
+        from master                         0  (_merge==1)
+        from using                    247,087  (_merge==2)
+
+    Matched                                31  (_merge==3)
+    -----------------------------------------
+
+. 
+. drop if _merge == 2
+(247,087 observations deleted)
+
+. drop if _merge == 1
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order bmi, last
+
+. 
+. //Genrate BMI categories using WHO categorisation
+. label define bmi_4_WHO -1 "Underweight" 0 "Normal" 1 "Overweight" 2 "Obese"
+
+. generate byte bmi_4_WHO = .
+(31 missing values generated)
+
+. label values bmi_4_WHO bmi_4_WHO
+
+. 
+. replace bmi_4_WHO = -1 if strmatch(lower(term), "*less*16.5*")
+(1 real change made)
+
+. replace bmi_4_WHO = 0 if strmatch(lower(term), "*normal*") | strmatch(lower(term), "*18.5-24.9*")
+(4 real changes made)
+
+. replace bmi_4_WHO = 1 if strmatch(lower(term), "*overweight*")
+(4 real changes made)
+
+. replace bmi_4_WHO = 2 if strmatch(lower(term), "*obes*")
+(11 real changes made)
+
+. 
+. //Another categorisation using less than 20 as underweight because of presence of these codes
+. generate byte bmi_4_u20 = .
+(31 missing values generated)
+
+. label values bmi_4_u20 bmi_4_WHO
+
+. 
+. replace bmi_4_u20 = -1 if strmatch(lower(term), "*less*")
+(4 real changes made)
+
+. replace bmi_4_u20 = 0 if strmatch(lower(term), "*normal*") | strmatch(lower(term), "*18.5-24.9*")
+(4 real changes made)
+
+. replace bmi_4_u20 = 1 if strmatch(lower(term), "*overweight*")
+(4 real changes made)
+
+. replace bmi_4_u20 = 2 if strmatch(lower(term), "*obes*")
+(11 real changes made)
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str75
+  (5,239 bytes saved)
+
+. save medical/DTA/BMI, replace
+file medical/DTA/BMI.dta saved
+
+. export delimited medical/CSV/BMI, replace
+file medical/CSV/BMI.csv saved
+
+. keep medcodeid bmi bmi_4_WHO bmi_4_u20
+
+. save medical/compact/BMI, replace
+file medical/compact/BMI.dta saved
+
+. 
+. //Height
+. use `codelists_dir'/21_Health_Status_and_Health_Services/Height/adult_and_paediatric/2023_12/height_raw, clear
+
+. 
+. keep if final_adultheight_JKQ_bro_202312 == 1
+(82 observations deleted)
+
+. 
+. keep medcodeid final_adultheight_JKQ_bro_202312
+
+. rename final_adultheight_JKQ_bro_202312 height
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,087
+        from master                         0  (_merge==1)
+        from using                    247,087  (_merge==2)
+
+    Matched                                31  (_merge==3)
+    -----------------------------------------
+
+. 
+. drop if _merge == 2
+(247,087 observations deleted)
+
+. drop if _merge == 1
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order height, last
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str45
+  (6,169 bytes saved)
+
+. save medical/DTA/height, replace
+file medical/DTA/height.dta saved
+
+. export delimited medical/CSV/height, replace
+file medical/CSV/height.csv saved
+
+. keep medcodeid height
+
+. save medical/compact/height, replace
+file medical/compact/height.dta saved
+
+. 
+. //Weight
+. use `codelists_dir'/21_Health_Status_and_Health_Services/Weight/adult_and_paeds/CPRD/Aurum/2023_12/weight_raw, clear
+
+. 
+. keep if final_adultweight_JKQ_bro_202312 == 1
+(401 observations deleted)
+
+. 
+. keep medcodeid final_adultweight_JKQ_bro_202312
+
+. rename final_adultweight_JKQ_bro_202312 weight
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,081
+        from master                         0  (_merge==1)
+        from using                    247,081  (_merge==2)
+
+    Matched                                37  (_merge==3)
+    -----------------------------------------
+
+. 
+. drop if _merge == 2
+(247,081 observations deleted)
+
+. drop if _merge == 1
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order weight, last
+
+. 
+. //Categorise weight using WHO 4 categories
+. label define weight_4cat -1 "Underweight" 0 "Normal" 1 "Overweight" 2 "Obese"
+
+. generate byte weight_4cat = .
+(37 missing values generated)
+
+. label values weight_4cat weight_4cat
+
+. 
+. replace weight_4cat = -1 if strmatch(lower(term), "*underweight")
+(4 real changes made)
+
+. replace weight_4cat = 0 if strmatch(lower(term), "normal*")
+(1 real change made)
+
+. replace weight_4cat = 1 if strmatch(lower(term), "*overweight*")
+(4 real changes made)
+
+. replace weight_4cat = 2 if strmatch(lower(term), "*obes*")
+(5 real changes made)
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str41
+  (7,511 bytes saved)
+
+. save medical/DTA/weight, replace
+file medical/DTA/weight.dta saved
+
+. export delimited medical/CSV/weight, replace
+file medical/CSV/weight.csv saved
+
+. keep medcodeid weight weight_4cat
+
+. save medical/compact/weight, replace
+file medical/compact/weight.dta saved
+
+. 
+. 
+. //FRACTIONAL EXHALED NITRIC OXIDE (FeNO)
+. use `codelists_dir'/18_Symptoms_Signs_Laboratory/Fractional_exhaled_nitric_oxide/CPRD/Aurum/2023_12/fractional_exhaled_nitric_oxide, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/FeNO, replace
+file medical/DTA/FeNO.dta saved
+
+. export delimited medical/CSV/FeNO, replace
+file medical/CSV/FeNO.csv saved
+
+. keep medcodeid feno
+
+. save medical/compact/FeNO, replace
+file medical/compact/FeNO.dta saved
+
+. 
+. 
+. //DEPRESSION
+. use `codelists_dir'/05_Mental_Behavioural/Depression/Aurum/2023_12/depression_1s, clear
+
+. 
+. rename final_dep_JKQ_bro_2023_12 depression
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       246,968
+        from master                         0  (_merge==1)
+        from using                    246,968  (_merge==2)
+
+    Matched                               150  (_merge==3)
+    -----------------------------------------
+
+. 
+. drop if _merge == 2
+(246,968 observations deleted)
+
+. drop if _merge == 1
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order depression, last
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str15
+  variable snomedctconceptid was str18 now str17
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str89
+  (22,800 bytes saved)
+
+. save medical/DTA/depression, replace
+file medical/DTA/depression.dta saved
+
+. export delimited medical/CSV/depression, replace
+file medical/CSV/depression.csv saved
+
+. keep medcodeid depression
+
+. save medical/compact/depression, replace
+file medical/compact/depression.dta saved
+
+. 
+. 
+. //ANXIETY
+. use `codelists_dir'/05_Mental_Behavioural/Anxiety/Aurum/2023_12/anxiety_1s, clear
+
+. 
+. rename final_anx_JKQ_bro_2023_12 anxiety
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,056
+        from master                         6  (_merge==1)
+        from using                    247,050  (_merge==2)
+
+    Matched                                68  (_merge==3)
+    -----------------------------------------
+
+. 
+. drop if _merge == 2
+(247,050 observations deleted)
+
+. drop if _merge == 1
+(6 observations deleted)
+
+. drop _merge
+
+. 
+. order anxiety, last
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str63
+  (12,308 bytes saved)
+
+. save medical/DTA/anxiety, replace
+file medical/DTA/anxiety.dta saved
+
+. export delimited medical/CSV/anxiety, replace
+file medical/CSV/anxiety.csv saved
+
+. keep medcodeid anxiety
+
+. save medical/compact/anxiety, replace
+file medical/compact/anxiety.dta saved
+
+. 
+. 
+. //GASTRO-OESOPHAGEAL REFLUX DISEASE (GORD)
+. use `codelists_dir'/11_Digestive_System/Gastroesophageal_Reflux_Disease/Aurum/2023_12/gord_raw, clear
+
+. 
+. keep if final_gord_JKQ_bro_2023_12 == 1
+(85 observations deleted)
+
+. 
+. keep medcodeid final_gord_JKQ_bro_2023_12
+
+. rename final_gord_JKQ_bro_2023_12 gord
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,054
+        from master                        10  (_merge==1)
+        from using                    247,044  (_merge==2)
+
+    Matched                                74  (_merge==3)
+    -----------------------------------------
+
+. 
+. drop if _merge == 2
+(247,044 observations deleted)
+
+. drop if _merge == 1
+(10 observations deleted)
+
+. drop _merge
+
+. 
+. order gord, last
+
+. 
+. compress
+  variable medcodeid was str18 now str16
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str15
+  variable snomedctdescriptionid was str18 now str15
+  variable term was str233 now str54
+  (14,282 bytes saved)
+
+. save medical/DTA/GORD, replace
+file medical/DTA/GORD.dta saved
+
+. export delimited medical/CSV/GORD, replace
+file medical/CSV/GORD.csv saved
+
+. keep medcodeid gord
+
+. save medical/compact/GORD, replace
+file medical/compact/GORD.dta saved
+
+. 
+. 
+. //ISCHAEMIC HEART DISEASE (acute coronary syndrome codelist) (**Not a Dec 2023 build codelist**)
+. use "`codelists_dir'/09_Circulatory_System/Acute Coronary Syndrome - MI, unstable angina/CPRD/Aurum/2023_09/acs_all", clear
+
+. 
+. keep if jkq == 1
+(1 observation deleted)
+
+. 
+. keep medcodeid acs_all
+
+. rename acs_all acs
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,015
+        from master                         0  (_merge==1)
+        from using                    247,015  (_merge==2)
+
+    Matched                               103  (_merge==3)
+    -----------------------------------------
+
+. 
+. drop if _merge == 2
+(247,015 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order acs, last
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str14
+  variable snomedctconceptid was str18 now str17
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str137
+  (10,815 bytes saved)
+
+. save medical/DTA/acute_coronary_syndrome, replace
+(file medical/DTA/acute_coronary_syndrome.dta not found)
+file medical/DTA/acute_coronary_syndrome.dta saved
+
+. export delimited medical/CSV/acute_coronary_syndrome, replace
+(file medical/CSV/acute_coronary_syndrome.csv not found)
+file medical/CSV/acute_coronary_syndrome.csv saved
+
+. keep medcodeid acs
+
+. save medical/compact/acute_coronary_syndrome, replace
+(file medical/compact/acute_coronary_syndrome.dta not found)
+file medical/compact/acute_coronary_syndrome.dta saved
+
+. 
+. 
+. //HEART FAILURE (**Not a Dec 2023 build codelist**)
+. use `codelists_dir'/09_Circulatory_System/Heart_Failure/CPRD/Aurum/2023_09/heart_failure, clear
+
+. 
+. keep if jkq == 1
+(0 observations deleted)
+
+. 
+. keep medcodeid heart_failure
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       246,971
+        from master                         0  (_merge==1)
+        from using                    246,971  (_merge==2)
+
+    Matched                               147  (_merge==3)
+    -----------------------------------------
+
+. 
+. drop if _merge == 2
+(246,971 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order heart_failure, last
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str92
+  (22,344 bytes saved)
+
+. save medical/DTA/heart_failure, replace
+file medical/DTA/heart_failure.dta saved
+
+. export delimited medical/CSV/heart_failure, replace
+file medical/CSV/heart_failure.csv saved
+
+. keep medcodeid heart_failure
+
+. save medical/compact/heart_failure, replace
+file medical/compact/heart_failure.dta saved
+
+. 
+. 
+. //STROKE (**Not a Dec 2023 build codelist**)
+. use `codelists_dir'/09_Circulatory_System/Ischaemic_stroke/CPRD/Aurum/2023_09/stroke_ischemic, clear
+
+. 
+. keep if jkq == 1
+(0 observations deleted)
+
+. 
+. keep medcodeid stroke_all
+
+. rename stroke_all stroke
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       246,963
+        from master                         0  (_merge==1)
+        from using                    246,963  (_merge==2)
+
+    Matched                               155  (_merge==3)
+    -----------------------------------------
+
+. 
+. drop if _merge == 2
+(246,963 observations deleted)
+
+. drop if _merge == 1  //old terms (not in Dec 2023 build)
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order stroke, last
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str14
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str84
+  (24,335 bytes saved)
+
+. save medical/DTA/stroke, replace
+file medical/DTA/stroke.dta saved
+
+. export delimited medical/CSV/stroke, replace
+file medical/CSV/stroke.csv saved
+
+. keep medcodeid stroke
+
+. save medical/compact/stroke, replace
+file medical/compact/stroke.dta saved
+
+. 
+. 
+. //ATOPIC DERMATITIS (atopy codelist)
+. use `codelists_dir'/03_Blood_and_Immune_Diseases/Allergy/Atopy/CPRD/Aurum/2023_12/atopy, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/atopy, replace
+file medical/DTA/atopy.dta saved
+
+. export delimited medical/CSV/atopy, replace
+file medical/CSV/atopy.csv saved
+
+. keep medcodeid atopy
+
+. save medical/compact/atopy, replace
+file medical/compact/atopy.dta saved
+
+. 
+. 
+. //NASAL POLYPS
+. use `codelists_dir'/10_Respiratory_System/Nasal_polyps/CPRD/Aurum/2023_12/nasal_polyps, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/nasal_polyps, replace
+file medical/DTA/nasal_polyps.dta saved
+
+. export delimited medical/CSV/nasal_polyps, replace
+file medical/CSV/nasal_polyps.csv saved
+
+. keep medcodeid nasal_polyps
+
+. save medical/compact/nasal_polyps, replace
+file medical/compact/nasal_polyps.dta saved
+
+. 
+. 
+. //CHRONIC URTICARIA
+. use `codelists_dir'/12_Skin_and_Tissue/Chronic_Urticaria/CPRD/Aurum/2023_12/chronic_urticaria, clear
+
+. 
+. drop observations
+
+. 
+. keep if chronic_urticaria == 1
+(7 observations deleted)
+
+. drop urticaria
+
+. 
+. compress
+  variable cleansedreadcode was str7 now str1
+  variable term was str39 now str28
+  (51 bytes saved)
+
+. save medical/DTA/chronic_urticaria, replace
+file medical/DTA/chronic_urticaria.dta saved
+
+. export delimited medical/CSV/chronic_urticaria, replace
+file medical/CSV/chronic_urticaria.csv saved
+
+. keep medcodeid chronic_urticaria
+
+. save medical/compact/chronic_urticaria, replace
+file medical/compact/chronic_urticaria.dta saved
+
+. 
+. 
+. //PULMONARY EMBOLISM (venous thromboembolism codelist)
+. use `codelists_dir'/09_Circulatory_System/Venousthromboembolism/CPRD/Aurum/2023_12/venous_thromboembolism, clear
+
+. 
+. drop observations
+
+. 
+. compress
+  (0 bytes saved)
+
+. save medical/DTA/venous_thromboembolism, replace
+file medical/DTA/venous_thromboembolism.dta saved
+
+. export delimited medical/CSV/venous_thromboembolism, replace
+file medical/CSV/venous_thromboembolism.csv saved
+
+. keep medcodeid vte
+
+. save medical/compact/venous_thromboembolism, replace
+file medical/compact/venous_thromboembolism.dta saved
+
+. 
+. 
+. //COPD ASESSMENT TEST (CAT) SCORE
+. use `codelists_dir'/10_Respiratory_System/COPD/CAT_score/2023_12/cat_score_copd, clear
+
+. 
+. keep if final_catscore_JKQ_bro_2023_12 == 1
+(1 observation deleted)
+
+. 
+. keep medcodeid final_catscore_JKQ_bro_2023_12
+
+. rename final_catscore_JKQ_bro_2023_12 cat_score
+
+. 
+. merge 1:1 medcodeid using `medical'
+(variable medcodeid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       247,099
+        from master                         0  (_merge==1)
+        from using                    247,099  (_merge==2)
+
+    Matched                                19  (_merge==3)
+    -----------------------------------------
+
+. 
+. drop if _merge == 2
+(247,099 observations deleted)
+
+. drop if _merge == 1
+(0 observations deleted)
+
+. drop _merge
+
+. 
+. order cat_score, last
+
+. 
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str16
+  variable snomedctdescriptionid was str18 now str16
+  variable term was str233 now str83
+  (3,059 bytes saved)
+
+. save medical/DTA/COPD_assessment_test, replace
+file medical/DTA/COPD_assessment_test.dta saved
+
+. export delimited medical/CSV/COPD_assessment_test, replace
+file medical/CSV/COPD_assessment_test.csv saved
+
+. keep medcodeid cat_score
+
+. save medical/compact/COPD_assessment_test, replace
+file medical/compact/COPD_assessment_test.dta saved
+
+. 
+. 
+. log close
+      name:  <unnamed>
+       log:  D:\GitHub\Uncontrolled_COPD\codelists\codelists_primarycare.log
+  log type:  text
+ closed on:  29 May 2024, 19:43:58
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

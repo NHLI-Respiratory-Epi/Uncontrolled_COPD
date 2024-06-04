@@ -1,0 +1,86 @@
+medcodeid,originalreadcode,cleansedreadcode,snomedctconceptid,snomedctdescriptionid,term,forced_fev1_fvc,fev1,fev1_predicted,fev1_percent_pred,fvc,fvc_predicted,fvc_percent_pred,fev1_fvc_ratio,fev1_fvc_ratio_predicted,fev1_fvc_ratio_percent_pred,reversibility_test_fev1_indic,bronchodilator
+1141711000000111,33971,3397100,513471000000106,1141711000000111,Forced expired volume in 1 second percentage change,1,1,,,,,,,,,,
+1141751000000110,339O0,339O000,445466003,2872069016,Forced expired volume in 1 second reversibility,1,1,,,,,,,,,1,Post-bronchodilation
+1141791000000119,33962,3396200,445210000,2871597017,Percentage of predicted forced vital capacity,1,,,,,1,,,,,,
+1224805016,339M,339M.00,251944000,1224805016,FEV1/FVC ratio,1,,,,,,,1,,,,Unspecified
+14505011000006113,^ESCT1450501,,314472003,4578219016,FEV1/FVC < 70 percent of predicted,1,,,,,1,,,,,,
+14505031000006119,^ESCT1450503,,314473008,4578207012,FEV1/FVC > 70 percent of predicted,1,,,,,1,,,,,,
+1485135010,33H0,33H0.00,391111000,1485135010,Negative reversibility test to salbutamol,,,,,,,,,,,1,
+1485137019,33I0,33I0.00,391113002,1485137019,Negative reversibility test to ipratropium bromide,,,,,,,,,,,1,
+1485141015,33K0,33K0.00,391117001,1485141015,Negative reversibility test to corticosteroid,,,,,,,,,,,1,
+1485142010,33H1,33H1.00,391118006,1485142010,Positive reversibility test to salbutamol,,,,,,,,,,,1,
+1485143017,33I1,33I1.00,391119003,1485143017,Positive reversibility test to ipratropium bromide,,,,,,,,,,,1,
+1485146013,33K1,33K1.00,391122001,1485146013,Positive reversibility test to corticosteroids,,,,,,,,,,,1,
+1752221000006118,339S0,339S000,447254005,2884301017,Percentage predicted forced expiratory volume in 1 second after bronchodilation,1,,,1,,,,,,,,Post-bronchodilation
+1761631000006119,EMISNQFE8,,1761631000006103,1761631000006119,FEV1 after bronchial provocation test,1,1,,,,,,,,,,Post-bronchodilation
+1761641000006112,EMISNQFV1,,1761641000006108,1761641000006112,FVC after bronchial provocation test,1,,,,1,,,,,,,Post-bronchodilation
+1761661000006111,EMISNQFE9,,1761661000006107,1761661000006111,FEV1 before bronchial provocation test,1,1,,,,,,,,,,Pre-bronchodilation
+1761671000006116,EMISNQFV2,,1761671000006100,1761671000006116,FVC before bronchial provocation test,1,,,,1,,,,,,,Pre-bronchodilation
+1771021000006117,EMISNQPE29,,1771021000006101,1771021000006117,Percentage predicted FEV1 after exercise,1,,,1,,,,,,,,Unspecified
+1780219015,339a,339a.00,401012008,1780219015,FEV1 before bronchodilation,1,1,,,,,,,,,,Pre-bronchodilation
+1780220014,339b,339b.00,401013003,1780220014,FEV1 after bronchodilation,1,1,,,,,,,,,,Post-bronchodilation
+1780223011,339f,339f.00,401016006,1780223011,FEV1 post steroids,1,1,,,,,,,,,,Post-bronchodilation
+1780316012,339e,339e.00,401115007,1780316012,FEV1 pre steroids,1,1,,,,,,,,,,Pre-bronchodilation
+1821541000006119,JHCFE6,,1821541000006103,1821541000006119,FEV1 > 80% of predicted,1,,,1,,,,,,,,Unspecified
+1821551000006117,JHCFE7,,1821551000006101,1821551000006117,FEV1 variability < 20%,1,,,1,,,,,,,,Unspecified
+1821561000006115,JHCFE8,,1821561000006104,1821561000006115,FEV1 variability 20-30%,1,,,1,,,,,,,,Unspecified
+1821581000006113,JHCFE9,,1821581000006109,1821581000006113,FEV1 60-80% of predicted,1,,,1,,,,,,,,Unspecified
+1821591000006111,JHCFE10,,1821591000006107,1821591000006111,FEV1 variability > 30%,1,,,1,,,,,,,,Unspecified
+1821601000006115,JHCFE11,,1821601000006104,1821601000006115,FEV1 < 60% of predicted,1,,,1,,,,,,,,Unspecified
+1857031000006113,EMISNQPE47,,1857031000006109,1857031000006113,Percentage of FEV1 variability,1,1,,,,,,,,,,
+1865491000006118,33963,3396300,862831000000104,2231101000000110,FVC (forced vital capacity) after change of bronchodilator,1,,,,1,,,,,,,Post-bronchodilation
+1865501000006114,33972,3397200,862931000000108,2231361000000111,FEV1 (forced expiratory volume in 1 second) after change of bronchodilator,1,1,,,,,,,,,,Post-bronchodilation
+1865511000006112,339h0,339h000,862851000000106,2231141000000113,FVC (forced vital capacity) post bronchodilator percentage change,1,,,,1,,,,,,,
+1900761000006115,339h1,339h100,903601000000107,2323841000000110,Percentage of predicted forced vital capacity after bronchodilation,1,,,,,,1,,,,,Post-bronchodilation
+2163847010,339h,339h.00,407561008,2163847010,FVC after bronchodilation,1,,,,1,,,,,,,Post-bronchodilation
+2163849013,339i,339i.00,407576000,2163849013,FVC/Expected FVC percent,1,,,,,,1,,,,,Unspecified
+2163852017,339j,339j.00,407599001,2163852017,FEV1/FVC ratio pre steroids,1,,,,,,,1,,,,Pre-bronchodilation
+2163853010,339k,339k.00,407601004,2163853010,FEV1/FVC ratio post steroids,1,,,,,,,1,,,,Post-bronchodilation
+2163854016,339l,339l.00,407602006,2163854016,FEV1/FVC ratio before bronchodilator,1,,,,,,,1,,,,Pre-bronchodilation
+2163855015,339m,339m.00,407603001,2163855015,FEV1/FVC ratio after bronchodilator,1,,,,,,,1,,,,Post-bronchodilation
+2533638019,8I2M,8I2M.00,415571003,2533638019,Spirometry reversibility testing contraindicated,,,,,,,,,,,1,Pre-bronchodilation
+256685010,33960,3396000,165039000,256685010,FVC - forced vital capacity normal,1,,,,1,,,,,,,Unspecified
+256686011,33961,3396100,165040003,256686011,FVC - forced vital capacity abnormal,1,,,,1,,,,,,,Unspecified
+256689016,3398,3398.00,165043001,256689016,FEV1/FVC ratio normal,1,,,,,,,1,,,,Unspecified
+256690013,3399,3399.00,165044007,256690013,FEV1/FVC ratio abnormal,1,,,,,,,1,,,,Unspecified
+3323341000006118,^ESCTFV332334,,50834005,1230911018,FVC - Forced vital capacity,1,,,,1,,,,,,,Unspecified
+3463571000006118,^ESCTFE346357,,59328004,1231944015,FEV1 - Forced expired volume in 1 second,1,1,,,,,,,,,,Unspecified
+453937018,339N,339N.00,310360002,453937018,Expected FEV1/FVC ratio,1,,,,,,,,1,,,Unspecified
+454110011,339P,339P.00,310520004,454110011,Expected FEV1,1,,1,,,,,,,,,Unspecified
+454111010,339Q,339Q.00,310521000,454111010,Expected FVC,1,,,,,1,,,,,,Unspecified
+456165013,663k,663k.00,312455006,456165013,Reversibility trial by steroids,,,,,,,,,,,1,
+457080011,339R,339R.00,313222007,457080011,FEV1/FVC percent,1,,,,,,,1,,,,Unspecified
+457081010,339S,339S.00,313223002,457081010,Percent predicted FEV1,1,,,1,,,,,,,,Unspecified
+458838014,339U,339U.00,314472003,458838014,FEV1/FVC < 70% of predicted,1,,,,,,,,,1,,Unspecified
+458839018,339T,339T.00,314473008,458839018,FEV1/FVC > 70% of predicted,1,,,,,,,,,1,,Unspecified
+4588671000006119,^ESCTFE458867,,165041004,1221361018,FEV - Forced expired volume,,1,,,,,,,,,,Unspecified
+4588751000006119,^ESCTFO458875,,165043001,2619113011,Forced expiratory volume in one second (FEV1)/Forced vital capacity (FVC) ratio normal,1,,,,,,,1,,,,Unspecified
+459417016,33G,33G..00,314979004,459417016,Spirometry reversibility,,,,,,,,,,,1,Post-bronchodilation
+459418014,33G0,33G0.00,314980001,459418014,Spirometry reversibility negative,,,,,,,,,,,1,Post-bronchodilation
+459419018,33G1,33G1.00,314981002,459419018,Spirometry reversibility positive,,,,,,,,,,,1,Post-bronchodilation
+5308481000006112,^ESCTFO530848,,251944000,375284011,Forced expired volume in one second/forced vital capacity ratio,1,,,,,,,1,,,,Unspecified
+5308491000006110,^ESCTFO530849,,251944000,375285012,Forced expired volume in one sec/forced vital capacity ratio,1,,,,,,,1,,,,Unspecified
+5308501000006119,^ESCTFO530850,,251944000,1224804017,Forced expired volume in 1 second : forced vital capacity ratio,1,,,,,,,1,,,,Unspecified
+6000931000006116,^ESCTEX600093,,310520004,454109018,Expected forced expired volume in 1 second,1,,1,,,,,,,,,Unspecified
+6000951000006111,^ESCTEX600095,,310521000,454112015,Expected forced vital capacity,1,,,,,1,,,,,,
+6027621000006118,^ESCTFO602762,,313222007,2972372018,Forced expiratory volume in one second/Forced vital capacity percent,1,,,,,,,1,,,,Unspecified
+6027641000006113,^ESCTPE602764,,313223002,2914358011,Percent predicted forced expired volume in one second,1,,,1,,,,,,,,Unspecified
+6052331000006110,^ESCTSP605233,,314979004,1490668019,Spirometry reversibility test,,,,,,,,,,,1,Post-bronchodilation
+6436231000006113,^ESCTSP643623,,385350001,1479583017,Spirometry reversibility finding,,,,,,,,,,,1,
+6647421000006110,^ESCTFO664742,,401013003,1787425016,Forced expired volume in 1 second after bronchodilation,1,1,,,,,,,,,,Post-bronchodilation
+6748961000006118,^ESCTFO674896,,407561008,2159162019,Forced vital capacity (FVC) after bronchodilation,1,,,,1,,,,,,,Post-bronchodilation
+6749131000006117,^ESCTFO674913,,407576000,2159177010,Forced vital capacity (FVC)/expected Forced vital capacity (FVC) percent,1,,,,,,1,,,,,Unspecified
+6749281000006112,^ESCTFO674928,,407599001,2972340016,Forced expiratory volume in one second/Forced vital capacity ratio pre steroids,1,,,,,,,1,,,,Pre-bronchodilation
+6749311000006114,^ESCTFO674931,,407601004,2972608012,Forced expiratory volume in one second/Forced vital capacity ratio post steroids,1,,,,,,,1,,,,Post-bronchodilation
+6749351000006110,^ESCTFO674935,,407603001,2159204013,Forced expiratory volume 1 (FEV1)/ forced vital capacity (FVC) ratio after bronchodilator,1,,,,,,,1,,,,Post-bronchodilation
+742761000000111,339s,339s.00,441857000,2818533012,Forced vital capacity before bronchodilation,1,,,,1,,,,,,,
+7562701000006114,^ESCTRE756270,,702540003,3004387013,Referral for spirometry reversibility test,,,,,,,,,,,1,
+764471000006117,3397,3397.00,165041004,256687019,Forced expired volume,,1,,,,,,,,,,Unspecified
+764481000006119,339O,339O.00,59328004,498401010,Forced expired volume in 1 second,1,1,,,,,,,,,,Unspecified
+764741000006116,3396,3396.00,50834005,84715019,Forced vital capacity,1,,,,1,,,,,,,Unspecified
+8308481000006117,^ESCTRE830848,,882591000000103,2276091000000113,Referral for spirometry reversibility testing,,,,,,,,,,,1,
+833331000006115,33J0,33J0.00,391115009,1485139016,Negative reversibility test to combination of salbutamol and ipratropium bromide,,,,,,,,,,,1,
+833341000006113,33J1,33J1.00,391121008,1485145012,Positive reversibility test to a combination of salbutamol and ipratropium bromide,,,,,,,,,,,1,
+833351000006110,33K,33K..00,312455006,1490652013,Steroid reversibility test,,,,,,,,,,,1,
+951231000006116,TRISFO1,,951231000006100,951231000006116,Forced expiratory volume 1 - fev1,1,1,,,,,,,,,,Unspecified
+970821000006111,EMISNQSP2,,970821000006107,970821000006111,Spirometry reversibility testing contraindicated,,,,,,,,,,,1,Pre-bronchodilation
