@@ -2,7 +2,7 @@
       name:  <unnamed>
        log:  D:\GitHub\Uncontrolled_COPD\codelists\codelists_primarycare.log
   log type:  text
- opened on:  29 May 2024, 19:43:41
+ opened on:   5 Jun 2024, 00:47:58
 
 . 
 . local aurum_build "202312"
@@ -39,7 +39,7 @@
 . tempfile medical
 
 . save `medical'
-file C:\Users\pstone\AppData\Local\Temp\ST_5514_000001.tmp saved as .dta format
+file C:\Users\pstone\AppData\Local\Temp\ST_327c_000001.tmp saved as .dta format
 
 . 
 . 
@@ -58,7 +58,7 @@ file C:\Users\pstone\AppData\Local\Temp\ST_5514_000001.tmp saved as .dta format
 . tempfile product
 
 . save `product'
-file C:\Users\pstone\AppData\Local\Temp\ST_5514_000002.tmp saved as .dta format
+file C:\Users\pstone\AppData\Local\Temp\ST_327c_000002.tmp saved as .dta format
 
 . 
 . 
@@ -131,6 +131,11 @@ file medical/CSV/COPD_exAECOPD.csv saved
 file medical/compact/COPD_exAECOPD.dta saved
 
 . 
+. //Combined master codelist
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //SMOKING STATUS
 . use `codelists_dir'/21_Health_Status_and_Health_Services/Smoking/CPRD/Aurum/2023_12/smoking_status, clear
@@ -161,6 +166,22 @@ file medical/CSV/smoking_status.csv saved
 
 . save medical/compact/smoking_status, replace
 file medical/compact/smoking_status.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           449
+        from master                       281  
+        from using                        168  
+
+    Matched                                 1  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -243,6 +264,22 @@ file medical/CSV/spirometry.csv saved
 file medical/compact/spirometry.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           535
+        from master                        85  
+        from using                        450  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //MRC GRADE
 . use `codelists_dir'/18_Symptoms_Signs_Laboratory/Breathlessness_MRC/CPRD/Aurum/2023_12/mrc_dyspnoea_scale_raw, clear
@@ -299,6 +336,22 @@ file medical/CSV/MRC_grade.csv saved
 
 . save medical/compact/MRC_grade, replace
 file medical/compact/MRC_grade.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           566
+        from master                        31  
+        from using                        535  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -361,9 +414,26 @@ file medical/CSV/chronic_cough.csv saved
 file medical/compact/chronic_cough.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str9, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           568
+        from master                         3  
+        from using                        565  
+
+    Matched                                 1  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //INHALED THERAPY (ICS/LABA/LAMA)
-. use `codelists_dir'/10_Respiratory_System/Medications/Inhalers/2023_12/0301_0302_COPDrx_inhalers_prodbrowsing_raw, clear
+. use `codelists_dir'/10_Respiratory_System/Medications/Inhalers/Aurum/2023_12/0301_0302_COPDrx_inhalers_prodbrowsing_raw, clear
 
 . 
 . keep if final_COPDinh_JKQ_bro_2023_12 == 1
@@ -571,6 +641,12 @@ file product/CSV/inhaled_therapy.csv saved
 file product/compact/inhaled_therapy.dta saved
 
 . 
+. //Combined master codelist
+. save product/product_master, replace
+(file product/product_master.dta not found)
+file product/product_master.dta saved
+
+. 
 . 
 . //EOSINOPHILS
 . use `codelists_dir'/03_Blood_and_Immune_Diseases/Eosinophils/CPRD/Aurum/2023_12/eosinophils, clear
@@ -596,6 +672,22 @@ file medical/CSV/eosinophils.csv saved
 file medical/compact/eosinophils.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           585
+        from master                        16  
+        from using                        569  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //ASTHMA
 . use `codelists_dir'/10_Respiratory_System/Asthma/CPRD/Aurum/2023_12/asthma, clear
@@ -619,6 +711,22 @@ file medical/CSV/asthma.csv saved
 
 . save medical/compact/asthma, replace
 file medical/compact/asthma.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           806
+        from master                       221  
+        from using                        585  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -685,6 +793,22 @@ file medical/CSV/interstitial_lung_disease.csv saved
 file medical/compact/interstitial_lung_disease.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           993
+        from master                       187  
+        from using                        806  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //PULMONARY HYPERTENSION, COR PULMONALE, EVIDENCE OF RIGHT CARDIAC FAILURE
 . use `codelists_dir'/09_Circulatory_System/Pulmonary_Vascular_Diseases/Pulmonary_Arterial_Hypertension/Aurum/2023_12/pulmonary_arterial_hypertension, clear
@@ -708,6 +832,22 @@ file medical/CSV/pulmonary_arterial_hypertension.csv saved
 
 . save medical/compact/pulmonary_arterial_hypertension, replace
 file medical/compact/pulmonary_arterial_hypertension.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,034
+        from master                        41  
+        from using                        993  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -735,6 +875,23 @@ file medical/CSV/bronchiectasis.csv saved
 file medical/compact/bronchiectasis.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,047
+        from master                        13  
+        from using                      1,034  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //EOSINOPHILIC OESOPHAGITIS
 . use "`codelists_dir'/11_Digestive_System/Eosinophilic oesophagitis/CPRD/Aurum/2023_12/eosinophilic_oesophagitis", clear
@@ -758,6 +915,23 @@ file medical/CSV/eosinophilic_oesophagitis.csv saved
 
 . save medical/compact/eosinophilic_oesophagitis, replace
 file medical/compact/eosinophilic_oesophagitis.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,049
+        from master                         2  
+        from using                      1,047  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -786,6 +960,22 @@ file medical/CSV/oxygen_medcode.csv saved
 file medical/compact/oxygen_medcode.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,122
+        from master                        73  
+        from using                      1,049  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . //prodcodeid
 . use `codelists_dir'/10_Respiratory_System/Medications/Additional_Oxygen/CPRD/Aurum/2023_12/oxygen_prodcode, clear
 
@@ -810,6 +1000,22 @@ file product/CSV/oxygen_prodcode.csv saved
 
 . save product/compact/oxygen_prodcode, replace
 file product/compact/oxygen_prodcode.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 prodcodeid using product/product_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           436
+        from master                        71  
+        from using                        365  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save product/product_master, replace
+file product/product_master.dta saved
 
 . 
 . 
@@ -838,6 +1044,23 @@ file medical/CSV/hypercapnia.csv saved
 file medical/compact/hypercapnia.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,140
+        from master                        18  
+        from using                      1,122  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . //NIV
 . use `codelists_dir'/21_Health_Status_and_Health_Services/Non_Invasive_Ventilation/CPRD/Aurum/2023_12/non_invasive_ventilation, clear
 
@@ -860,6 +1083,22 @@ file medical/CSV/non_invasive_ventilation.csv saved
 
 . save medical/compact/non_invasive_ventilation, replace
 file medical/compact/non_invasive_ventilation.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,167
+        from master                        29  
+        from using                      1,138  
+
+    Matched                                 2  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -922,6 +1161,23 @@ file medical/CSV/AECOPD_moderate.csv saved
 
 . save medical/compact/AECOPD_moderate, replace
 file medical/compact/AECOPD_moderate.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,189
+        from master                        20  
+        from using                      1,169  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . //AECOPD symptoms
@@ -988,6 +1244,22 @@ file medical/CSV/AECOPD_symptoms.csv saved
 file medical/compact/AECOPD_symptoms.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,394
+        from master                       209  
+        from using                      1,185  
+
+    Matched                                 4  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . //Systemic corticosteroids (intramuscular, intrvenous, oral)
 . use `codelists_dir'/10_Respiratory_System/Medications/Oral_corticosteroids/CPRD/Aurum/2023_12/ocs, clear
 
@@ -1043,6 +1315,22 @@ file product/CSV/oral_corticosteroids.csv saved
 
 . save product/compact/oral_corticosteroids, replace
 file product/compact/oral_corticosteroids.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 prodcodeid using product/product_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           478
+        from master                        42  
+        from using                        436  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save product/product_master, replace
+file product/product_master.dta saved
 
 . 
 . //Antibiotics
@@ -1102,6 +1390,22 @@ file product/CSV/antibiotics.csv saved
 file product/compact/antibiotics.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 prodcodeid using product/product_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           714
+        from master                       236  
+        from using                        478  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save product/product_master, replace
+file product/product_master.dta saved
+
+. 
 . //Lower respiratory tract infection
 . use `codelists_dir'/10_Respiratory_System/Lower_Respiratory_Tract_Infection/CPRD/Aurum/2023_12/lrti, clear
 
@@ -1159,6 +1463,22 @@ file medical/CSV/LRTI.csv saved
 file medical/compact/LRTI.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,547
+        from master                       151  
+        from using                      1,396  
+
+    Matched                                 2  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . //COPD annual review
 . use `codelists_dir'/10_Respiratory_System/COPD/AECOPD/Aurum/2023_12/COPD_annual_review, clear
 
@@ -1212,6 +1532,23 @@ file medical/CSV/COPD_annual_review.csv saved
 file medical/compact/COPD_annual_review.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,542
+        from master                         0  
+        from using                      1,542  
+
+    Matched                                 7  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //PNEUMONECTOMY, LUNG VOLUME REDUCTION SURGERY
 . use `codelists_dir'/21_Health_Status_and_Health_Services/Lung_Volume_Reduction_Surgery/CPRD/Aurum/2023_12/lung_volume_reduction_surgery, clear
@@ -1233,6 +1570,23 @@ file medical/CSV/lung_volume_reduction_surgery.csv saved
 
 . save medical/compact/lung_volume_reduction_surgery, replace
 file medical/compact/lung_volume_reduction_surgery.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,550
+        from master                         1  
+        from using                      1,549  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -1284,6 +1638,23 @@ file medical/CSV/pulmonary_rehabilitation.csv saved
 file medical/compact/pulmonary_rehabilitation.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,564
+        from master                        14  
+        from using                      1,550  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //ALPHA-1 ANTI-TRYPSIN DEFICIENCY
 . use `codelists_dir'/10_Respiratory_System/Alpha_1_Antitrypsin/CPRD/Aurum/2023_12/alpha1_antitrypsin, clear
@@ -1306,6 +1677,27 @@ file medical/CSV/alpha1_antitrypsin.csv saved
 . save medical/compact/alpha1_antitrypsin, replace
 file medical/compact/alpha1_antitrypsin.dta saved
 
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,569
+        from master                         5  
+        from using                      1,564  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
+. 
+. //HEALTHCARE UTILISATION
+. //todo?
 . 
 . 
 . //BODY MASS INDEX (BMI)
@@ -1412,6 +1804,22 @@ file medical/CSV/BMI.csv saved
 file medical/compact/BMI.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,600
+        from master                        31  
+        from using                      1,569  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . //Height
 . use `codelists_dir'/21_Health_Status_and_Health_Services/Height/adult_and_paediatric/2023_12/height_raw, clear
 
@@ -1468,6 +1876,22 @@ file medical/CSV/height.csv saved
 
 . save medical/compact/height, replace
 file medical/compact/height.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,631
+        from master                        31  
+        from using                      1,600  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . //Weight
@@ -1550,6 +1974,22 @@ file medical/CSV/weight.csv saved
 file medical/compact/weight.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,668
+        from master                        37  
+        from using                      1,631  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //FRACTIONAL EXHALED NITRIC OXIDE (FeNO)
 . use `codelists_dir'/18_Symptoms_Signs_Laboratory/Fractional_exhaled_nitric_oxide/CPRD/Aurum/2023_12/fractional_exhaled_nitric_oxide, clear
@@ -1571,6 +2011,22 @@ file medical/CSV/FeNO.csv saved
 
 . save medical/compact/FeNO, replace
 file medical/compact/FeNO.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,673
+        from master                         5  
+        from using                      1,668  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -1626,6 +2082,22 @@ file medical/CSV/depression.csv saved
 file medical/compact/depression.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,823
+        from master                       150  
+        from using                      1,673  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //ANXIETY
 . use `codelists_dir'/05_Mental_Behavioural/Anxiety/Aurum/2023_12/anxiety_1s, clear
@@ -1677,6 +2149,22 @@ file medical/CSV/anxiety.csv saved
 
 . save medical/compact/anxiety, replace
 file medical/compact/anxiety.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,891
+        from master                        68  
+        from using                      1,823  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -1738,6 +2226,23 @@ file medical/CSV/GORD.csv saved
 file medical/compact/GORD.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         1,963
+        from master                        73  
+        from using                      1,890  
+
+    Matched                                 1  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //ISCHAEMIC HEART DISEASE (acute coronary syndrome codelist) (**Not a Dec 2023 build codelist**)
 . use "`codelists_dir'/09_Circulatory_System/Acute Coronary Syndrome - MI, unstable angina/CPRD/Aurum/2023_09/acs_all", clear
@@ -1786,18 +2291,31 @@ file medical/compact/GORD.dta saved
   (10,815 bytes saved)
 
 . save medical/DTA/acute_coronary_syndrome, replace
-(file medical/DTA/acute_coronary_syndrome.dta not found)
 file medical/DTA/acute_coronary_syndrome.dta saved
 
 . export delimited medical/CSV/acute_coronary_syndrome, replace
-(file medical/CSV/acute_coronary_syndrome.csv not found)
 file medical/CSV/acute_coronary_syndrome.csv saved
 
 . keep medcodeid acs
 
 . save medical/compact/acute_coronary_syndrome, replace
-(file medical/compact/acute_coronary_syndrome.dta not found)
 file medical/compact/acute_coronary_syndrome.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         2,067
+        from master                       103  
+        from using                      1,964  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -1855,6 +2373,22 @@ file medical/CSV/heart_failure.csv saved
 
 . save medical/compact/heart_failure, replace
 file medical/compact/heart_failure.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         2,214
+        from master                       147  
+        from using                      2,067  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -1915,6 +2449,22 @@ file medical/CSV/stroke.csv saved
 file medical/compact/stroke.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         2,369
+        from master                       155  
+        from using                      2,214  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //ATOPIC DERMATITIS (atopy codelist)
 . use `codelists_dir'/03_Blood_and_Immune_Diseases/Allergy/Atopy/CPRD/Aurum/2023_12/atopy, clear
@@ -1938,6 +2488,22 @@ file medical/CSV/atopy.csv saved
 file medical/compact/atopy.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         2,632
+        from master                       277  
+        from using                      2,355  
+
+    Matched                                14  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //NASAL POLYPS
 . use `codelists_dir'/10_Respiratory_System/Nasal_polyps/CPRD/Aurum/2023_12/nasal_polyps, clear
@@ -1959,6 +2525,23 @@ file medical/CSV/nasal_polyps.csv saved
 
 . save medical/compact/nasal_polyps, replace
 file medical/compact/nasal_polyps.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         2,679
+        from master                        33  
+        from using                      2,646  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -1992,6 +2575,23 @@ file medical/CSV/chronic_urticaria.csv saved
 file medical/compact/chronic_urticaria.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+(variable medcodeid was str16, now str17 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         2,682
+        from master                         3  
+        from using                      2,679  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . //PULMONARY EMBOLISM (venous thromboembolism codelist)
 . use `codelists_dir'/09_Circulatory_System/Venousthromboembolism/CPRD/Aurum/2023_12/venous_thromboembolism, clear
@@ -2013,6 +2613,22 @@ file medical/CSV/venous_thromboembolism.csv saved
 
 . save medical/compact/venous_thromboembolism, replace
 file medical/compact/venous_thromboembolism.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         2,743
+        from master                        61  
+        from using                      2,682  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
 
 . 
 . 
@@ -2074,10 +2690,26 @@ file medical/CSV/COPD_assessment_test.csv saved
 file medical/compact/COPD_assessment_test.dta saved
 
 . 
+. //Combined master codelist
+. merge 1:1 medcodeid using medical/medical_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                         2,728
+        from master                         2  
+        from using                      2,726  
+
+    Matched                                17  
+    -----------------------------------------
+
+. save medical/medical_master, replace
+file medical/medical_master.dta saved
+
+. 
 . 
 . log close
       name:  <unnamed>
        log:  D:\GitHub\Uncontrolled_COPD\codelists\codelists_primarycare.log
   log type:  text
- closed on:  29 May 2024, 19:43:58
+ closed on:   5 Jun 2024, 00:48:18
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

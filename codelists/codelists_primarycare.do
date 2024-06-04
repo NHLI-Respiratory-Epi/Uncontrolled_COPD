@@ -76,6 +76,9 @@ export delimited medical/CSV/COPD_exAECOPD, replace
 keep medcodeid copd_prevalent copd_incident
 save medical/compact/COPD_exAECOPD, replace
 
+//Combined master codelist
+save medical/medical_master, replace
+
 
 //SMOKING STATUS
 use `codelists_dir'/21_Health_Status_and_Health_Services/Smoking/CPRD/Aurum/2023_12/smoking_status, clear
@@ -92,6 +95,10 @@ export delimited medical/CSV/smoking_status, replace
 //Compact version
 keep medcodeid smoking_status ever_smoker
 save medical/compact/smoking_status, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //SPIROMETRY
@@ -135,6 +142,10 @@ keep medcodeid forced_fev1_fvc fev1 fev1_predicted fev1_percent_pred fvc ///
 	fev1_fvc_ratio_percent_pred reversibility_test_fev1_indic bronchodilator
 save medical/compact/spirometry, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //MRC GRADE
 use `codelists_dir'/18_Symptoms_Signs_Laboratory/Breathlessness_MRC/CPRD/Aurum/2023_12/mrc_dyspnoea_scale_raw, clear
@@ -157,6 +168,10 @@ export delimited medical/CSV/MRC_grade, replace
 //Compact version
 keep medcodeid mrc mrc_dyspnoea_scale mmrc mmrc_dyspnoea_scale emrc emrc_dyspnoea_scale
 save medical/compact/MRC_grade, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //CHRONIC BRONCHITIS/COUGH
@@ -182,9 +197,13 @@ export delimited medical/CSV/chronic_cough, replace
 keep medcodeid chronic_cough
 save medical/compact/chronic_cough, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //INHALED THERAPY (ICS/LABA/LAMA)
-use `codelists_dir'/10_Respiratory_System/Medications/Inhalers/2023_12/0301_0302_COPDrx_inhalers_prodbrowsing_raw, clear
+use `codelists_dir'/10_Respiratory_System/Medications/Inhalers/Aurum/2023_12/0301_0302_COPDrx_inhalers_prodbrowsing_raw, clear
 
 keep if final_COPDinh_JKQ_bro_2023_12 == 1
 
@@ -210,6 +229,9 @@ export delimited product/CSV/inhaled_therapy, replace
 keep prodcodeid inhaler
 save product/compact/inhaled_therapy, replace
 
+//Combined master codelist
+save product/product_master, replace
+
 
 //EOSINOPHILS
 use `codelists_dir'/03_Blood_and_Immune_Diseases/Eosinophils/CPRD/Aurum/2023_12/eosinophils, clear
@@ -224,6 +246,10 @@ export delimited medical/CSV/eosinophils, replace
 keep medcodeid eosinophils
 save medical/compact/eosinophils, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //ASTHMA
 use `codelists_dir'/10_Respiratory_System/Asthma/CPRD/Aurum/2023_12/asthma, clear
@@ -237,6 +263,10 @@ export delimited medical/CSV/asthma, replace
 //Compact version
 keep medcodeid asthma
 save medical/compact/asthma, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //LUNG FIBROSIS, SARCOIDOSIS, INTERSTITIAL LUNG DISEASE, CHURG-STRAUSS SYNDROME (EOSINOPHILIC GRANULOMATOSIS WITH POLYANGIITIS (EGPA)) (**Not a Dec 2023 build codelist**)
@@ -264,6 +294,10 @@ export delimited medical/CSV/interstitial_lung_disease, replace
 keep medcodeid ild
 save medical/compact/interstitial_lung_disease, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //PULMONARY HYPERTENSION, COR PULMONALE, EVIDENCE OF RIGHT CARDIAC FAILURE
 use `codelists_dir'/09_Circulatory_System/Pulmonary_Vascular_Diseases/Pulmonary_Arterial_Hypertension/Aurum/2023_12/pulmonary_arterial_hypertension, clear
@@ -277,6 +311,10 @@ export delimited medical/CSV/pulmonary_arterial_hypertension, replace
 //Compact version
 keep medcodeid pah
 save medical/compact/pulmonary_arterial_hypertension, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //BRONCHIECTASIS
@@ -292,6 +330,10 @@ export delimited medical/CSV/bronchiectasis, replace
 keep medcodeid bronchiectasis
 save medical/compact/bronchiectasis, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //EOSINOPHILIC OESOPHAGITIS
 use "`codelists_dir'/11_Digestive_System/Eosinophilic oesophagitis/CPRD/Aurum/2023_12/eosinophilic_oesophagitis", clear
@@ -305,6 +347,10 @@ export delimited medical/CSV/eosinophilic_oesophagitis, replace
 //Compact version
 keep medcodeid eosinophilic_oesophagitis
 save medical/compact/eosinophilic_oesophagitis, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //OXYGEN TREATMENT, LONG-TERM OXYGEN THERAPY
@@ -321,6 +367,10 @@ export delimited medical/CSV/oxygen_medcode, replace
 keep medcodeid oxygen ltot
 save medical/compact/oxygen_medcode, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 //prodcodeid
 use `codelists_dir'/10_Respiratory_System/Medications/Additional_Oxygen/CPRD/Aurum/2023_12/oxygen_prodcode, clear
 
@@ -334,6 +384,10 @@ export delimited product/CSV/oxygen_prodcode, replace
 //Compact version
 keep prodcodeid oxygen oxygen_therapy_type
 save product/compact/oxygen_prodcode, replace
+
+//Combined master codelist
+merge 1:1 prodcodeid using product/product_master, nogenerate
+save product/product_master, replace
 
 
 //HYPERCAPNIA REQUIRING BI-LEVEL VENTILATION
@@ -350,6 +404,10 @@ export delimited medical/CSV/hypercapnia, replace
 keep medcodeid hypercapnia
 save medical/compact/hypercapnia, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 //NIV
 use `codelists_dir'/21_Health_Status_and_Health_Services/Non_Invasive_Ventilation/CPRD/Aurum/2023_12/non_invasive_ventilation, clear
 
@@ -362,6 +420,10 @@ export delimited medical/CSV/non_invasive_ventilation, replace
 //Compact version
 keep medcodeid niv
 save medical/compact/non_invasive_ventilation, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //MODERATE AECOPD
@@ -387,6 +449,10 @@ save medical/DTA/AECOPD_moderate, replace
 export delimited medical/CSV/AECOPD_moderate, replace
 keep medcodeid aecopd aecopd_count
 save medical/compact/AECOPD_moderate, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 //AECOPD symptoms
 use `codelists_dir'/10_Respiratory_System/COPD/AECOPD/Aurum/2023_12/AECOPD_symptoms_1s_qualdata, clear
@@ -414,6 +480,10 @@ export delimited medical/CSV/AECOPD_symptoms, replace
 keep medcodeid dyspnoea cough sputum
 save medical/compact/AECOPD_symptoms, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 //Systemic corticosteroids (intramuscular, intrvenous, oral)
 use `codelists_dir'/10_Respiratory_System/Medications/Oral_corticosteroids/CPRD/Aurum/2023_12/ocs, clear
 
@@ -434,6 +504,10 @@ save product/DTA/oral_corticosteroids, replace
 export delimited product/CSV/oral_corticosteroids, replace
 keep prodcodeid ocs
 save product/compact/oral_corticosteroids, replace
+
+//Combined master codelist
+merge 1:1 prodcodeid using product/product_master, nogenerate
+save product/product_master, replace
 
 //Antibiotics
 use `codelists_dir'/10_Respiratory_System/Medications/Antibiotics/CPRD/Aurum/2023_12/antibiotics, clear
@@ -456,6 +530,10 @@ export delimited product/CSV/antibiotics, replace
 keep prodcodeid abx
 save product/compact/antibiotics, replace
 
+//Combined master codelist
+merge 1:1 prodcodeid using product/product_master, nogenerate
+save product/product_master, replace
+
 //Lower respiratory tract infection
 use `codelists_dir'/10_Respiratory_System/Lower_Respiratory_Tract_Infection/CPRD/Aurum/2023_12/lrti, clear
 
@@ -477,6 +555,10 @@ export delimited medical/CSV/LRTI, replace
 keep medcodeid lrti
 save medical/compact/LRTI, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 //COPD annual review
 use `codelists_dir'/10_Respiratory_System/COPD/AECOPD/Aurum/2023_12/COPD_annual_review, clear
 
@@ -496,6 +578,10 @@ export delimited medical/CSV/COPD_annual_review, replace
 keep medcodeid copd_annual_review
 save medical/compact/COPD_annual_review, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //PNEUMONECTOMY, LUNG VOLUME REDUCTION SURGERY
 use `codelists_dir'/21_Health_Status_and_Health_Services/Lung_Volume_Reduction_Surgery/CPRD/Aurum/2023_12/lung_volume_reduction_surgery, clear
@@ -507,6 +593,10 @@ save medical/DTA/lung_volume_reduction_surgery, replace
 export delimited medical/CSV/lung_volume_reduction_surgery, replace
 keep medcodeid lvrs
 save medical/compact/lung_volume_reduction_surgery, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //PULMONARY REHABILITATION
@@ -525,6 +615,10 @@ export delimited medical/CSV/pulmonary_rehabilitation, replace
 keep medcodeid pulmonary_rehab referred commenced completed
 save medical/compact/pulmonary_rehabilitation, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //ALPHA-1 ANTI-TRYPSIN DEFICIENCY
 use `codelists_dir'/10_Respiratory_System/Alpha_1_Antitrypsin/CPRD/Aurum/2023_12/alpha1_antitrypsin, clear
@@ -536,6 +630,10 @@ save medical/DTA/alpha1_antitrypsin, replace
 export delimited medical/CSV/alpha1_antitrypsin, replace
 keep medcodeid alpha1
 save medical/compact/alpha1_antitrypsin, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //HEALTHCARE UTILISATION
@@ -585,6 +683,10 @@ export delimited medical/CSV/BMI, replace
 keep medcodeid bmi bmi_4_WHO bmi_4_u20
 save medical/compact/BMI, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 //Height
 use `codelists_dir'/21_Health_Status_and_Health_Services/Height/adult_and_paediatric/2023_12/height_raw, clear
 
@@ -606,6 +708,10 @@ save medical/DTA/height, replace
 export delimited medical/CSV/height, replace
 keep medcodeid height
 save medical/compact/height, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 //Weight
 use `codelists_dir'/21_Health_Status_and_Health_Services/Weight/adult_and_paeds/CPRD/Aurum/2023_12/weight_raw, clear
@@ -639,6 +745,10 @@ export delimited medical/CSV/weight, replace
 keep medcodeid weight weight_4cat
 save medical/compact/weight, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //FRACTIONAL EXHALED NITRIC OXIDE (FeNO)
 use `codelists_dir'/18_Symptoms_Signs_Laboratory/Fractional_exhaled_nitric_oxide/CPRD/Aurum/2023_12/fractional_exhaled_nitric_oxide, clear
@@ -650,6 +760,10 @@ save medical/DTA/FeNO, replace
 export delimited medical/CSV/FeNO, replace
 keep medcodeid feno
 save medical/compact/FeNO, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //DEPRESSION
@@ -671,6 +785,10 @@ export delimited medical/CSV/depression, replace
 keep medcodeid depression
 save medical/compact/depression, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //ANXIETY
 use `codelists_dir'/05_Mental_Behavioural/Anxiety/Aurum/2023_12/anxiety_1s, clear
@@ -690,6 +808,10 @@ save medical/DTA/anxiety, replace
 export delimited medical/CSV/anxiety, replace
 keep medcodeid anxiety
 save medical/compact/anxiety, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //GASTRO-OESOPHAGEAL REFLUX DISEASE (GORD)
@@ -714,6 +836,10 @@ export delimited medical/CSV/GORD, replace
 keep medcodeid gord
 save medical/compact/GORD, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //ISCHAEMIC HEART DISEASE (acute coronary syndrome codelist) (**Not a Dec 2023 build codelist**)
 use "`codelists_dir'/09_Circulatory_System/Acute Coronary Syndrome - MI, unstable angina/CPRD/Aurum/2023_09/acs_all", clear
@@ -737,6 +863,10 @@ export delimited medical/CSV/acute_coronary_syndrome, replace
 keep medcodeid acs
 save medical/compact/acute_coronary_syndrome, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //HEART FAILURE (**Not a Dec 2023 build codelist**)
 use `codelists_dir'/09_Circulatory_System/Heart_Failure/CPRD/Aurum/2023_09/heart_failure, clear
@@ -758,6 +888,10 @@ save medical/DTA/heart_failure, replace
 export delimited medical/CSV/heart_failure, replace
 keep medcodeid heart_failure
 save medical/compact/heart_failure, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //STROKE (**Not a Dec 2023 build codelist**)
@@ -782,6 +916,10 @@ export delimited medical/CSV/stroke, replace
 keep medcodeid stroke
 save medical/compact/stroke, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //ATOPIC DERMATITIS (atopy codelist)
 use `codelists_dir'/03_Blood_and_Immune_Diseases/Allergy/Atopy/CPRD/Aurum/2023_12/atopy, clear
@@ -794,6 +932,10 @@ export delimited medical/CSV/atopy, replace
 keep medcodeid atopy
 save medical/compact/atopy, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //NASAL POLYPS
 use `codelists_dir'/10_Respiratory_System/Nasal_polyps/CPRD/Aurum/2023_12/nasal_polyps, clear
@@ -805,6 +947,10 @@ save medical/DTA/nasal_polyps, replace
 export delimited medical/CSV/nasal_polyps, replace
 keep medcodeid nasal_polyps
 save medical/compact/nasal_polyps, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //CHRONIC URTICARIA
@@ -821,6 +967,10 @@ export delimited medical/CSV/chronic_urticaria, replace
 keep medcodeid chronic_urticaria
 save medical/compact/chronic_urticaria, replace
 
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
 
 //PULMONARY EMBOLISM (venous thromboembolism codelist)
 use `codelists_dir'/09_Circulatory_System/Venousthromboembolism/CPRD/Aurum/2023_12/venous_thromboembolism, clear
@@ -832,6 +982,10 @@ save medical/DTA/venous_thromboembolism, replace
 export delimited medical/CSV/venous_thromboembolism, replace
 keep medcodeid vte
 save medical/compact/venous_thromboembolism, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 //COPD ASESSMENT TEST (CAT) SCORE
@@ -855,6 +1009,10 @@ save medical/DTA/COPD_assessment_test, replace
 export delimited medical/CSV/COPD_assessment_test, replace
 keep medcodeid cat_score
 save medical/compact/COPD_assessment_test, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
 
 
 log close
