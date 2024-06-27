@@ -174,28 +174,47 @@ merge 1:1 medcodeid using medical/medical_master, nogenerate
 save medical/medical_master, replace
 
 
-//CHRONIC BRONCHITIS/COUGH
+//CHRONIC COUGH
 use `codelists_dir'/18_Symptoms_Signs_Laboratory/Cough_and_sputum/CPRD/Aurum/2023_12/cough_raw, clear
 
-keep if final_chroniccough_JKQ_bro202312 == 1
+rename final_cough_JKQ_bro_2023_12 cough
 rename final_chroniccough_JKQ_bro202312 chronic_cough
+keep if cough == 1 | chronic_cough == 1
 
-keep medcodeid chronic_cough
+keep medcodeid cough chronic_cough
 
 merge 1:1 medcodeid using `medical'
 drop if _merge == 2
 drop if _merge == 1  //old terms (not in Dec 2023 build)
 drop _merge
 
-order chronic_cough, last
+order cough chronic_cough, last
 
 compress
 save medical/DTA/chronic_cough, replace
 export delimited medical/CSV/chronic_cough, replace
 
 //Compact version
-keep medcodeid chronic_cough
+keep medcodeid cough chronic_cough
 save medical/compact/chronic_cough, replace
+
+//Combined master codelist
+merge 1:1 medcodeid using medical/medical_master, nogenerate
+save medical/medical_master, replace
+
+
+//CHRONIC BRONCHITIS
+use `codelists_dir'/10_Respiratory_System/Bronchitis/CPRD/Aurum/2023_12/bronchitis, clear
+
+drop observations
+
+compress
+save medical/DTA/chronic_bronchitis, replace
+export delimited medical/CSV/chronic_bronchitis, replace
+
+//Compact version
+keep medcodeid bronchitis chronic_bronchitis acute_bronchitis
+save medical/compact/chronic_bronchitis, replace
 
 //Combined master codelist
 merge 1:1 medcodeid using medical/medical_master, nogenerate
