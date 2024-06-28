@@ -213,7 +213,7 @@ save medical/DTA/chronic_bronchitis, replace
 export delimited medical/CSV/chronic_bronchitis, replace
 
 //Compact version
-keep medcodeid bronchitis chronic_bronchitis acute_bronchitis
+keep medcodeid chronic_bronchitis acute_bronchitis
 save medical/compact/chronic_bronchitis, replace
 
 //Combined master codelist
