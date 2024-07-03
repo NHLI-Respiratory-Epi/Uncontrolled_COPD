@@ -1,0 +1,391 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  D:\GitHub\Uncontrolled_COPD\codelists\codelists_secondarycare.log
+  log type:  text
+ opened on:   3 Jul 2024, 03:30:07
+
+. 
+. local browser_dir "Z:\Database guidelines and info\NHS TRUD\NHS ICD-10 5th Edition data files\icd_df_10.5.0_20151102000001"
+
+. local codelists_dir "D:\GitHub\code_lists"
+
+. local EXACOS_dir "D:\GitHub\EXACOS-CV--internal--\Codelists"
+
+. 
+. 
+. //IMPORT BROWSERS...
+. //==================
+. 
+. //ICD-10 browser
+. use "`browser_dir'/ICD-10_codes_descriptions", clear
+
+. 
+. //Add modifiers to description
+. assert modifier_4 == "" | modifier_5 == ""  //check at leasst one is blank
+
+. replace description = description + ": " + modifier_4 if modifier_4 != ""
+variable description was str185 now str207
+(3,234 real changes made)
+
+. replace description = description + ": " + modifier_5 if modifier_5 != ""
+(3,576 real changes made)
+
+. 
+. //Drop useless variables
+. keep code description
+
+. 
+. //give same var name as HES data
+. rename code icd
+
+. 
+. //Save medical code browser to a tempfile
+. tempfile icd10
+
+. save `icd10'
+file C:\Users\pstone\AppData\Local\Temp\ST_3580_000001.tmp saved as .dta format
+
+. 
+. 
+. //FIND AND FORMAT CODELISTS...
+. //============================
+. 
+. //MAJOR ADVERSE CARDIOVASCULAR EVENT (MACE)
+. 
+. //Myocardial infarction (MI)
+. use `EXACOS_dir'/2_icd10_acs_FINAL_1s, clear
+
+. 
+. keep if acs_acutemi == 1
+(9 observations deleted)
+
+. 
+. rename icd10 icd
+
+. 
+. keep icd acs_acutemi
+
+. 
+. merge 1:1 icd using `icd10'
+(variable icd was str5, now str6 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        17,917
+        from master                         0  (_merge==1)
+        from using                     17,917  (_merge==2)
+
+    Matched                                17  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(17,917 observations deleted)
+
+. drop _merge
+
+. 
+. order acs_acutemi, last
+
+. 
+. compress
+  variable icd was str6 now str5
+  variable description was str207 now str119
+  (1,513 bytes saved)
+
+. save ICD-10/DTA/MI, replace
+file ICD-10/DTA/MI.dta saved
+
+. export delimited ICD-10/CSV/MI, replace
+file ICD-10/CSV/MI.csv saved
+
+. 
+. //Compact version
+. keep icd acs_acutemi
+
+. save ICD-10/compact/MI, replace
+file ICD-10/compact/MI.dta saved
+
+. 
+. //Combined master codelist
+. save ICD-10/ICD-10_master, replace
+file ICD-10/ICD-10_master.dta saved
+
+. 
+. 
+. //Heart failure
+. use `EXACOS_dir'/2_icd10_hf_FINAL_1s, clear
+
+. 
+. keep if hf_overall == 1
+(0 observations deleted)
+
+. 
+. rename icd10 icd
+
+. 
+. keep icd hf_overall
+
+. 
+. merge 1:1 icd using `icd10'
+(variable icd was str5, now str6 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        17,924
+        from master                         0  (_merge==1)
+        from using                     17,924  (_merge==2)
+
+    Matched                                10  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(17,924 observations deleted)
+
+. drop _merge
+
+. 
+. order hf_overall, last
+
+. 
+. compress
+  variable icd was str6 now str5
+  variable description was str207 now str32
+  (1,760 bytes saved)
+
+. save ICD-10/DTA/heart_failure, replace
+file ICD-10/DTA/heart_failure.dta saved
+
+. export delimited ICD-10/CSV/heart_failure, replace
+file ICD-10/CSV/heart_failure.csv saved
+
+. 
+. //Compact version
+. keep icd hf_overall
+
+. save ICD-10/compact/heart_failure, replace
+(file ICD-10/compact/heart_failure.dta not found)
+file ICD-10/compact/heart_failure.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 icd using ICD-10/ICD-10_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            27
+        from master                        10  
+        from using                         17  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save ICD-10/ICD-10_master, replace
+file ICD-10/ICD-10_master.dta saved
+
+. 
+. 
+. //Stroke
+. use `EXACOS_dir'/2_icd10_stroke_anne, clear
+
+. 
+. keep if stroke == 1
+(0 observations deleted)
+
+. 
+. rename icd10 icd
+
+. 
+. keep icd stroke
+
+. 
+. merge 1:1 icd using `icd10'
+(variable icd was str5, now str6 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        17,923
+        from master                         0  (_merge==1)
+        from using                     17,923  (_merge==2)
+
+    Matched                                11  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(17,923 observations deleted)
+
+. drop _merge
+
+. 
+. order stroke, last
+
+. 
+. compress
+  variable stroke was float now byte
+  variable icd was str6 now str5
+  variable description was str207 now str84
+  (1,397 bytes saved)
+
+. save ICD-10/DTA/stroke, replace
+file ICD-10/DTA/stroke.dta saved
+
+. export delimited ICD-10/CSV/stroke, replace
+file ICD-10/CSV/stroke.csv saved
+
+. 
+. //Compact version
+. keep icd stroke
+
+. save ICD-10/compact/stroke, replace
+(file ICD-10/compact/stroke.dta not found)
+file ICD-10/compact/stroke.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 icd using ICD-10/ICD-10_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            38
+        from master                        11  
+        from using                         27  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save ICD-10/ICD-10_master, replace
+file ICD-10/ICD-10_master.dta saved
+
+. 
+. 
+. //Cardiovascular death
+. use `icd10', clear
+
+. 
+. generate byte cv_death = (strmatch(icd, "I*"))
+
+. 
+. keep if cv_death == 1
+(17,471 observations deleted)
+
+. 
+. compress
+  variable description was str207 now str119
+  (40,744 bytes saved)
+
+. save ICD-10/DTA/cardiovascular_death, replace
+file ICD-10/DTA/cardiovascular_death.dta saved
+
+. export delimited ICD-10/CSV/cardiovascular_death, replace
+file ICD-10/CSV/cardiovascular_death.csv saved
+
+. 
+. //Compact version
+. keep icd cv_death
+
+. save ICD-10/compact/cardiovascular_death, replace
+(file ICD-10/compact/cardiovascular_death.dta not found)
+file ICD-10/compact/cardiovascular_death.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 icd using ICD-10/ICD-10_master, nogenerate
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           427
+        from master                       426  
+        from using                          1  
+
+    Matched                                37  
+    -----------------------------------------
+
+. save ICD-10/ICD-10_master, replace
+file ICD-10/ICD-10_master.dta saved
+
+. 
+. 
+. //SEVERE AECOPD
+. 
+. /*hospitalization with a code for acute respiratory event including COPD or bronchitis as a primary diagnosis or a secondary diagnosis of COPD following previously validation
+>  in HES, observation > 24hrs in emergency dept/urgent care facility*/
+. 
+. use `codelists_dir'/10_Respiratory_System/icd10_respiratory_master_flagged, clear
+
+. 
+. keep if aecopd == 1
+(323 observations deleted)
+
+. 
+. rename icd10 icd
+
+. 
+. keep icd aecopd
+
+. 
+. merge 1:1 icd using `icd10'
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                        17,929
+        from master                         0  (_merge==1)
+        from using                     17,929  (_merge==2)
+
+    Matched                                 5  (_merge==3)
+    -----------------------------------------
+
+. drop if _merge == 2
+(17,929 observations deleted)
+
+. drop _merge
+
+. 
+. order aecopd, last
+
+. 
+. compress
+  variable icd was str6 now str5
+  variable description was str207 now str76
+  (660 bytes saved)
+
+. save ICD-10/DTA/AECOPD_severe, replace
+(file ICD-10/DTA/AECOPD_severe.dta not found)
+file ICD-10/DTA/AECOPD_severe.dta saved
+
+. export delimited ICD-10/CSV/AECOPD_severe, replace
+(file ICD-10/CSV/AECOPD_severe.csv not found)
+file ICD-10/CSV/AECOPD_severe.csv saved
+
+. 
+. //Compact version
+. keep icd aecopd
+
+. save ICD-10/compact/AECOPD_severe, replace
+(file ICD-10/compact/AECOPD_severe.dta not found)
+file ICD-10/compact/AECOPD_severe.dta saved
+
+. 
+. //Combined master codelist
+. merge 1:1 icd using ICD-10/ICD-10_master, nogenerate
+(variable icd was str5, now str6 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           469
+        from master                         5  
+        from using                        464  
+
+    Matched                                 0  
+    -----------------------------------------
+
+. save ICD-10/ICD-10_master, replace
+file ICD-10/ICD-10_master.dta saved
+
+. 
+. 
+. 
+. log close
+      name:  <unnamed>
+       log:  D:\GitHub\Uncontrolled_COPD\codelists\codelists_secondarycare.log
+  log type:  text
+ closed on:   3 Jul 2024, 03:30:08
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

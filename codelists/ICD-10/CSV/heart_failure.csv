@@ -1,0 +1,11 @@
+icd,description,hf_overall
+I25,Chronic ischaemic heart disease,1
+I25.5,Ischaemic cardiomyopathy,1
+I42,Cardiomyopathy,1
+I42.0,Dilated cardiomyopathy,1
+I50,Heart failure,1
+I50.0,Congestive heart failure,1
+I50.1,Left ventricular failure,1
+I50.9,"Heart failure, unspecified",1
+I51.8,Other ill-defined heart diseases,1
+J81,Pulmonary oedema,1

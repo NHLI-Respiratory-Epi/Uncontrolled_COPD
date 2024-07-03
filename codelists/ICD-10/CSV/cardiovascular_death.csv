@@ -1,0 +1,464 @@
+icd,description,cv_death
+I00,Rheumatic fever without mention of heart involvement,1
+I01,Rheumatic fever with heart involvement,1
+I01.0,Acute rheumatic pericarditis,1
+I01.1,Acute rheumatic endocarditis,1
+I01.2,Acute rheumatic myocarditis,1
+I01.8,Other acute rheumatic heart disease,1
+I01.9,"Acute rheumatic heart disease, unspecified",1
+I02,Rheumatic chorea,1
+I02.0,Rheumatic chorea with heart involvement,1
+I02.9,Rheumatic chorea without heart involvement,1
+I05,Rheumatic mitral valve diseases,1
+I05.0,Mitral stenosis,1
+I05.1,Rheumatic mitral insufficiency,1
+I05.2,Mitral stenosis with insufficiency,1
+I05.8,Other mitral valve diseases,1
+I05.9,"Mitral valve disease, unspecified",1
+I06,Rheumatic aortic valve diseases,1
+I06.0,Rheumatic aortic stenosis,1
+I06.1,Rheumatic aortic insufficiency,1
+I06.2,Rheumatic aortic stenosis with insufficiency,1
+I06.8,Other rheumatic aortic valve diseases,1
+I06.9,"Rheumatic aortic valve disease, unspecified",1
+I07,Rheumatic tricuspid valve diseases,1
+I07.0,Tricuspid stenosis,1
+I07.1,Tricuspid insufficiency,1
+I07.2,Tricuspid stenosis with insufficiency,1
+I07.8,Other tricuspid valve diseases,1
+I07.9,"Tricuspid valve disease, unspecified",1
+I08,Multiple valve diseases,1
+I08.0,Disorders of both mitral and aortic valves,1
+I08.1,Disorders of both mitral and tricuspid valves,1
+I08.2,Disorders of both aortic and tricuspid valves,1
+I08.3,"Combined disorders of mitral, aortic and tricuspid valves",1
+I08.8,Other multiple valve diseases,1
+I08.9,"Multiple valve disease, unspecified",1
+I09,Other rheumatic heart diseases,1
+I09.0,Rheumatic myocarditis,1
+I09.1,"Rheumatic diseases of endocardium, valve unspecified",1
+I09.2,Chronic rheumatic pericarditis,1
+I09.8,Other specified rheumatic heart diseases,1
+I09.9,"Rheumatic heart disease, unspecified",1
+I10,Essential (primary) hypertension,1
+I11,Hypertensive heart disease,1
+I11.0,Hypertensive heart disease with (congestive) heart failure,1
+I11.9,Hypertensive heart disease without (congestive) heart failure,1
+I12,Hypertensive renal disease,1
+I12.0,Hypertensive renal disease with renal failure,1
+I12.9,Hypertensive renal disease without renal failure,1
+I13,Hypertensive heart and renal disease,1
+I13.0,Hypertensive heart and renal disease with (congestive) heart failure,1
+I13.1,Hypertensive heart and renal disease with renal failure,1
+I13.2,Hypertensive heart and renal disease with both (congestive) heart failure and renal failure,1
+I13.9,"Hypertensive heart and renal disease, unspecified",1
+I15,Secondary hypertension,1
+I15.0,Renovascular hypertension,1
+I15.1,Hypertension secondary to other renal disorders,1
+I15.2,Hypertension secondary to endocrine disorders,1
+I15.8,Other secondary hypertension,1
+I15.9,"Secondary hypertension, unspecified",1
+I20,Angina pectoris,1
+I20.0,Unstable angina,1
+I20.1,Angina pectoris with documented spasm,1
+I20.8,Other forms of angina pectoris,1
+I20.9,"Angina pectoris, unspecified",1
+I21,Acute myocardial infarction,1
+I21.0,Acute transmural myocardial infarction of anterior wall,1
+I21.1,Acute transmural myocardial infarction of inferior wall,1
+I21.2,Acute transmural myocardial infarction of other sites,1
+I21.3,Acute transmural myocardial infarction of unspecified site,1
+I21.4,Acute subendocardial myocardial infarction,1
+I21.9,"Acute myocardial infarction, unspecified",1
+I22,Subsequent myocardial infarction,1
+I22.0,Subsequent myocardial infarction of anterior wall,1
+I22.1,Subsequent myocardial infarction of inferior wall,1
+I22.8,Subsequent myocardial infarction of other sites,1
+I22.9,Subsequent myocardial infarction of unspecified site,1
+I23,Certain current complications following acute myocardial infarction,1
+I23.0,Haemopericardium as current complication following acute myocardial infarction,1
+I23.1,Atrial septal defect as current complication following acute myocardial infarction,1
+I23.2,Ventricular septal defect as current complication following acute myocardial infarction,1
+I23.3,Rupture of cardiac wall without haemopericardium as current complication following acute myocardial infarction,1
+I23.4,Rupture of chordae tendineae as current complication following acute myocardial infarction,1
+I23.5,Rupture of papillary muscle as current complication following acute myocardial infarction,1
+I23.6,"Thrombosis of atrium, auricular appendage, and ventricle as current complications following acute myocardial infarction",1
+I23.8,Other current complications following acute myocardial infarction,1
+I24,Other acute ischaemic heart diseases,1
+I24.0,Coronary thrombosis not resulting in myocardial infarction,1
+I24.1,Dressler syndrome,1
+I24.8,Other forms of acute ischaemic heart disease,1
+I24.9,"Acute ischaemic heart disease, unspecified",1
+I25,Chronic ischaemic heart disease,1
+I25.0,"Atherosclerotic cardiovascular disease, so described",1
+I25.1,Atherosclerotic heart disease,1
+I25.2,Old myocardial infarction,1
+I25.3,Aneurysm of heart,1
+I25.4,Coronary artery aneurysm and dissection,1
+I25.5,Ischaemic cardiomyopathy,1
+I25.6,Silent myocardial ischaemia,1
+I25.8,Other forms of chronic ischaemic heart disease,1
+I25.9,"Chronic ischaemic heart disease, unspecified",1
+I26,Pulmonary embolism,1
+I26.0,Pulmonary embolism with mention of acute cor pulmonale,1
+I26.9,Pulmonary embolism without mention of acute cor pulmonale,1
+I27,Other pulmonary heart diseases,1
+I27.0,Primary pulmonary hypertension,1
+I27.1,Kyphoscoliotic heart disease,1
+I27.2,Other secondary pulmonary hypertension,1
+I27.8,Other specified pulmonary heart diseases,1
+I27.9,"Pulmonary heart disease, unspecified",1
+I28,Other diseases of pulmonary vessels,1
+I28.0,Arteriovenous fistula of pulmonary vessels,1
+I28.1,Aneurysm of pulmonary artery,1
+I28.8,Other specified diseases of pulmonary vessels,1
+I28.9,"Disease of pulmonary vessels, unspecified",1
+I30,Acute pericarditis,1
+I30.0,Acute nonspecific idiopathic pericarditis,1
+I30.1,Infective pericarditis,1
+I30.8,Other forms of acute pericarditis,1
+I30.9,"Acute pericarditis, unspecified",1
+I31,Other diseases of pericardium,1
+I31.0,Chronic adhesive pericarditis,1
+I31.1,Chronic constrictive pericarditis,1
+I31.2,"Haemopericardium, not elsewhere classified",1
+I31.3,Pericardial effusion (noninflammatory),1
+I31.8,Other specified diseases of pericardium,1
+I31.9,"Disease of pericardium, unspecified",1
+I32,Pericarditis in diseases classified elsewhere,1
+I32.0,Pericarditis in bacterial diseases classified elsewhere,1
+I32.1,Pericarditis in other infectious and parasitic diseases classified elsewhere,1
+I32.8,Pericarditis in other diseases classified elsewhere,1
+I33,Acute and subacute endocarditis,1
+I33.0,Acute and subacute infective endocarditis,1
+I33.9,"Acute endocarditis, unspecified",1
+I34,Nonrheumatic mitral valve disorders,1
+I34.0,Mitral (valve) insufficiency,1
+I34.1,Mitral (valve) prolapse,1
+I34.2,Nonrheumatic mitral (valve) stenosis,1
+I34.8,Other nonrheumatic mitral valve disorders,1
+I34.9,"Nonrheumatic mitral valve disorder, unspecified",1
+I35,Nonrheumatic aortic valve disorders,1
+I35.0,Aortic (valve) stenosis,1
+I35.1,Aortic (valve) insufficiency,1
+I35.2,Aortic (valve) stenosis with insufficiency,1
+I35.8,Other aortic valve disorders,1
+I35.9,"Aortic valve disorder, unspecified",1
+I36,Nonrheumatic tricuspid valve disorders,1
+I36.0,Nonrheumatic tricuspid (valve) stenosis,1
+I36.1,Nonrheumatic tricuspid (valve) insufficiency,1
+I36.2,Nonrheumatic tricuspid (valve) stenosis with insufficiency,1
+I36.8,Other nonrheumatic tricuspid valve disorders,1
+I36.9,"Nonrheumatic tricuspid valve disorder, unspecified",1
+I37,Pulmonary valve disorders,1
+I37.0,Pulmonary valve stenosis,1
+I37.1,Pulmonary valve insufficiency,1
+I37.2,Pulmonary valve stenosis with insufficiency,1
+I37.8,Other pulmonary valve disorders,1
+I37.9,"Pulmonary valve disorder, unspecified",1
+I38,"Endocarditis, valve unspecified",1
+I39,Endocarditis and heart valve disorders in diseases classified elsewhere,1
+I39.0,Mitral valve disorders in diseases classified elsewhere,1
+I39.1,Aortic valve disorders in diseases classified elsewhere,1
+I39.2,Tricuspid valve disorders in diseases classified elsewhere,1
+I39.3,Pulmonary valve disorders in diseases classified elsewhere,1
+I39.4,Multiple valve disorders in diseases classified elsewhere,1
+I39.8,"Endocarditis, valve unspecified, in diseases classified elsewhere",1
+I40,Acute myocarditis,1
+I40.0,Infective myocarditis,1
+I40.1,Isolated myocarditis,1
+I40.8,Other acute myocarditis,1
+I40.9,"Acute myocarditis, unspecified",1
+I41,Myocarditis in diseases classified elsewhere,1
+I41.0,Myocarditis in bacterial diseases classified elsewhere,1
+I41.1,Myocarditis in viral diseases classified elsewhere,1
+I41.2,Myocarditis in other infectious and parasitic diseases classified elsewhere,1
+I41.8,Myocarditis in other diseases classified elsewhere,1
+I42,Cardiomyopathy,1
+I42.0,Dilated cardiomyopathy,1
+I42.1,Obstructive hypertrophic cardiomyopathy,1
+I42.2,Other hypertrophic cardiomyopathy,1
+I42.3,Endomyocardial (eosinophilic) disease,1
+I42.4,Endocardial fibroelastosis,1
+I42.5,Other restrictive cardiomyopathy,1
+I42.6,Alcoholic cardiomyopathy,1
+I42.7,Cardiomyopathy due to drugs and other external agents,1
+I42.8,Other cardiomyopathies,1
+I42.9,"Cardiomyopathy, unspecified",1
+I43,Cardiomyopathy in diseases classified elsewhere,1
+I43.0,Cardiomyopathy in infectious and parasitic diseases classified elsewhere,1
+I43.1,Cardiomyopathy in metabolic diseases,1
+I43.2,Cardiomyopathy in nutritional diseases,1
+I43.8,Cardiomyopathy in other diseases classified elsewhere,1
+I44,Atrioventricular and left bundle-branch block,1
+I44.0,"Atrioventricular block, first degree",1
+I44.1,"Atrioventricular block, second degree",1
+I44.2,"Atrioventricular block, complete",1
+I44.3,Other and unspecified atrioventricular block,1
+I44.4,Left anterior fascicular block,1
+I44.5,Left posterior fascicular block,1
+I44.6,Other and unspecified fascicular block,1
+I44.7,"Left bundle-branch block, unspecified",1
+I45,Other conduction disorders,1
+I45.0,Right fascicular block,1
+I45.1,Other and unspecified right bundle-branch block,1
+I45.2,Bifascicular block,1
+I45.3,Trifascicular block,1
+I45.4,Nonspecific intraventricular block,1
+I45.5,Other specified heart block,1
+I45.6,Pre-excitation syndrome,1
+I45.8,Other specified conduction disorders,1
+I45.9,"Conduction disorder, unspecified",1
+I46,Cardiac arrest,1
+I46.0,Cardiac arrest with successful resuscitation,1
+I46.1,"Sudden cardiac death, so described",1
+I46.9,"Cardiac arrest, unspecified",1
+I47,Paroxysmal tachycardia,1
+I47.0,Re-entry ventricular arrhythmia,1
+I47.1,Supraventricular tachycardia,1
+I47.2,Ventricular tachycardia,1
+I47.9,"Paroxysmal tachycardia, unspecified",1
+I48,Atrial fibrillation and flutter,1
+I48.0,Paroxysmal atrial fibrillation,1
+I48.1,Persistent atrial fibrillation,1
+I48.2,Chronic atrial fibrillation,1
+I48.3,Typical atrial flutter,1
+I48.4,Atypical atrial flutter,1
+I48.9,"Atrial fibrillation and atrial flutter, unspecified",1
+I49,Other cardiac arrhythmias,1
+I49.0,Ventricular fibrillation and flutter,1
+I49.1,Atrial premature depolarization,1
+I49.2,Junctional premature depolarization,1
+I49.3,Ventricular premature depolarization,1
+I49.4,Other and unspecified premature depolarization,1
+I49.5,Sick sinus syndrome,1
+I49.8,Other specified cardiac arrhythmias,1
+I49.9,"Cardiac arrhythmia, unspecified",1
+I50,Heart failure,1
+I50.0,Congestive heart failure,1
+I50.1,Left ventricular failure,1
+I50.9,"Heart failure, unspecified",1
+I51,Complications and ill-defined descriptions of heart disease,1
+I51.0,"Cardiac septal defect, acquired",1
+I51.1,"Rupture of chordae tendineae, not elsewhere classified",1
+I51.2,"Rupture of papillary muscle, not elsewhere classified",1
+I51.3,"Intracardiac thrombosis, not elsewhere classified",1
+I51.4,"Myocarditis, unspecified",1
+I51.5,Myocardial degeneration,1
+I51.6,"Cardiovascular disease, unspecified",1
+I51.7,Cardiomegaly,1
+I51.8,Other ill-defined heart diseases,1
+I51.9,"Heart disease, unspecified",1
+I52,Other heart disorders in diseases classified elsewhere,1
+I52.0,Other heart disorders in bacterial diseases classified elsewhere,1
+I52.1,Other heart disorders in other infectious and parasitic diseases classified elsewhere,1
+I52.8,Other heart disorders in other diseases classified elsewhere,1
+I60,Subarachnoid haemorrhage,1
+I60.0,Subarachnoid haemorrhage from carotid siphon and bifurcation,1
+I60.1,Subarachnoid haemorrhage from middle cerebral artery,1
+I60.2,Subarachnoid haemorrhage from anterior communicating artery,1
+I60.3,Subarachnoid haemorrhage from posterior communicating artery,1
+I60.4,Subarachnoid haemorrhage from basilar artery,1
+I60.5,Subarachnoid haemorrhage from vertebral artery,1
+I60.6,Subarachnoid haemorrhage from other intracranial arteries,1
+I60.7,"Subarachnoid haemorrhage from intracranial artery, unspecified",1
+I60.8,Other subarachnoid haemorrhage,1
+I60.9,"Subarachnoid haemorrhage, unspecified",1
+I61,Intracerebral haemorrhage,1
+I61.0,"Intracerebral haemorrhage in hemisphere, subcortical",1
+I61.1,"Intracerebral haemorrhage in hemisphere, cortical",1
+I61.2,"Intracerebral haemorrhage in hemisphere, unspecified",1
+I61.3,Intracerebral haemorrhage in brain stem,1
+I61.4,Intracerebral haemorrhage in cerebellum,1
+I61.5,"Intracerebral haemorrhage, intraventricular",1
+I61.6,"Intracerebral haemorrhage, multiple localized",1
+I61.8,Other intracerebral haemorrhage,1
+I61.9,"Intracerebral haemorrhage, unspecified",1
+I62,Other nontraumatic intracranial haemorrhage,1
+I62.0,Subdural haemorrhage (acute)(nontraumatic),1
+I62.1,Nontraumatic extradural haemorrhage,1
+I62.9,"Intracranial haemorrhage (nontraumatic), unspecified",1
+I63,Cerebral infarction,1
+I63.0,Cerebral infarction due to thrombosis of precerebral arteries,1
+I63.1,Cerebral infarction due to embolism of precerebral arteries,1
+I63.2,Cerebral infarction due to unspecified occlusion or stenosis of precerebral arteries,1
+I63.3,Cerebral infarction due to thrombosis of cerebral arteries,1
+I63.4,Cerebral infarction due to embolism of cerebral arteries,1
+I63.5,Cerebral infarction due to unspecified occlusion or stenosis of cerebral arteries,1
+I63.6,"Cerebral infarction due to cerebral venous thrombosis, nonpyogenic",1
+I63.8,Other cerebral infarction,1
+I63.9,"Cerebral infarction, unspecified",1
+I64,"Stroke, not specified as haemorrhage or infarction",1
+I65,"Occlusion and stenosis of precerebral arteries, not resulting in cerebral infarction",1
+I65.0,Occlusion and stenosis of vertebral artery,1
+I65.1,Occlusion and stenosis of basilar artery,1
+I65.2,Occlusion and stenosis of carotid artery,1
+I65.3,Occlusion and stenosis of multiple and bilateral precerebral arteries,1
+I65.8,Occlusion and stenosis of other precerebral artery,1
+I65.9,Occlusion and stenosis of unspecified precerebral artery,1
+I66,"Occlusion and stenosis of cerebral arteries, not resulting in cerebral infarction",1
+I66.0,Occlusion and stenosis of middle cerebral artery,1
+I66.1,Occlusion and stenosis of anterior cerebral artery,1
+I66.2,Occlusion and stenosis of posterior cerebral artery,1
+I66.3,Occlusion and stenosis of cerebellar arteries,1
+I66.4,Occlusion and stenosis of multiple and bilateral cerebral arteries,1
+I66.8,Occlusion and stenosis of other cerebral artery,1
+I66.9,Occlusion and stenosis of unspecified cerebral artery,1
+I67,Other cerebrovascular diseases,1
+I67.0,"Dissection of cerebral arteries, nonruptured",1
+I67.1,"Cerebral aneurysm, nonruptured",1
+I67.2,Cerebral atherosclerosis,1
+I67.3,Progressive vascular leukoencephalopathy,1
+I67.4,Hypertensive encephalopathy,1
+I67.5,Moyamoya disease,1
+I67.6,Nonpyogenic thrombosis of intracranial venous system,1
+I67.7,"Cerebral arteritis, not elsewhere classified",1
+I67.8,Other specified cerebrovascular diseases,1
+I67.9,"Cerebrovascular disease, unspecified",1
+I68,Cerebrovascular disorders in diseases classified elsewhere,1
+I68.0,Cerebral amyloid angiopathy,1
+I68.1,Cerebral arteritis in infectious and parasitic diseases classified elsewhere,1
+I68.2,Cerebral arteritis in other diseases classified elsewhere,1
+I68.8,Other cerebrovascular disorders in diseases classified elsewhere,1
+I69,Sequelae of cerebrovascular disease,1
+I69.0,Sequelae of subarachnoid haemorrhage,1
+I69.1,Sequelae of intracerebral haemorrhage,1
+I69.2,Sequelae of other nontraumatic intracranial haemorrhage,1
+I69.3,Sequelae of cerebral infarction,1
+I69.4,"Sequelae of stroke, not specified as haemorrhage or infarction",1
+I69.8,Sequelae of other and unspecified cerebrovascular diseases,1
+I70,Atherosclerosis,1
+I70.0,Atherosclerosis of aorta,1
+I70.00,Atherosclerosis of aorta: without gangrene,1
+I70.01,Atherosclerosis of aorta: with gangrene,1
+I70.1,Atherosclerosis of renal artery,1
+I70.10,Atherosclerosis of renal artery: without gangrene,1
+I70.11,Atherosclerosis of renal artery: with gangrene,1
+I70.2,Atherosclerosis of arteries of extremities,1
+I70.20,Atherosclerosis of arteries of extremities: without gangrene,1
+I70.21,Atherosclerosis of arteries of extremities: with gangrene,1
+I70.8,Atherosclerosis of other arteries,1
+I70.80,Atherosclerosis of other arteries: without gangrene,1
+I70.81,Atherosclerosis of other arteries: with gangrene,1
+I70.9,Generalized and unspecified atherosclerosis,1
+I70.90,Generalized and unspecified atherosclerosis: without gangrene,1
+I70.91,Generalized and unspecified atherosclerosis: with gangrene,1
+I71,Aortic aneurysm and dissection,1
+I71.0,Dissection of aorta [any part],1
+I71.1,"Thoracic aortic aneurysm, ruptured",1
+I71.2,"Thoracic aortic aneurysm, without mention of rupture",1
+I71.3,"Abdominal aortic aneurysm, ruptured",1
+I71.4,"Abdominal aortic aneurysm, without mention of rupture",1
+I71.5,"Thoracoabdominal aortic aneurysm, ruptured",1
+I71.6,"Thoracoabdominal aortic aneurysm, without mention of rupture",1
+I71.8,"Aortic aneurysm of unspecified site, ruptured",1
+I71.9,"Aortic aneurysm of unspecified site, without mention of rupture",1
+I72,Other aneurysm and dissection,1
+I72.0,Aneurysm and dissection of carotid artery,1
+I72.1,Aneurysm and dissection of artery of upper extremity,1
+I72.2,Aneurysm and dissection of renal artery,1
+I72.3,Aneurysm and dissection of iliac artery,1
+I72.4,Aneurysm and dissection of artery of lower extremity,1
+I72.5,Aneurysm and dissection of other precerebral arteries,1
+I72.6,Aneurysm and dissection of vertebral artery,1
+I72.8,Aneurysm and dissection of other specified arteries,1
+I72.9,Aneurysm and dissection of unspecified site,1
+I73,Other peripheral vascular diseases,1
+I73.0,Raynaud syndrome,1
+I73.1,Thromboangiitis obliterans [Buerger],1
+I73.8,Other specified peripheral vascular diseases,1
+I73.9,"Peripheral vascular disease, unspecified",1
+I74,Arterial embolism and thrombosis,1
+I74.0,Embolism and thrombosis of abdominal aorta,1
+I74.1,Embolism and thrombosis of other and unspecified parts of aorta,1
+I74.2,Embolism and thrombosis of arteries of upper extremities,1
+I74.3,Embolism and thrombosis of arteries of lower extremities,1
+I74.4,"Embolism and thrombosis of arteries of extremities, unspecified",1
+I74.5,Embolism and thrombosis of iliac artery,1
+I74.8,Embolism and thrombosis of other arteries,1
+I74.9,Embolism and thrombosis of unspecified artery,1
+I77,Other disorders of arteries and arterioles,1
+I77.0,"Arteriovenous fistula, acquired",1
+I77.1,Stricture of artery,1
+I77.2,Rupture of artery,1
+I77.3,Arterial fibromuscular dysplasia,1
+I77.4,Coeliac artery compression syndrome,1
+I77.5,Necrosis of artery,1
+I77.6,"Arteritis, unspecified",1
+I77.8,Other specified disorders of arteries and arterioles,1
+I77.9,"Disorder of arteries and arterioles, unspecified",1
+I78,Diseases of capillaries,1
+I78.0,Hereditary haemorrhagic telangiectasia,1
+I78.1,"Naevus, non-neoplastic",1
+I78.8,Other diseases of capillaries,1
+I78.9,"Disease of capillaries, unspecified",1
+I79,"Disorders of arteries, arterioles and capillaries in diseases classified elsewhere",1
+I79.0,Aneurysm of aorta in diseases classified elsewhere,1
+I79.1,Aortitis in diseases classified elsewhere,1
+I79.2,Peripheral angiopathy in diseases classified elsewhere,1
+I79.8,"Other disorders of arteries, arterioles and capillaries in diseases classified elsewhere",1
+I80,Phlebitis and thrombophlebitis,1
+I80.0,Phlebitis and thrombophlebitis of superficial vessels of lower extremities,1
+I80.1,Phlebitis and thrombophlebitis of femoral vein,1
+I80.2,Phlebitis and thrombophlebitis of other deep vessels of lower extremities,1
+I80.3,"Phlebitis and thrombophlebitis of lower extremities, unspecified",1
+I80.8,Phlebitis and thrombophlebitis of other sites,1
+I80.9,Phlebitis and thrombophlebitis of unspecified site,1
+I81,Portal vein thrombosis,1
+I82,Other venous embolism and thrombosis,1
+I82.0,Budd-Chiari syndrome,1
+I82.1,Thrombophlebitis migrans,1
+I82.2,Embolism and thrombosis of vena cava,1
+I82.3,Embolism and thrombosis of renal vein,1
+I82.8,Embolism and thrombosis of other specified veins,1
+I82.9,Embolism and thrombosis of unspecified vein,1
+I83,Varicose veins of lower extremities,1
+I83.0,Varicose veins of lower extremities with ulcer,1
+I83.1,Varicose veins of lower extremities with inflammation,1
+I83.2,Varicose veins of lower extremities with both ulcer and inflammation,1
+I83.9,Varicose veins of lower extremities without ulcer or inflammation,1
+I85,Oesophageal varices,1
+I85.0,Oesophageal varices with bleeding,1
+I85.9,Oesophageal varices without bleeding,1
+I86,Varicose veins of other sites,1
+I86.0,Sublingual varices,1
+I86.1,Scrotal varices,1
+I86.2,Pelvic varices,1
+I86.3,Vulval varices,1
+I86.4,Gastric varices,1
+I86.8,Varicose veins of other specified sites,1
+I87,Other disorders of veins,1
+I87.0,Postthrombotic syndrome,1
+I87.1,Compression of vein,1
+I87.2,Venous insufficiency (chronic)(peripheral),1
+I87.8,Other specified disorders of veins,1
+I87.9,"Disorder of vein, unspecified",1
+I88,Nonspecific lymphadenitis,1
+I88.0,Nonspecific mesenteric lymphadenitis,1
+I88.1,"Chronic lymphadenitis, except mesenteric",1
+I88.8,Other nonspecific lymphadenitis,1
+I88.9,"Nonspecific lymphadenitis, unspecified",1
+I89,Other noninfective disorders of lymphatic vessels and lymph nodes,1
+I89.0,"Lymphoedema, not elsewhere classified",1
+I89.1,Lymphangitis,1
+I89.8,Other specified noninfective disorders of lymphatic vessels and lymph nodes,1
+I89.9,"Noninfective disorder of lymphatic vessels and lymph nodes, unspecified",1
+I95,Hypotension,1
+I95.0,Idiopathic hypotension,1
+I95.1,Orthostatic hypotension,1
+I95.2,Hypotension due to drugs,1
+I95.8,Other hypotension,1
+I95.9,"Hypotension, unspecified",1
+I97,"Postprocedural disorders of circulatory system, not elsewhere classified",1
+I97.0,Postcardiotomy syndrome,1
+I97.1,Other functional disturbances following cardiac surgery,1
+I97.2,Postmastectomy lymphoedema syndrome,1
+I97.8,"Other postprocedural disorders of circulatory system, not elsewhere classified",1
+I97.9,"Postprocedural disorder of circulatory system, unspecified",1
+I98,Other disorders of circulatory system in diseases classified elsewhere,1
+I98.0,Cardiovascular syphilis,1
+I98.1,Cardiovascular disorders in other infectious and parasitic diseases classified elsewhere,1
+I98.2,Oesophageal varices without bleeding in diseases classified elsewhere,1
+I98.3,Oesophageal varices with bleeding in diseases classified elsewhere,1
+I98.8,Other specified disorders of circulatory system in diseases classified elsewhere,1
+I99,Other and unspecified disorders of circulatory system,1
