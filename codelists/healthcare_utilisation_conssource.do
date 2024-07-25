@@ -8,7 +8,7 @@ set more off
 cd "D:\GitHub\Uncontrolled_COPD\codelists"
 
 capture log close
-log using healthcare_utilisation, text replace
+log using healthcare_utilisation_conssource, text replace
 
 //CPRD Aurum build
 local aurum_build "202312"
@@ -46,8 +46,8 @@ gsort conssourceid
 
 //Save
 compress
-save healthcare_utilisation, replace
-export delimited healthcare_utilisation, replace
+save healthcare_utilisation_conssource, replace
+export delimited healthcare_utilisation_conssource, replace
 
 
 log close

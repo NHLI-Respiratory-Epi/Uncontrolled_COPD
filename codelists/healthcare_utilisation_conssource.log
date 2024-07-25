@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
       name:  <unnamed>
-       log:  D:\GitHub\Uncontrolled_COPD\codelists\healthcare_utilisation.log
+       log:  D:\GitHub\Uncontrolled_COPD\codelists\healthcare_utilisation_conssource.log
   log type:  text
- opened on:  25 Jul 2024, 18:40:57
+ opened on:  25 Jul 2024, 19:10:32
 
 . 
 . //CPRD Aurum build
@@ -29,7 +29,7 @@
 .         tempfile covidcons
 
 .         save `covidcons'
-file C:\Users\pstone\AppData\Local\Temp\ST_4734_000002.tmp saved as .dta format
+file C:\Users\pstone\AppData\Local\Temp\ST_4f28_000002.tmp saved as .dta format
 
 . restore
 
@@ -76,18 +76,19 @@ file C:\Users\pstone\AppData\Local\Temp\ST_4734_000002.tmp saved as .dta format
   variable description was str73 now str37
   (233,100 bytes saved)
 
-. save healthcare_utilisation, replace
-file healthcare_utilisation.dta saved
+. save healthcare_utilisation_conssource, replace
+(file healthcare_utilisation_conssource.dta not found)
+file healthcare_utilisation_conssource.dta saved
 
-. export delimited healthcare_utilisation, replace
-(file healthcare_utilisation.csv not found)
-file healthcare_utilisation.csv saved
+. export delimited healthcare_utilisation_conssource, replace
+(file healthcare_utilisation_conssource.csv not found)
+file healthcare_utilisation_conssource.csv saved
 
 . 
 . 
 . log close
       name:  <unnamed>
-       log:  D:\GitHub\Uncontrolled_COPD\codelists\healthcare_utilisation.log
+       log:  D:\GitHub\Uncontrolled_COPD\codelists\healthcare_utilisation_conssource.log
   log type:  text
- closed on:  25 Jul 2024, 18:40:58
+ closed on:  25 Jul 2024, 19:10:35
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
