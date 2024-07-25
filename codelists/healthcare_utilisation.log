@@ -1,0 +1,93 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  D:\GitHub\Uncontrolled_COPD\codelists\healthcare_utilisation.log
+  log type:  text
+ opened on:  25 Jul 2024, 18:40:57
+
+. 
+. //CPRD Aurum build
+. local aurum_build "202312"
+
+. 
+. //CPRD lookup files location
+. local lookup_dir "Z:/PCPH/CPRD_Research_Data/Lookup_Files/`aurum_build'_Lookups_CPRDAurum"
+
+. 
+. 
+. //Import with long COVID list
+. preserve
+
+.         import delimited "https://raw.githubusercontent.com/NHLI-Respiratory-Epi/Long_covid_codelists/main/HCU_consultations_final.csv", clear
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 190 obs)
+
+.         bysort description: keep if _n == 1
+(50 observations deleted)
+
+.         drop conssourceid
+
+.         tempfile covidcons
+
+.         save `covidcons'
+file C:\Users\pstone\AppData\Local\Temp\ST_4734_000002.tmp saved as .dta format
+
+. restore
+
+. 
+. 
+. //Import ConsSource lookup
+. import delimited "`lookup_dir'/ConsSource.txt", favorstrfixed
+(encoding automatically selected: ISO-8859-1)
+(2 vars, 256,806 obs)
+
+. 
+. //Rename ID to be consistent with Aurum Consultation file
+. rename id conssourceid
+
+. 
+. 
+. //Merge with long COVID ConsSource codes
+. merge m:1 description using `covidcons'
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       250,331
+        from master                   250,331  (_merge==1)
+        from using                          0  (_merge==2)
+
+    Matched                             6,475  (_merge==3)
+    -----------------------------------------
+
+. 
+. keep if _merge == 3
+(250,331 observations deleted)
+
+. drop _merge
+
+. 
+. order conssourceid description
+
+. gsort conssourceid
+
+. 
+. 
+. //Save
+. compress
+  variable description was str73 now str37
+  (233,100 bytes saved)
+
+. save healthcare_utilisation, replace
+file healthcare_utilisation.dta saved
+
+. export delimited healthcare_utilisation, replace
+(file healthcare_utilisation.csv not found)
+file healthcare_utilisation.csv saved
+
+. 
+. 
+. log close
+      name:  <unnamed>
+       log:  D:\GitHub\Uncontrolled_COPD\codelists\healthcare_utilisation.log
+  log type:  text
+ closed on:  25 Jul 2024, 18:40:58
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
