@@ -1,0 +1,504 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  D:\GitHub\Uncontrolled_COPD\codelists\healthcare_utilisation_medcode.log
+  log type:  text
+ opened on:  25 Jul 2024, 20:19:44
+
+. 
+. //CPRD Aurum build
+. local aurum_build "202312"
+
+. 
+. //CPRD Aurum code browser location
+. local browser_dir "Z:\PCPH\CPRD_Research_Data\Code_Browsers\CPRD_CodeBrowser_`aurum_build'_Aurum"
+
+. 
+. //CPRD Aurum lookup files location
+. local lookup_dir "Z:/PCPH/CPRD_Research_Data/Lookup_Files/`aurum_build'_Lookups_CPRDAurum"
+
+. 
+. 
+. //Import with long COVID list
+. preserve
+
+.         import delimited "https://raw.githubusercontent.com/NHLI-Respiratory-Epi/Long_covid_codelists/main/HCU_medcodes_final.csv", stringcols(1) favorstrfixed clear
+(encoding automatically selected: ISO-8859-1)
+(6 vars, 853 obs)
+
+.         rename term term_covid
+
+.         tempfile covidterms
+
+.         save `covidterms'
+file C:\Users\pstone\AppData\Local\Temp\ST_4f28_000002.tmp saved as .dta format
+
+. restore
+
+. 
+. 
+. //Import CPRD Aurum medical browser
+. import delimited "`browser_dir'/CPRDAurumMedical.txt", ///
+>         stringcols(1 6 7) favorstrfixed clear
+(encoding automatically selected: UTF-8)
+(9 vars, 247,118 obs)
+
+. 
+. //Drop useless variables
+. drop release emiscodecategoryid
+
+. 
+. //Remove observations (in case of issues with making public)
+. drop observations
+
+. 
+. order medcodeid originalreadcode cleansedreadcode ///
+>         snomedctconceptid snomedctdescriptionid term
+
+. 
+. //Save medical code browser to a tempfile
+. tempfile medical
+
+. save `medical'
+file C:\Users\pstone\AppData\Local\Temp\ST_4f28_000003.tmp saved as .dta format
+
+. 
+. 
+. //Merge in long COVID codes
+. merge 1:1 medcodeid using `covidterms'
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                       246,713
+        from master                   246,489  (_merge==1)
+        from using                        224  (_merge==2)
+
+    Matched                               629  (_merge==3)
+    -----------------------------------------
+
+. keep if _merge == 3
+(246,713 observations deleted)
+
+. drop _merge
+
+. compress
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctconceptid was str18 now str17
+  variable snomedctdescriptionid was str18 now str17
+  variable term was str233 now str149
+  (58,497 bytes saved)
+
+. 
+. //Check terms are the same
+. count if lower(term) != lower(term_covid)
+  0
+
+. list if lower(term) != lower(term_covid)
+
+. drop term_covid
+
+. 
+. 
+. //Find SNOMED CT synonyms
+. 
+. //Check for missing SNOMED CT Concepts
+. codebook snomedctconceptid
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+snomedctconceptid                                                                                                                                              SnomedCTConceptId
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                  Type: String (str17)
+
+         Unique values: 560                       Missing "": 0/629
+
+              Examples: "183866009"
+                        "2004011000006104"
+                        "313103006"
+                        "699245006"
+
+. assert !missing(snomedctconceptid)
+
+. 
+. count
+  629
+
+. 
+. //Make a note of current list
+. preserve
+
+.         keep medcodeid /**/primary ae op hospital/**/
+
+.         gen byte original = 1
+
+.         tempfile original
+
+.         save `original'
+file C:\Users\pstone\AppData\Local\Temp\ST_4f28_000005.tmp saved as .dta format
+
+. restore
+
+. 
+. //Merge SNOMED CT Concepts with medical dictionary
+. keep snomedctconceptid /**/primary ae op hospital/**/
+
+. collapse (max) /**/primary ae op hospital/**/, by(snomedctconceptid)
+
+. 
+. //Merge with original search results
+. merge 1:m snomedctconceptid using `medical', nogenerate keep(match)
+(variable snomedctconceptid was str17, now str18 to accommodate using data's values)
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                             0
+    Matched                               658  
+    -----------------------------------------
+
+. compress
+  variable snomedctconceptid was str18 now str17
+  variable medcodeid was str18 now str17
+  variable originalreadcode was str19 now str13
+  variable snomedctdescriptionid was str18 now str17
+  variable term was str233 now str149
+  (61,194 bytes saved)
+
+. merge 1:1 medcodeid using `original', update
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                            29
+        from master                        29  (_merge==1)
+        from using                          0  (_merge==2)
+
+    Matched                               629
+        not updated                       629  (_merge==3)
+        missing updated                     0  (_merge==4)
+        nonmissing conflict                 0  (_merge==5)
+    -----------------------------------------
+
+. drop _merge
+
+. order snomedctconceptid, before(snomedctdescriptionid)
+
+. order /**/primary ae op hospital/**/, last
+
+. gsort /**/primary ae op hospital/**/ originalreadcode
+
+. 
+. //Label new codes
+. gen new_snomedct_synonym = (original != 1)
+
+. drop original
+
+. 
+. //Show new codes
+. foreach category of varlist /**/primary ae op hospital/**/ {
+  2.         
+.         display "New terms found for: `category'"
+  3.         list snomedctconceptid originalreadcode term if new_snomedct_synonym == 1 & `category' == 1
+  4. }
+New terms found for: primary
+New terms found for: ae
+
+     +----------------------------------------------------------------------+
+     | snome~tid   originalre~e                                        term |
+     |----------------------------------------------------------------------|
+ 46. | 185210004         9N19-1   Seen in accident and emergency department |
+ 86. | 763287008   ^ESCT1200211                             Hospital review |
+     +----------------------------------------------------------------------+
+New terms found for: op
+
+     +------------------------------------------------------------------------------------------------+
+     | snomedctconcep~d   originalrea~e                                                          term |
+     |------------------------------------------------------------------------------------------------|
+ 92. |        183520008            8H45                                        Immunological referral |
+ 93. |        183532007            8H4H                                  Refer to clin pharmacologist |
+153. |        185180001            9N0L                                    Seen in GU medicine clinic |
+267. |  713981000000100             9OM                           Geriatric monitoring administration |
+269. |  713981000000100            9OMZ                                   Geriatric monitor.admin.NOS |
+     |------------------------------------------------------------------------------------------------|
+273. |        118613001            B624                               Leukaemic reticuloendotheliosis |
+274. |        118613001          B624-1                               Leukaemic reticuloendotheliosis |
+275. |        118613001          B624-2                                          Hairy cell leukaemia |
+276. |        118613001           B6240                         LRE - Leukaemic reticuloendotheliosis |
+277. |        118613001           B624z                           Leukaemic reticuloendotheliosis NOS |
+     |------------------------------------------------------------------------------------------------|
+285. |        425464007      EMISNQHO51                                   Hospital acquired pneumonia |
+317. |        425464007             H2C                                   Hospital acquired pneumonia |
+324. | 1325031000000108    ^ESCT1425920   Referral to long term effects of COVID-19 assessment clinic |
+355. |        118613001   ^ESCTHA430982                                           Hairy cell leukemia |
+358. |        118613001   ^ESCTHC430978                                    HCL - Hairy cell leukaemia |
+     |------------------------------------------------------------------------------------------------|
+359. |        118613001   ^ESCTHC430980                                     HCL - Hairy cell leukemia |
+385. |        702880004   ^ESCTLY756772                                             Lymphedema clinic |
+393. |        425464007   ^ESCTNO704472                                          Nosocomial pneumonia |
+452. |        305655002   ^ESCTSE594337                                  Seen by chemical pathologist |
+494. |        305909002   ^ESCTSE594674                     Seen in elderly mentally ill day hospital |
+     |------------------------------------------------------------------------------------------------|
+509. |        309896007   ^ESCTTE599375                                          Tertiary care centre |
+     +------------------------------------------------------------------------------------------------+
+New terms found for: hospital
+
+     +----------------------------------------------------------------------------------+
+     | snome~tid   originalrea~e                                                   term |
+     |----------------------------------------------------------------------------------|
+517. | 183452005            8H21                          Admit medical emergency unsp. |
+518. | 183452005            8H22                         Admit surgical emergency unsp. |
+521. | 183459001            8H26                         Admit gynaecological emergency |
+544. | 183481006            8H31                         Non-urgent hosp.admission unsp |
+574. |  32485007           ZV658   [V]Admission for instruction of self catheterisation |
+     |----------------------------------------------------------------------------------|
+576. |  50699000   ^ESCTAD332110                          Admission for short-term care |
+     +----------------------------------------------------------------------------------+
+
+. 
+. //Check new codes in the context of originally included SNOMED CT Concept ID codes
+. preserve
+
+.         keep if new_snomedct_synonym == 1
+(629 observations deleted)
+
+.         keep snomedctconceptid
+
+.         bysort snomedctconceptid: keep if _n == 1
+(11 observations deleted)
+
+. 
+.         count
+  18
+
+.         local obs = r(N)
+
+. 
+.         forvalues i = 1/`obs' {
+  2.                 
+.                 if `i' == 1 {
+  3.                         
+.                         local expanded_ids = snomedctconceptid in `i'
+  4.                 }
+  5.                 else {
+  6.                         
+.                         local expanded_ids = "`expanded_ids' " + snomedctconceptid in `i'
+  7.                 }
+  8.         }
+
+. restore
+
+. 
+. foreach expanded_id of local expanded_ids {
+  2.         
+.         display "SNOMED CT Concept ID for which additional terms where found: `expanded_id'"
+  3.         
+.         list medcodeid originalreadcode term new_snomedct_synonym ///
+>                 if snomedctconceptid == "`expanded_id'"
+  4. }
+SNOMED CT Concept ID for which additional terms where found: 118613001
+
+     +-------------------------------------------------------------------------------------+
+     |        medcodeid   originalrea~e                                    term   new_sn~m |
+     |-------------------------------------------------------------------------------------|
+273. |  745001000006114            B624         Leukaemic reticuloendotheliosis          1 |
+274. |  745011000006112          B624-1         Leukaemic reticuloendotheliosis          1 |
+275. | 1591211000006111          B624-2                    Hairy cell leukaemia          1 |
+276. |        289756017           B6240   LRE - Leukaemic reticuloendotheliosis          1 |
+277. |        289773015           B624z     Leukaemic reticuloendotheliosis NOS          1 |
+     |-------------------------------------------------------------------------------------|
+354. | 4309731000006119   ^ESCTHA430973         Hairy cell leukaemia (clinical)          0 |
+355. | 4309821000006112   ^ESCTHA430982                     Hairy cell leukemia          1 |
+358. | 4309781000006118   ^ESCTHC430978              HCL - Hairy cell leukaemia          1 |
+359. | 4309801000006119   ^ESCTHC430980               HCL - Hairy cell leukemia          1 |
+     +-------------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 1325031000000108
+
+     +-----------------------------------------------------------------------------------------------------------+
+     |         medcodeid   originalre~e                                                          term   new_sn~m |
+     |-----------------------------------------------------------------------------------------------------------|
+323. | 13486251000006116   ^ESCT1348625                      Referral to post-COVID assessment clinic          0 |
+324. | 14259201000006118   ^ESCT1425920   Referral to long term effects of COVID-19 assessment clinic          1 |
+     +-----------------------------------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 183452005
+
+     +------------------------------------------------------------------------+
+     |       medcodeid   origin~e                             term   new_sn~m |
+     |------------------------------------------------------------------------|
+516. |       283520011        8H2     Emergency hospital admission          0 |
+517. | 462181000006113       8H21    Admit medical emergency unsp.          1 |
+518. | 462321000006111       8H22   Admit surgical emergency unsp.          1 |
+542. |       283552011       8H2Z     Admit hospital emergency NOS          0 |
+     +------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 183459001
+
+     +--------------------------------------------------------------------------------------------+
+     |         medcodeid   originalrea~e                                          term   new_sn~m |
+     |--------------------------------------------------------------------------------------------|
+521. |         283528016            8H26                Admit gynaecological emergency          1 |
+575. | 12761931000006113    ^ESCT1276193   Gynaecological emergency hospital admission          0 |
+628. |  4723361000006118   ^ESCTGY472336    Gynecological emergency hospital admission          0 |
+     +--------------------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 183481006
+
+     +------------------------------------------------------------------------+
+     |       medcodeid   origin~e                             term   new_sn~m |
+     |------------------------------------------------------------------------|
+543. |       283553018        8H3    Non-urgent hospital admission          0 |
+544. | 587011000006112       8H31   Non-urgent hosp.admission unsp          1 |
+     +------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 183520008
+
+     +---------------------------------------------------------------------------------------+
+     |        medcodeid   originalrea~e                                      term   new_sn~m |
+     |---------------------------------------------------------------------------------------|
+ 92. |        283602014            8H45                    Immunological referral          1 |
+412. | 4724241000006114   ^ESCTRE472424   Referral to clinical immunology service          0 |
+     +---------------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 183532007
+
+     +-----------------------------------------------------------------------------------+
+     |        medcodeid   originalrea~e                                  term   new_sn~m |
+     |-----------------------------------------------------------------------------------|
+ 93. |        283623015            8H4H          Refer to clin pharmacologist          1 |
+413. | 4724431000006117   ^ESCTRE472443   Referral to clinical pharmacologist          0 |
+     +-----------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 185180001
+
+     +-------------------------------------------------------------------------------------+
+     |        medcodeid   originalrea~e                                    term   new_sn~m |
+     |-------------------------------------------------------------------------------------|
+153. |        285159010            9N0L              Seen in GU medicine clinic          1 |
+444. | 4733221000006119   ^ESCTSE473322   Seen in genitourinary medicine clinic          0 |
+     +-------------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 185210004
+
+     +-----------------------------------------------------------------------------------+
+     |       medcodeid   origin~e                                        term   new_sn~m |
+     |-----------------------------------------------------------------------------------|
+ 45. |       285194015       9N19                   Seen in hospital casualty          0 |
+ 46. | 667121000000119     9N19-1   Seen in accident and emergency department          1 |
+     +-----------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 305655002
+
+     +----------------------------------------------------------------------------+
+     |        medcodeid   originalrea~e                           term   new_sn~m |
+     |----------------------------------------------------------------------------|
+452. | 5943371000006112   ^ESCTSE594337   Seen by chemical pathologist          1 |
+453. | 5943381000006110   ^ESCTSE594338    Seen by clinical biochemist          0 |
+     +----------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 305909002
+
+     +-----------------------------------------------------------------------------------------+
+     |        medcodeid   originalrea~e                                        term   new_sn~m |
+     |-----------------------------------------------------------------------------------------|
+492. | 5946721000006116   ^ESCTSE594672        Seen in psychogeriatric day hospital          0 |
+493. | 5946731000006118   ^ESCTSE594673     Seen in old age psychiatry day hospital          0 |
+494. | 5946741000006111   ^ESCTSE594674   Seen in elderly mentally ill day hospital          1 |
+     +-----------------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 309896007
+
+     +--------------------------------------------------------------------------+
+     |        medcodeid   originalrea~e                         term   new_sn~m |
+     |--------------------------------------------------------------------------|
+508. | 5993721000006119   ^ESCTTE599372   Tertiary referral hospital          0 |
+509. | 5993751000006111   ^ESCTTE599375         Tertiary care centre          1 |
+     +--------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 32485007
+
+     +----------------------------------------------------------------------------------------------+
+     |       medcodeid   origin~e                                                   term   new_sn~m |
+     |----------------------------------------------------------------------------------------------|
+545. |       283592013       8H3Z                                     Hospital admission          0 |
+548. |      1227951014        8Hd                                  Admission to hospital          0 |
+574. | 336831000006118      ZV658   [V]Admission for instruction of self catheterisation          1 |
+     +----------------------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 425464007
+
+     +---------------------------------------------------------------------------------+
+     |        medcodeid   originalrea~e                                term   new_sn~m |
+     |---------------------------------------------------------------------------------|
+285. | 1787131000006118      EMISNQHO51         Hospital acquired pneumonia          1 |
+317. |       2674072012             H2C         Hospital acquired pneumonia          1 |
+356. | 7044731000006115   ^ESCTHA704473   HAP - hospital acquired pneumonia          0 |
+393. | 7044721000006118   ^ESCTNO704472                Nosocomial pneumonia          1 |
+     +---------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 50699000
+
+     +------------------------------------------------------------------------------+
+     |        medcodeid   originalrea~e                             term   new_sn~m |
+     |------------------------------------------------------------------------------|
+576. | 3321101000006117   ^ESCTAD332110    Admission for short-term care          1 |
+639. | 3321091000006111   ^ESCTHO332109   Hospital admission, short-term          0 |
+     +------------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 702880004
+
+     +------------------------------------------------------------------+
+     |        medcodeid   originalrea~e                 term   new_sn~m |
+     |------------------------------------------------------------------|
+384. | 7567711000006110   ^ESCTLY756771   Lymphoedema clinic          0 |
+385. | 7567721000006119   ^ESCTLY756772    Lymphedema clinic          1 |
+     +------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 713981000000100
+
+     +----------------------------------------------------------------------------+
+     |      medcodeid   origin~e                                  term   new_sn~m |
+     |----------------------------------------------------------------------------|
+267. | 21641000000114        9OM   Geriatric monitoring administration          1 |
+268. | 21651000000112      9OM-1               Geriatric clinic admin.          0 |
+269. | 21661000000110       9OMZ           Geriatric monitor.admin.NOS          1 |
+     +----------------------------------------------------------------------------+
+SNOMED CT Concept ID for which additional terms where found: 763287008
+
+     +--------------------------------------------------------------------+
+     |         medcodeid   originalre~e                   term   new_sn~m |
+     |--------------------------------------------------------------------|
+ 39. |         265638012            6A1     Review at hospital          0 |
+ 40. |         265639016          6A1-1   Reviewed at hospital          0 |
+ 86. | 12002111000006112   ^ESCT1200211        Hospital review          1 |
+ 87. | 12702651000006117   ^ESCT1270265     Review at hospital          0 |
+     +--------------------------------------------------------------------+
+
+. 
+. 
+. //This looks like a mistake to me - so remove
+. list if snomedctconceptid == "118613001"
+
+     +--------------------------------------------------------------------------------------------------------------------------------------------------------+
+     |        medcodeid   originalrea~e   cleans~e   snome~tid   snomed~nid                                    term   primary   ae   op   hospital   new_sn~m |
+     |--------------------------------------------------------------------------------------------------------------------------------------------------------|
+273. |  745001000006114            B624    B624.00   118613001   1215903015         Leukaemic reticuloendotheliosis         .    .    1          .          1 |
+274. |  745011000006112          B624-1    B624.11   118613001   1215903015         Leukaemic reticuloendotheliosis         .    .    1          .          1 |
+275. | 1591211000006111          B624-2    B624.12   118613001   2764402015                    Hairy cell leukaemia         .    .    1          .          1 |
+276. |        289756017           B6240    B624000   118613001   1215903015   LRE - Leukaemic reticuloendotheliosis         .    .    1          .          1 |
+277. |        289773015           B624z    B624z00   118613001   1215903015     Leukaemic reticuloendotheliosis NOS         .    .    1          .          1 |
+     |--------------------------------------------------------------------------------------------------------------------------------------------------------|
+354. | 4309731000006119   ^ESCTHA430973              118613001    445605010         Hairy cell leukaemia (clinical)         .    .    1          .          0 |
+355. | 4309821000006112   ^ESCTHA430982              118613001   2773660010                     Hairy cell leukemia         .    .    1          .          1 |
+358. | 4309781000006118   ^ESCTHC430978              118613001   1215904014              HCL - Hairy cell leukaemia         .    .    1          .          1 |
+359. | 4309801000006119   ^ESCTHC430980              118613001   1217407010               HCL - Hairy cell leukemia         .    .    1          .          1 |
+     +--------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+. drop if snomedctconceptid == "118613001"
+(9 observations deleted)
+
+. 
+. 
+. //Save
+. compress
+  variable new_snomedct_synonym was float now byte
+  (1,947 bytes saved)
+
+. save healthcare_utilisation_medcode, replace
+(file healthcare_utilisation_medcode.dta not found)
+file healthcare_utilisation_medcode.dta saved
+
+. export delimited healthcare_utilisation_medcode, replace
+(file healthcare_utilisation_medcode.csv not found)
+file healthcare_utilisation_medcode.csv saved
+
+. 
+. 
+. log close
+      name:  <unnamed>
+       log:  D:\GitHub\Uncontrolled_COPD\codelists\healthcare_utilisation_medcode.log
+  log type:  text
+ closed on:  25 Jul 2024, 20:19:47
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
